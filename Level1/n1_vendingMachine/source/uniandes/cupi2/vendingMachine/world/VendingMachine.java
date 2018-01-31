@@ -3,7 +3,6 @@
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
- * <p>
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
  * Exercise: L1- vendingMachine
  * Author: Andres Ortiz
@@ -45,7 +44,7 @@ public class VendingMachine {
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------------------------
 
     // Returns products
@@ -140,24 +139,20 @@ public class VendingMachine {
 
 
     // -----------------------------------------------------------------
-    // Puntos de Extensión
+    // Extension points
     // -----------------------------------------------------------------
 
     /**
-     * Extensión 1.
-     *
-     * @return respuesta1.
+     * Extension 1.
      */
-    public String metodo1() {
-        return "Respuesta 1";
+    public String method1() {
+        return "Response 1";
     }
 
     /**
-     * Extensión 2.
-     *
-     * @return respuesta2.
+     * Extension 2.
      */
-    public String metodo2() {
-        return "Respuesta 2";
+    public String method2() {
+        return "Response 2";
     }
 }

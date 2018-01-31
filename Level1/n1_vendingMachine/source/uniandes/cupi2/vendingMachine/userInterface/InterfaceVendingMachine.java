@@ -23,9 +23,7 @@ import uniandes.cupi2.vendingMachine.world.Product;
 /**
  * Principal class for interface
  */
-@SuppressWarnings("serial")
-public class InterfaceVendingMachine extends JFrame
-{
+public class InterfaceVendingMachine extends JFrame {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
@@ -49,271 +47,232 @@ public class InterfaceVendingMachine extends JFrame
      */
     private PanelOptions panelOptions;
 
-    /**
-     * Panel for product 1
-     */
+    // Create Panel for profucts
     private PanelProduct panelProduct1;
-
-    /**
-     * Panel for product 2
-     */
     private PanelProduct panelProduct2;
-
-    /**
-     * Panel del producto 3
-     */
     private PanelProduct panelProduct3;
-
-    /**
-     * Panel del producto 4
-     */
     private PanelProduct panelProduct4;
 
     // -----------------------------------------------------------------
-    // Constructores
+    // Constructors
     // -----------------------------------------------------------------
 
     /**
-     * Construye la ventana principal de la aplicación. <br>
-     * <b>post:</b> Todos los componentes de la interfaz fueron inicializados.
+     * Constructs the principal window of the application 
+     * Initialize every component of the interface
      */
-    public InterfaceVendingMachine( )
-    {
-        setTitle( "Máquina expendedora" );
-        setSize( 610, 690 );
-        setLocationRelativeTo( null );
-        setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        setResizable( true );
+    public InterfaceVendingMachine() {
+    
+        setTitle("Vending Machine");
+        setSize(630, 690);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(true);
 
-        world = new VendingMachine( );
+        world = new VendingMachine();
 
-        Product p1 = world.getProduct1( );
-        Product p2 = world.getProduct2( );
-        Product p3 = world.getProduct3( );
-        Product p4 = world.getProduct4( );
+        Product p1 = world.getProduct1();
+        Product p2 = world.getProduct2();
+        Product p3 = world.getProduct3();
+        Product p4 = world.getProduct4();
 
-        panelProduct1 = new PanelProduct( this, p1.getName( ), p1.getIdentifier( ), p1.getPrice( ), p1.getQuantityOfUnitsAvailable( ) );
-        panelProduct2 = new PanelProduct( this, p2.getName( ), p2.getIdentifier( ), p2.getPrice( ), p2.getQuantityOfUnitsAvailable( ) );
-        panelProduct3 = new PanelProduct( this, p3.getName( ), p3.getIdentifier( ), p3.getPrice( ), p3.getQuantityOfUnitsAvailable( ) );
-        panelProduct4 = new PanelProduct( this, p4.getName( ), p4.getIdentifier( ), p4.getPrice( ), p4.getQuantityOfUnitsAvailable( ) );
+        panelProduct1 = new PanelProduct(this, p1.getName(), p1.getIdentifier(), p1.getPrice(), p1.getQuantityOfUnitsAvailable());
+        panelProduct2 = new PanelProduct(this, p2.getName(), p2.getIdentifier(), p2.getPrice(), p2.getQuantityOfUnitsAvailable());
+        panelProduct3 = new PanelProduct(this, p3.getName(), p3.getIdentifier(), p3.getPrice(), p3.getQuantityOfUnitsAvailable());
+        panelProduct4 = new PanelProduct(this, p4.getName(), p4.getIdentifier(), p4.getPrice(), p4.getQuantityOfUnitsAvailable());
 
-        JPanel panelCentro = new JPanel( new GridLayout( 2, 2 ) );
+        JPanel centerPanel = new JPanel(new GridLayout(2, 2));
 
-        panelCentro.add( panelProduct1 );
-        panelCentro.add( panelProduct2 );
-        panelCentro.add( panelProduct3 );
-        panelCentro.add( panelProduct4 );
+        centerPanel.add(panelProduct1);
+        centerPanel.add(panelProduct2);
+        centerPanel.add(panelProduct3);
+        centerPanel.add(panelProduct4);
 
-        add( panelCentro, BorderLayout.CENTER );
+        add(centerPanel, BorderLayout.CENTER);
 
-        panelImage = new PanelImage( );
-        add( panelImage, BorderLayout.NORTH );
+        panelImage = new PanelImage();
+        add(panelImage, BorderLayout.NORTH);
 
-        PanelButtons panelBotones = new PanelButtons( this );
-        add( panelBotones, BorderLayout.EAST );
+        PanelButtons panelButtons = new PanelButtons(this);
+        add(panelButtons, BorderLayout.EAST);
 
-        panelOptions = new PanelOptions( this );
-        add( panelOptions, BorderLayout.SOUTH );
+        panelOptions = new PanelOptions(this);
+        add(panelOptions, BorderLayout.SOUTH);
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------------------------
 
     /**
-     * Abastece la máquina con un número de unidades de un producto especificado.
-     * @param pIdentificador Identificador del producto.
-     * @param pUnidades Número de unidades a restock.
+     * Restocks the machine with a specific number of units of the specified product.
+     * pIdentifier: Identifier of product.
+     * pQuantity: Number of units to restock.
      */
-    public void restock( String pIdentificador, int pUnidades )
-    {
-        Product p1 = world.getProduct1( );
-        Product p2 = world.getProduct2( );
-        Product p3 = world.getProduct3( );
-        Product p4 = world.getProduct4( );
+    public void restock(String pIdentifier, int pQuantity) { 
+    
+        Product p1 = world.getProduct1();
+        Product p2 = world.getProduct2();
+        Product p3 = world.getProduct3();
+        Product p4 = world.getProduct4();
 
-        if( pIdentificador.equals( p1.getIdentifier( ) ) )
-        {
-            world.restockProduct1( pUnidades );
-            panelProduct1.actualizarInterfaz( p1.getPrice( ), p1.getQuantityOfUnitsAvailable( ) );
-        }
-        else if( pIdentificador.equals( p2.getIdentifier( ) ) )
-        {
-            world.restockProduct2( pUnidades );
-            panelProduct2.actualizarInterfaz( p2.getPrice( ), p2.getQuantityOfUnitsAvailable( ) );
-
-        }
-        else if( pIdentificador.equals( p3.getIdentifier( ) ) )
-        {
-            world.restockProduct3( pUnidades );
-            panelProduct3.actualizarInterfaz( p3.getPrice( ), p3.getQuantityOfUnitsAvailable( ) );
-
-        }
-        else if( pIdentificador.equals( p4.getIdentifier( ) ) )
-        {
-            world.restockProduct4( pUnidades );
-            panelProduct4.actualizarInterfaz( p4.getPrice( ), p4.getQuantityOfUnitsAvailable( ) );
-
+        if( pIdentifier.equals(p1.getIdentifier())) {      
+            world.restockProduct1(pQuantity);
+            panelProduct1.refreshInterface(p1.getPrice(), p1.getQuantityOfUnitsAvailable());
         }
 
+        else if(pIdentifier.equals(p2.getIdentifier())) {        
+            world.restockProduct2(pQuantity);
+            panelProduct2.refreshInterface(p2.getPrice(), p2.getQuantityOfUnitsAvailable());
+        }
+
+        else if(pIdentifier.equals(p3.getIdentifier())) {
+            world.restockProduct3(pQuantity);
+            panelProduct3.refreshInterface(p3.getPrice(), p3.getQuantityOfUnitsAvailable());
+        }
+
+        else if(pIdentifier.equals(p4.getIdentifier())) {
+            world.restockProduct4(pQuantity);
+            panelProduct4.refreshInterface(p4.getPrice(), p4.getQuantityOfUnitsAvailable());
+        }
     }
 
     /**
-     * Vende un producto de la máquina.
-     * @param pIdentificador Identificador del producto a comprar.
+     * Sells a product from the machine. 
+     * pIdentifier: Identifier of product to be sold.
      */
-    public void sell( String pIdentificador )
-    {
+    public void sell(String pIdentifier) {
+    
 
-        Product p1 = world.getProduct1( );
-        Product p2 = world.getProduct2( );
-        Product p3 = world.getProduct3( );
-        Product p4 = world.getProduct4( );
+        Product p1 = world.getProduct1();
+        Product p2 = world.getProduct2();
+        Product p3 = world.getProduct3();
+        Product p4 = world.getProduct4();
 
-        if( pIdentificador.equals( p1.getIdentifier( ) ) )
-        {
-            if( p1.getQuantityOfUnitsAvailable( ) > 0 )
-            {
-                world.sellProduct1( );
-                panelProduct1.actualizarInterfaz( p1.getPrice( ), p1.getQuantityOfUnitsAvailable( ) );
+        if(pIdentifier.equals(p1.getIdentifier())) {        
+            if( p1.getQuantityOfUnitsAvailable() > 0) {            
+                world.sellProduct1();
+                panelProduct1.refreshInterface(p1.getPrice(), p1.getQuantityOfUnitsAvailable());
             }
-            else
-            {
-                JOptionPane.showMessageDialog( this, "El producto se encuentra agotado", "Error", JOptionPane.ERROR_MESSAGE );
-            }
-        }
-        else if( pIdentificador.equals( p2.getIdentifier( ) ) )
-        {
-            if( p2.getQuantityOfUnitsAvailable( ) > 0 )
-            {
-                world.sellProduct2( );
-                panelProduct2.actualizarInterfaz( p2.getPrice( ), p2.getQuantityOfUnitsAvailable( ) );
-            }
-            else
-            {
-                JOptionPane.showMessageDialog( this, "El producto se encuentra agotado", "Error", JOptionPane.ERROR_MESSAGE );
-            }
-        }
-        else if( pIdentificador.equals( p3.getIdentifier( ) ) )
-        {
-            if( p3.getQuantityOfUnitsAvailable( ) > 0 )
-            {
-                world.sellProduct3( );
-                panelProduct3.actualizarInterfaz( p3.getPrice( ), p3.getQuantityOfUnitsAvailable( ) );
-            }
-            else
-            {
-                JOptionPane.showMessageDialog( this, "El producto se encuentra agotado", "Error", JOptionPane.ERROR_MESSAGE );
-            }
-        }
-        else if( pIdentificador.equals( p4.getIdentifier( ) ) )
-        {
-            if( p4.getQuantityOfUnitsAvailable( ) > 0 )
-            {
-                world.sellProduct4( );
-                panelProduct4.actualizarInterfaz( p4.getPrice( ), p4.getQuantityOfUnitsAvailable( ) );
-            }
-            else
-            {
-                JOptionPane.showMessageDialog( this, "El producto se encuentra agotado", "Error", JOptionPane.ERROR_MESSAGE );
-            }
+
+            else          
+                JOptionPane.showMessageDialog(this, "This product is sold out!", "Error", JOptionPane.ERROR_MESSAGE);
+            
         }
 
+        else if(pIdentifier.equals(p2.getIdentifier())) {     
+            if(p2.getQuantityOfUnitsAvailable() > 0){           
+                world.sellProduct2();
+                panelProduct2.refreshInterface(p2.getPrice(), p2.getQuantityOfUnitsAvailable());
+            }
+
+            else
+                JOptionPane.showMessageDialog(this, "This product is sold out!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        else if(pIdentifier.equals(p3.getIdentifier())) {  
+            if( p3.getQuantityOfUnitsAvailable() > 0 ) {
+                world.sellProduct3();
+                panelProduct3.refreshInterface(p3.getPrice(), p3.getQuantityOfUnitsAvailable());
+            }
+
+            else 
+                JOptionPane.showMessageDialog(this, "This product is sold out!", "Error", JOptionPane.ERROR_MESSAGE);          
+        }
+
+        else if(pIdentifier.equals(p4.getIdentifier())) {
+            if(p4.getQuantityOfUnitsAvailable() > 0) {
+                world.sellProduct4();
+                panelProduct4.refreshInterface(p4.getPrice(), p4.getQuantityOfUnitsAvailable());
+            }
+            else
+                JOptionPane.showMessageDialog( this, "El producto se encuentra agotado", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
-     * Muestra el diálogo con la cantidad de ventas de la máquina
+     * Shows dialog with quantity of sales from the machine
      */
-    public void mostrarDialogoCantidadVentas( )
-    {
-        int totalVentas = world.getQuantityOfTotalSales( );
-        String mensaje = "La cantidad de ventas de la máquina es " + totalVentas + ".";
-        JOptionPane.showMessageDialog( this, mensaje, "Cantidad de ventas", JOptionPane.INFORMATION_MESSAGE );
+    public void showDialogQuantityOfSales() {
+        int totalSales = world.getQuantityOfTotalSales();
+        String message = "The quantity of sales from the machine is: " + totalSales + ".";
+        JOptionPane.showMessageDialog(this, message,"Quantity of sales", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
-     * Muestra el diálogo con el valor total de ventas de la máquina
+     * Shows dialog with total value of sales from the machine 
      */
-    public void mostrarDialogoValorTotalVentas( )
-    {
-        double valorTotalVentas = world.getValueOfTotalSales( );
-        String mensaje = "El valor total de las ventas de la máquina es $" + valorTotalVentas + ".";
-        JOptionPane.showMessageDialog( this, mensaje, "Valor total de las ventas", JOptionPane.INFORMATION_MESSAGE );
+    public void showDialogValueOfTotalSales() {
+        double valueOfTotalSales = world.getValueOfTotalSales();
+        String message = "The total value of sales from the machine is $" + valueOfTotalSales + ".";
+        JOptionPane.showMessageDialog(this, message, "Total value of sales", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
-     * Muestra el diálogo con la capacidad disponible de la máquina.
+     * Shows dialog with the available product capacity of the machine
      */
-    public void mostrarDialogoPorcentajeDeDisponibilidad( )
-    {
-        String capacidad = JOptionPane.showInputDialog( this, "Ingrese la capacidad de la máquina" );
+    public void showDialogPercentOfAvailability() {
+        String capacity = JOptionPane.showInputDialog(this, "Enter product capacity of the machine");
 
-        if( capacidad != null )
-        {
-            try
-            {
-                int capacidadInt = Integer.parseInt( capacidad );
+        if(capacity != null ){
+            try{
+                int capacityInt = Integer.parseInt(capacity);
 
-                if( capacidadInt < 1 )
-                {
-                    JOptionPane.showMessageDialog( this, "La capacidad debe ser mayor o igual a 1.", "Error", JOptionPane.INFORMATION_MESSAGE );
+                if(capacityInt < 1){
+                    JOptionPane.showMessageDialog( this, "The capacity must be greater than or equal to 1!", "Error", JOptionPane.INFORMATION_MESSAGE);
                 }
 
-                else
-                {
-                    double capacidadDisponible = world.getPercentOfAvailability( capacidadInt );
-                    String mensaje = "El porcentaje de disponibilidad de la máquina es del " + capacidadDisponible + "%.";
-                    JOptionPane.showMessageDialog( this, mensaje, "Porcentaje de disponibilidad", JOptionPane.INFORMATION_MESSAGE );
+                else{
+                    double capacityAvailable = world.getPercentOfAvailability(capacityInt);
+                    String message = "The percentage of product availability of the machine is: " + capacityAvailable + "%.";
+                    JOptionPane.showMessageDialog( this, message, "Percentage of product availability", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
-            catch( Exception e )
-            {
-                JOptionPane.showMessageDialog( this, "Debe ingresar números enteros.", "Error", JOptionPane.INFORMATION_MESSAGE );
+
+            catch(Exception e){
+                JOptionPane.showMessageDialog( this, "Please enter whole numbers!", "Error", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }
 
     /**
-     * Muestra el diálogo con las ventas por producto.
+     * Shows dialog with sales for each product
      */
-    public void mostrarDialogoUnidadesVendidas( )
-    {
-        Product p1 = world.getProduct1( );
-        Product p2 = world.getProduct2( );
-        Product p3 = world.getProduct3( );
-        Product p4 = world.getProduct4( );
+    public void showDialogOfUnitsSold() {
+        Product p1 = world.getProduct1();
+        Product p2 = world.getProduct2();
+        Product p3 = world.getProduct3();
+        Product p4 = world.getProduct4();
 
-        String mensaje = "La cantidad de unidades vendidas por producto es:";
-        mensaje += "\n" + p1.getName( ) + ": " + p1.getQuantityOfUnitsSold( );
-        mensaje += "\n" + p2.getName( ) + ": " + p2.getQuantityOfUnitsSold( );
-        mensaje += "\n" + p3.getName( ) + ": " + p3.getQuantityOfUnitsSold( );
-        mensaje += "\n" + p4.getName( ) + ": " + p4.getQuantityOfUnitsSold( );
+        String message = "The quantity of units sold of each product is: ";
+        message += "\n" + p1.getName() + ": " + p1.getQuantityOfUnitsSold();
+        message += "\n" + p2.getName() + ": " + p2.getQuantityOfUnitsSold();
+        message += "\n" + p3.getName() + ": " + p3.getQuantityOfUnitsSold();
+        message += "\n" + p4.getName() + ": " + p4.getQuantityOfUnitsSold();
 
-        JOptionPane.showMessageDialog( this, mensaje, "Unidades vendidas", JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog(this, message, "Units sold", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // -----------------------------------------------------------------
-    // Puntos de extensión
+    // Extension points
     // -----------------------------------------------------------------
 
     /**
-     * Extensión 1
+     * Extension 1
      */
-    public void reqFuncOpcion1( )
-    {
+    public void reqFuncOption1() {
 
-        String resultado = world.metodo1( );
-        JOptionPane.showMessageDialog( this, resultado, "Respuesta 1", JOptionPane.INFORMATION_MESSAGE );
+        String result = world.method1();
+        JOptionPane.showMessageDialog(this, result, "Response 1", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
-     * Extensión 2
+     * Extension 2
      */
-    public void reqFuncOpcion2( )
-    {
+    public void reqFuncOption2() {
 
-        String resultado = world.metodo2( );
-        JOptionPane.showMessageDialog( this, resultado, "Respuesta 2", JOptionPane.INFORMATION_MESSAGE );
+        String result = world.method2();
+        JOptionPane.showMessageDialog(this, result, "Response 2", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // -----------------------------------------------------------------
@@ -321,22 +280,19 @@ public class InterfaceVendingMachine extends JFrame
     // -----------------------------------------------------------------
 
     /**
-     * Este método ejecuta la aplicación, creando una nueva interfaz
-     * @param args Arreglo opcional de argumentos que se recibe por línea de comandos
+     * This method executes the application, creating a new interface
      */
-    public static void main( String[] args )
-    {
-        try
-        {
-            // Unifica la interfaz para Mac y para Windows.
-            UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName( ) );
+    public static void main(String[] args) {
+        try {
+            // Unify interface for Mac and Windows
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 
-            InterfaceVendingMachine userInterface = new InterfaceVendingMachine( );
-            userInterface.setVisible( true );
+            InterfaceVendingMachine userInterface = new InterfaceVendingMachine();
+            userInterface.setVisible(true);
         }
-        catch( Exception e )
-        {
-            e.printStackTrace( );
+
+        catch(Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,11 +1,11 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad	de	los	Andes	(Bogotá	- Colombia)
- * Departamento	de	Ingeniería	de	Sistemas	y	Computación
- * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
- * 		
- * Proyecto	Cupi2	(http://cupi2.uniandes.edu.co)
- * Ejercicio: n1_vendingMachine
- * Autor: Equipo Cupi2 2018
+/**
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: L1- vendingMachine
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -24,144 +24,135 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 /**
- * Contiene los botones ubicados en la parte derecha de la ventana.
+ * Contains the buttons located on the right part of the window.
  */
-@SuppressWarnings("serial")
-public class PanelButtons extends JPanel implements ActionListener
-{
+
+public class PanelButtons extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------------------------
 
     /**
-     * Comando para ejecutar la acción del botón btnCantidadVentas.
+     * Command to execute the action of button btnQuantityOfSales
      */
-    private static final String CANTIDAD_VENTAS = "Cantidad de ventas";
+    private static final String QUANTITY_SALES = "Quantity of sales";
 
     /**
-     * Comando para ejecutar la acción del botón btnValorVentas.
+     * Command to execute the action of button btnValueOfSales
      */
-    private static final String VALOR_TOTAL_VENTAS = "Valor total de las ventas";
+    private static final String TOTAL_VALUE_SALES = "Total value of sales";
     
     /**
-     * Comando para ejecutar la acción del botón btnPorcentaje
+     * Command to execute the action of button btnPercentage
      */
-    private static final String PORCENTAJE_DISPONIBILIDAD = "% de disponibilidad";
+    private static final String PERCENT_AVAILABILITY = "% of product availability";
     
     /**
-     * Comando para ejecutar la acción del botón btnUnidadesVendidas
+     * Command to execute the action of button btnUnitsSold
      */
-    private static final String UNIDADES_VENDIDAS = "Unidades vendidas";
+    private static final String UNITS_SOLD = "Units sold";
 
 
     // -----------------------------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Ventana principal de la aplicación
+     * Principal window of the application
      */
     private InterfaceVendingMachine principal;
 
     // -----------------------------------------------------------------
-    // Atributos de la interfaz
+    // Attributes of the interface
     // -----------------------------------------------------------------
 
     /**
-     * Botón para conover la cantidad de ventas.
+     * Button to know the quantity of sales 
      */
-    private JButton btnCantidadVentas;
+    private JButton btnQuantityOfSales;
 
     /**
-     * Botón para conocer el valor de las ventas.
+     * Button to know the total value of sales
      */
-    private JButton btnValorVentas;
+    private JButton btnValueOfSales;
     
     /**
-     * Botón para calcular el porcentaje de ocupación de la máquina
+     * Button to calculate the percentage of product availability in the machine
      */
-    private JButton btnPorcentaje;
+    private JButton btnPercentage;
     
     /**
-     * Botón para obtener las ventas por producto.
+     * Button to know the quantity of units of each product sold
      */
-    private JButton btnUnidadesVendidas;
+    private JButton btnUnitsSold;
 
     // -----------------------------------------------------------------
-    // Constructores
+    // Constructors
     // -----------------------------------------------------------------
 
     /**
-     * Construye el panel con los botones <br>
-     * <b>post:</b> Todos los botones fueron inicializados.
-     * @param pInterfaz Interfaz principal de la aplicación. pInterfaz != null
+     * Constructs the panel with the buttons
+     * Every button is initialized 
+     * pInterface: Principal interface of the application. pInterface != null
      */
-    public PanelButtons(InterfaceVendingMachine pInterfaz )
-    {
-        TitledBorder b = BorderFactory.createTitledBorder( "" );
-        setBorder( b );
+    public PanelButtons(InterfaceVendingMachine pInterface) {
+        TitledBorder b = BorderFactory.createTitledBorder("");
+        setBorder(b);
         
-        JLabel lblImagen = new JLabel( );
-        ImageIcon icono = new ImageIcon( "data/img/lateral.png" );
-        lblImagen.setIcon( icono );
+        JLabel lblImage = new JLabel();
+        ImageIcon icon = new ImageIcon("data/img/lateral.png");
+        lblImage.setIcon(icon);
 
-        principal = pInterfaz;
-        setLayout( new BorderLayout() );
+        principal = pInterface;
+        setLayout(new BorderLayout());
 
-        add(lblImagen, BorderLayout.CENTER);
+        add(lblImage, BorderLayout.CENTER);
 
-        JPanel panelInferior = new JPanel (new GridLayout( 4, 1 ));
+        JPanel panelInferior = new JPanel (new GridLayout(4, 1));
         add(panelInferior, BorderLayout.SOUTH);
         
-        btnCantidadVentas = new JButton( CANTIDAD_VENTAS );
-        btnValorVentas = new JButton( VALOR_TOTAL_VENTAS );
-        btnPorcentaje = new JButton( PORCENTAJE_DISPONIBILIDAD );
-        btnUnidadesVendidas = new JButton( UNIDADES_VENDIDAS );
+        btnQuantityOfSales = new JButton(QUANTITY_SALES);
+        btnValueOfSales = new JButton(TOTAL_VALUE_SALES);
+        btnPercentage = new JButton(PERCENT_AVAILABILITY);
+        btnUnitsSold = new JButton(UNITS_SOLD);
 
-        btnCantidadVentas.addActionListener( this );
-        btnValorVentas.addActionListener( this );
-        btnPorcentaje.addActionListener( this );
-        btnUnidadesVendidas.addActionListener( this );
+        btnQuantityOfSales.addActionListener(this);
+        btnValueOfSales.addActionListener(this);
+        btnPercentage.addActionListener(this);
+        btnUnitsSold.addActionListener(this);
 
-        btnCantidadVentas.setActionCommand( CANTIDAD_VENTAS );
-        btnValorVentas.setActionCommand( VALOR_TOTAL_VENTAS );
-        btnPorcentaje.setActionCommand( PORCENTAJE_DISPONIBILIDAD );
-        btnUnidadesVendidas.setActionCommand( UNIDADES_VENDIDAS );
+        btnQuantityOfSales.setActionCommand(QUANTITY_SALES);
+        btnValueOfSales.setActionCommand(TOTAL_VALUE_SALES);
+        btnPercentage.setActionCommand(PERCENT_AVAILABILITY);
+        btnUnitsSold.setActionCommand(UNITS_SOLD);
 
-        panelInferior.add( btnCantidadVentas );
-        panelInferior.add( btnValorVentas );
-        panelInferior.add( btnPorcentaje );
-        panelInferior.add( btnUnidadesVendidas );
+        panelInferior.add(btnQuantityOfSales);
+        panelInferior.add(btnValueOfSales);
+        panelInferior.add(btnPercentage);
+        panelInferior.add(btnUnitsSold);
 
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------------------------
 
     /**
-     * Manejo de eventos del usuario.
-     * @param pEvento Evento de usuario. pEvento != null.
+     * Management of user events 
+     * pEvent: user event. pEvent != null.
      */
-    @Override
-    public void actionPerformed( ActionEvent pEvento )
-    {
-        if( pEvento.getActionCommand( ).equals( CANTIDAD_VENTAS ) )
-        {
-            principal.mostrarDialogoCantidadVentas( );
-        }
-        else if( pEvento.getActionCommand( ).equals( VALOR_TOTAL_VENTAS ) )
-        {
-            principal.mostrarDialogoValorTotalVentas( );
-        }
-        else if( pEvento.getActionCommand( ).equals( PORCENTAJE_DISPONIBILIDAD ) )
-        {
-            principal.mostrarDialogoPorcentajeDeDisponibilidad( );
-        }
-        else if( pEvento.getActionCommand( ).equals( UNIDADES_VENDIDAS ) )
-        {
-            principal.mostrarDialogoUnidadesVendidas( );
-        }
+    public void actionPerformed(ActionEvent pEvent) {
+        if(pEvent.getActionCommand().equals(QUANTITY_SALES))
+            principal.showDialogQuantityOfSales();
+        
+        else if(pEvent.getActionCommand().equals(TOTAL_VALUE_SALES))
+            principal.showDialogValueOfTotalSales();
+        
+        else if(pEvent.getActionCommand().equals(PERCENT_AVAILABILITY))
+            principal.showDialogPercentOfAvailability();
+
+        else if(pEvent.getActionCommand().equals(UNITS_SOLD))
+            principal.showDialogOfUnitsSold();
     }
 
 }

@@ -1,11 +1,11 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad	de	los	Andes	(Bogotá	- Colombia)
- * Departamento	de	Ingeniería	de	Sistemas	y	Computación
- * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
- * 		
- * Proyecto	Cupi2	(http://cupi2.uniandes.edu.co)
- * Ejercicio: n1_vendingMachine
- * Autor: Equipo Cupi2 2018
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ *
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: L1- vendingMachine
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -18,28 +18,26 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Contiene el Banner.
+ * Contains the banner
  */
-@SuppressWarnings("serial")
-public class PanelImage extends JPanel
-{
+
+public class PanelImage extends JPanel {
 
     // -----------------------------------------------------------------
-    // Constructores
+    // Constructors
     // -----------------------------------------------------------------
     /**
-     * Construye el panel y añade el banner a la interfaz.
+     * Constructs the panel and adds the banner to the interface
      */
-    public PanelImage( )
-    {
-        JLabel lblImagen = new JLabel( );
-        ImageIcon icono = new ImageIcon( "data/img/banner.png" );
-        setSize( icono.getIconHeight( ), icono.getIconWidth( ) );
-        lblImagen = new JLabel( "" );
-        lblImagen.setIcon( icono );
-        add( lblImagen );
+    public PanelImage() {
+        JLabel lblImage = new JLabel();
+        ImageIcon icon = new ImageIcon("data/img/banner.png");
+        setSize(icon.getIconHeight(), icon.getIconWidth());
+        lblImage = new JLabel("");
+        lblImage.setIcon(icon);
+        add(lblImage);
 
-        setBackground( Color.WHITE );
+        setBackground(Color.BLACK);
     }
 
 }

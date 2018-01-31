@@ -1,11 +1,11 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad	de	los	Andes	(Bogotá	- Colombia)
- * Departamento	de	Ingeniería	de	Sistemas	y	Computación
- * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
- * 		
- * Proyecto	Cupi2	(http://cupi2.uniandes.edu.co)
- * Ejercicio: n1_vendingMachine
- * Autor: Equipo Cupi2 2018
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ *
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: L1- vendingMachine
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -25,183 +25,168 @@ import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 
 /**
- * Contiene los botones ubicados en la parte inferior de la ventana principal.
+ * Contains the buttons located in the lower part of the center window
  */
-@SuppressWarnings("serial")
-public class PanelProduct extends JPanel implements ActionListener
-{
+
+public class PanelProduct extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------------------------
 
     /**
-     * Comando para ejecutar la acción del botón btnAbasceter.
+     * Command to execute the action of the button btnRestock
      */
-    private static final String ABASTECER = "Abastecer";
+    private static final String RESTOCK = "Restock";
 
     /**
-     * Comando para ejecutar la acción del botón btnComprar.
+     * Command to execute the action of the button btnPurchase
      */
-    private static final String COMPRAR = "Comprar";
+    private static final String PURCHASE = "Purchase";
 
     // -----------------------------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Ventana principal de la aplicación.
+     * Principal window of the application
      */
     private InterfaceVendingMachine principal;
 
     /**
-     * Identificador del producto.
+     * Identifier of product.
      */
-    private String identificador;
+    private String identifier;
 
     // -----------------------------------------------------------------
-    // Atributos de la interfaz
+    // Attributes of the interface
     // -----------------------------------------------------------------
 
     /**
-     * Botón que permite comprar el producto
+     * Button that purchases product 
      */
-    private JButton btnComprar;
+    private JButton btnPurchase;
 
     /**
-     * Botón que permite restock
+     * Button that restocks product
      */
-    private JButton btnAbastecer;
+    private JButton btnRestock;
 
     /**
-     * Etiqueta con la información del producto.
+     * Label with product information 
      */
     private JLabel lblInfo;
 
     // -----------------------------------------------------------------
-    // Constructores
+    // Constructors
     // -----------------------------------------------------------------
 
     /**
-     * Construye el panel con los botones <br>
-     * <b>post:</b> Todos los botones fueron inicializados.
-     * @param pInterfaz Interfaz principal de la aplicación. pInterfaz != null
-     * @param pNombre Nombre del producto.
-     * @param pIdentificador Identificador del producto.
-     * @param pPrecio Precio del producto.
-     * @param pCantidad Cantidad de unidades del producto.
+     * Constructs panel with buttons <br>
+     * Initializes buttons
+     * pInterface: Principal interface of the application. pInterface != null
+     * pName: Name of the product.
+     * pIdentifier: Identifier of the product.
+     * pPrice: Price of the product.
+     * pQuantity: Quantity of units of product.
      */
-    public PanelProduct( InterfaceVendingMachine pInterfaz, String pNombre, String pIdentificador, double pPrecio, int pCantidad )
-    {
-        principal = pInterfaz;
-        identificador = pIdentificador;
+    public PanelProduct(InterfaceVendingMachine pInterface, String pName, String pIdentifier, double pPrice, int pQuantity) {
+        principal = pInterface;
+        identifier = pIdentifier;
 
-        TitledBorder b = BorderFactory.createTitledBorder( pIdentificador );
-        setBorder( b );
-        setLayout( new BorderLayout( ) );
+        TitledBorder b = BorderFactory.createTitledBorder(pIdentifier);
+        setBorder(b);
+        setLayout(new BorderLayout());
 
-        String rutaImagen = "";
+        String image = "";
 
-        if( pNombre.startsWith( "Jugo" ) )
-        {
-            rutaImagen = "data/img/jugo.png";
-        }
-        else if( pNombre.startsWith( "Chocolatina" ) )
-        {
-            rutaImagen = "data/img/chocolatina.png";
-        }
-        else if( pNombre.startsWith( "Galletas" ) )
-        {
-            rutaImagen = "data/img/galletas.png";
-        }
-        else if( pNombre.startsWith( "Papas" ) )
-        {
-            rutaImagen = "data/img/papas.png";
-        }
+        if(pName.startsWith("Jugo"))
+            image = "data/img/jugo.png";
 
-        JLabel lblNombre = new JLabel( pNombre, SwingConstants.CENTER );
-        add( lblNombre, BorderLayout.NORTH );
+        else if(pName.startsWith("Chocolatina"))
+            image = "data/img/chocolatina.png";
+        
+        else if(pName.startsWith("Galletas"))
+            image = "data/img/galletas.png";
 
-        ImageIcon icono = new ImageIcon( rutaImagen );
-        JLabel lblImagen = new JLabel( icono );
-        add( lblImagen, BorderLayout.CENTER );
+        else if(pName.startsWith("Papas"))
+            image = "data/img/papas.png";
+    
 
-        JPanel panelInferior = new JPanel( new GridLayout( 3, 1 ) );
+        JLabel lblName = new JLabel(pName, SwingConstants.CENTER);
+        add(lblName, BorderLayout.NORTH);
 
-        JPanel panelInfo = new JPanel( new GridLayout( 1, 2 ) );
+        ImageIcon icon = new ImageIcon(image);
+        JLabel lblImage = new JLabel(icon);
+        add(lblImage, BorderLayout.CENTER);
 
-        panelInfo.add( new JLabel( "Disponibles: " ) );
-        lblInfo = new JLabel( "" + pCantidad, SwingConstants.CENTER );
-        panelInfo.add( lblInfo );
-        panelInferior.add( panelInfo );
+        JPanel inferiorPanel = new JPanel(new GridLayout(3, 1));
 
-        JPanel panelPrecio = new JPanel( new GridLayout( 1, 2 ) );
-        JLabel lblPrecio = new JLabel( "$" + pPrecio, SwingConstants.CENTER );
+        JPanel panelInfo = new JPanel(new GridLayout(1, 2));
 
-        panelPrecio.add( new JLabel( "Precio: " ) );
-        panelPrecio.add( lblPrecio );
-        panelInferior.add( panelPrecio );
-        JPanel panelBotones = new JPanel( new GridLayout( 1, 2 ) );
+        panelInfo.add(new JLabel("Available: "));
+        lblInfo = new JLabel("" + pQuantity, SwingConstants.CENTER);
+        panelInfo.add(lblInfo);
+        inferiorPanel.add(panelInfo);
 
-        btnComprar = new JButton( "Comprar" );
-        btnComprar.addActionListener( this );
-        btnComprar.setActionCommand( COMPRAR );
-        panelBotones.add( btnComprar );
+        JPanel pricePanel = new JPanel( new GridLayout(1, 2));
+        JLabel lblPrice = new JLabel("$" + pPrice, SwingConstants.CENTER);
 
-        btnAbastecer = new JButton( "Abastecer" );
-        btnAbastecer.addActionListener( this );
-        btnAbastecer.setActionCommand( ABASTECER );
-        panelBotones.add( btnAbastecer );
+        pricePanel.add(new JLabel("Price: "));
+        pricePanel.add(lblPrice);
+        inferiorPanel.add(pricePanel);
+        JPanel buttonsPanel = new JPanel(new GridLayout(1, 2));
 
-        panelInferior.add( panelBotones );
+        btnPurchase = new JButton("Purchase");
+        btnPurchase.addActionListener(this);
+        btnPurchase.setActionCommand(PURCHASE);
+        buttonsPanel.add(btnPurchase);
 
-        add( panelInferior, BorderLayout.SOUTH );
+        btnRestock = new JButton("Restock");
+        btnRestock.addActionListener(this);
+        btnRestock.setActionCommand(RESTOCK);
+        buttonsPanel.add(btnRestock);
+
+        inferiorPanel.add(buttonsPanel);
+
+        add(inferiorPanel, BorderLayout.SOUTH);
 
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------------------------
 
     /**
-     * Actualiza el panel con la información recibida por parámetro.
-     * @param pPrecio Precio del producto.
-     * @param pCantidad Cantidad del producto.
+     * Refreshes panel with information received by parameter 
+     * pPrice: Price of product..
+     * pQuantity: Quantity of product.
      */
-    public void actualizarInterfaz( double pPrecio, int pCantidad )
-    {
-        lblInfo.setText( pCantidad + "" );
+    public void refreshInterface(double pPrice, int pQuantity) {
+        lblInfo.setText(pQuantity + "");
     }
 
     /**
-     * Manejo de eventos del usuario.
-     * @param pEvento Evento de usuario. pEvento != null.
+     * Management of user events 
+     * pEvent: User event. pEvent != null.
      */
-    @Override
-    public void actionPerformed( ActionEvent pEvento )
-    {
-        if( pEvento.getActionCommand( ).equals( ABASTECER ) )
-        {
-
-            String unidades = JOptionPane.showInputDialog( principal, "Ingrese el número de unidades que ingresará del producto" );
-            try
-            {
-                if( unidades != null )
-                {
-                    int numUnidades = Integer.parseInt( unidades );
-                    principal.restock( identificador, numUnidades );
+   
+    public void actionPerformed(ActionEvent pEvent) {
+        if(pEvent.getActionCommand().equals(RESTOCK)) {
+            String units = JOptionPane.showInputDialog(principal, "Enter the number of units to restock this product: ");
+            try {
+                if(units != null) {
+                    int numUnits = Integer.parseInt(units);
+                    principal.restock(identifier, numUnits);
                 }
 
             }
-            catch( Exception e )
-            {
-                JOptionPane.showMessageDialog( principal, "Solo puede ingresar números enteros", "Error", JOptionPane.ERROR_MESSAGE );
+            catch(Exception e){
+                JOptionPane.showMessageDialog( principal, "Please enter whole numbers!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
 
-        else if( pEvento.getActionCommand( ).equals( COMPRAR ) )
-        {
-            principal.sell( identificador );
-        }
+        else if(pEvent.getActionCommand().equals(PURCHASE))
+            principal.sell(identifier);
 
     }
 

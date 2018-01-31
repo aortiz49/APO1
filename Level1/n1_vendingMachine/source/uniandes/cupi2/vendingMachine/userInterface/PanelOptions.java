@@ -1,11 +1,11 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad	de	los	Andes	(Bogotá	- Colombia)
- * Departamento	de	Ingeniería	de	Sistemas	y	Computación
- * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
- * 		
- * Proyecto	Cupi2	(http://cupi2.uniandes.edu.co)
- * Ejercicio: n1_vendingMachine
- * Autor: Equipo Cupi2 2018
+ * University of the Andes
+ * Department of Systems and Computer Engineering
+ * Licensed under Academic Free License version 2.1
+ *
+ * Project Cupi2 (http://cupi2.uniandes.edu.co)
+ * Exercise: L1- vendingMachine
+ * Author: Andres Ortiz
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
@@ -21,98 +21,86 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 /**
- * Contiene los botones ubicados en la parte inferior de la ventana principal.
+ * Contains the buttons contained in the lower part of the principal window
  */
-@SuppressWarnings("serial")
-public class PanelOptions extends JPanel implements ActionListener
-{
+
+public class PanelOptions extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
-    // Constantes
+    // Constants
     // -----------------------------------------------------------------
 
     /**
-     * Comando para ejecutar la acción del botón btnOpcion1.
+     * Command to execute the acction of button btnOption1.
      */
-    private static final String OPCION1 = "Opción 1";
+    private static final String OPTION1 = "Option 1";
 
     /**
-     * Comando para ejecutar la acción del botón btnOpcion2.
+     * Command to execute the acction of button btnOption2.
      */
-    private static final String OPCION2 = "Opción 2";
+    private static final String OPTION2 = "Option 2";
 
     // -----------------------------------------------------------------
-    // Atributos
+    // Attributes
     // -----------------------------------------------------------------
 
     /**
-     * Ventana principal de la aplicación
+     * Principal window of the application 
      */
     private InterfaceVendingMachine principal;
 
     // -----------------------------------------------------------------
-    // Atributos de la interfaz
+    // Attributes of the interface
+    // -----------------------------------------------------------------
+
+    // Buttons for options 1 and 2
+    private JButton btnOption1;
+    private JButton btnOption2;
+
+    // -----------------------------------------------------------------
+    // Constructors
     // -----------------------------------------------------------------
 
     /**
-     * Botón para la opción 1.
+     * Constructs the panel with the buttons 
+     * Initializes every button
+     * pInterface: Principal interface of the application. pInterface != null
      */
-    private JButton btnOpcion1;
+    public PanelOptions( InterfaceVendingMachine pInterface ) {
+        TitledBorder b = BorderFactory.createTitledBorder("Options");
+        setBorder(b);
 
-    /**
-     * Botón para la opción 2.
-     */
-    private JButton btnOpcion2;
+        principal = pInterface;
+        setLayout(new GridLayout(1, 3));
 
-    // -----------------------------------------------------------------
-    // Constructores
-    // -----------------------------------------------------------------
+        btnOption1 = new JButton(OPTION1);
+        btnOption2 = new JButton(OPTION2);
 
-    /**
-     * Construye el panel con los botones <br>
-     * <b>post:</b> Todos los botones fueron inicializados.
-     * @param pInterfaz Interfaz principal de la aplicación. pInterfaz != null
-     */
-    public PanelOptions( InterfaceVendingMachine pInterfaz )
-    {
-        TitledBorder b = BorderFactory.createTitledBorder( "Opciones" );
-        setBorder( b );
+        btnOption1.addActionListener(this);
+        btnOption2.addActionListener(this);
 
-        principal = pInterfaz;
-        setLayout( new GridLayout( 1, 3 ) );
+        btnOption1.setActionCommand(OPTION1);
+        btnOption2.setActionCommand(OPTION2);
 
-        btnOpcion1 = new JButton( OPCION1 );
-        btnOpcion2 = new JButton( OPCION2 );
-
-        btnOpcion1.addActionListener( this );
-        btnOpcion2.addActionListener( this );
-
-        btnOpcion1.setActionCommand( OPCION1 );
-        btnOpcion2.setActionCommand( OPCION2 );
-
-        add( btnOpcion1 );
-        add( btnOpcion2 );
+        add(btnOption1);
+        add(btnOption2);
 
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Methods
     // -----------------------------------------------------------------
 
     /**
-     * Manejo de eventos del usuario.
-     * @param pEvento Evento de usuario. pEvento != null.
+     * Management of user events 
+     * pEvent: User events. pEvent != null.
      */
-    @Override
-    public void actionPerformed( ActionEvent pEvento )
-    {
-        if( pEvento.getActionCommand( ).equals( OPCION1 ) )
-        {
-            principal.reqFuncOpcion1( );
-        }
-        else if( pEvento.getActionCommand( ).equals( OPCION2 ) )
-        {
-            principal.reqFuncOpcion2( );
-        }
+    
+    public void actionPerformed(ActionEvent pEvent) {
+        if(pEvent.getActionCommand().equals(OPTION1))
+            principal.reqFuncOption1();
+    
+        else if(pEvent.getActionCommand().equals(OPTION2))
+            principal.reqFuncOption2();
     }
 
 }
