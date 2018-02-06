@@ -3,7 +3,6 @@
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
- * <p>
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
  * Exercise: L1- vendingMachine
  * Author: Andres Ortiz
@@ -19,7 +18,7 @@ public class Product {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
-
+    
     // Identifier of product
     private String identifier;
 
@@ -34,6 +33,12 @@ public class Product {
 
     // Quantity of units sold
     private int quantityOfUnitsSold;
+    
+    // Calories of product in kcal
+    private double calories;
+    
+    // Weight of product in grams
+    private double weight;
 
     // -----------------------------------------------------------------
     // Constructors
@@ -45,13 +50,16 @@ public class Product {
      * pName != null && pName != ""
      * pPrice >= 50.
      */
-    public Product(String pIdentifier, String pName, double pPrice) {
+    public Product(String pIdentifier, String pName, double pPrice, double pCalories, double pWeight) {
 
         identifier = pIdentifier;
         name = pName;
         price = pPrice;
         quantityOfUnitsAvailable = 0;
         quantityOfUnitsSold = 0;
+        calories = pCalories;
+        weight = pWeight;
+        
 
     }
 
@@ -73,6 +81,12 @@ public class Product {
     public double getPrice() {
         return price;
     }
+    
+    // Return calories of product
+    public double getCalories() {return calories;}
+    
+    // Return weight
+    public double getWeight() {return weight;}
 
     // Returns quantity of units available
     public int getQuantityOfUnitsAvailable() {
@@ -83,7 +97,20 @@ public class Product {
     public int getQuantityOfUnitsSold() {
         return quantityOfUnitsSold;
     }
+    
+    // Changes the amount of calories of a product
+    public void changeCalories(double pCalories) {
+    	calories = pCalories;
+    }
 
+    // Calculates calories  
+    public double calculateCaloriesPerUnit() {
+    	return calories / weight;
+    }
+    
+    
+    
+    
     /**
      * Increases the quantity of units available according to the units received by parameter.
      */
@@ -99,4 +126,6 @@ public class Product {
         quantityOfUnitsAvailable -= 1;
         quantityOfUnitsSold += 1;
     }
+    
+    
 }

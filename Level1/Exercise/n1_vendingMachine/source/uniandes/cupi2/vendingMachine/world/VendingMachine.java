@@ -35,11 +35,12 @@ public class VendingMachine {
      * 4 products are initialized.<br>
      */
     public VendingMachine() {
-
-        product1 = new Product("A1", "Papas Natural Margarita", 1300);
-        product2 = new Product("B2", "Jugo Hit", 2000);
-        product3 = new Product("C3", "Chocolatina Jet", 500);
-        product4 = new Product("D4", "Galletas Festival", 800);
+    	// The new attributes for calories and weight are in kcals and grams respectively. 
+    	// Note: The value of "weight" for product2 is assumed to be in mL.
+        product1 = new Product("A1", "Papas Natural Margarita", 1300, 228, 45);
+        product2 = new Product("B2", "Jugo Hit", 2000, 110, 240);
+        product3 = new Product("C3", "Chocolatina Jet", 500, 60, 12);
+        product4 = new Product("D4", "Galletas Festival", 800, 150, 54);
 
     }
 
@@ -136,6 +137,15 @@ public class VendingMachine {
         return percentOfAvailability;
 
     }
+    
+    // Calculates the average calories per unit of the 4 products
+    public double averageCaloriesPerUnit() {
+    	
+    	return (product1.calculateCaloriesPerUnit() + product2.calculateCaloriesPerUnit() + 
+    			product3.calculateCaloriesPerUnit() + product4.calculateCaloriesPerUnit()) / 4;
+    }
+    
+    
 
 
     // -----------------------------------------------------------------
@@ -146,7 +156,8 @@ public class VendingMachine {
      * Extension 1.
      */
     public String method1() {
-        return "Response 1";
+    	return "The average amount of calories per unit is: " + (int)(averageCaloriesPerUnit() * 100) / 100.0;
+    	//return Double.toString((228/45.0 + 110/240.0 + 60/12.0 + 150/54.0)/4.0);
     }
 
     /**
