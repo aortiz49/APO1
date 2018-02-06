@@ -19,7 +19,7 @@ public class Product {
     // -----------------------------------------------------------------
     // Attributes
     // -----------------------------------------------------------------
-    
+
     // Identifier of product
     private String identifier;
 
