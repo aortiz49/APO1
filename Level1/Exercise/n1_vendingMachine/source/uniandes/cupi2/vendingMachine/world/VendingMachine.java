@@ -32,7 +32,7 @@ public class VendingMachine {
 
     /**
      * Constructs a new vending machine
-     * 4 products are initialized.<br>
+     * 4 products are initialized.
      */
     public VendingMachine() {
     	// The new attributes for calories and weight are in kcals and grams respectively. 
@@ -120,7 +120,7 @@ public class VendingMachine {
      * Calculate the total value of sales from the vending machine.
      */
     public double getValueOfTotalSales() {
-        double totalValueOfSales = (product1.getQuantityOfUnitsSold() * 1300) + (product2.getQuantityOfUnitsSold() * 2000) +
+        double totalValueOfSales = (product1.getQuantityOfUnitsSold() * product1.getPrice()) + (product2.getQuantityOfUnitsSold() * 2000) +
                 (product3.getQuantityOfUnitsSold() * 500) + (product4.getQuantityOfUnitsSold() * 800);
 
         return totalValueOfSales;
@@ -156,6 +156,7 @@ public class VendingMachine {
      * Extension 1.
      */
     public String method1() {
+    
     	return "The average amount of calories per unit is: " + (int)(averageCaloriesPerUnit() * 100) / 100.0;
     	//return Double.toString((228/45.0 + 110/240.0 + 60/12.0 + 150/54.0)/4.0);
     }
