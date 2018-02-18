@@ -8,7 +8,7 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 
-package uniandes.cupi2.maquinaExpendedora.mundo;
+package uniandes.cupi2.vendingMachine.world;
 
 /*
  * Class tha represents a set of coins.
