@@ -255,4 +255,66 @@ public class Store {
         return "Response 2";
     }
 
+
+    private static boolean canLoad(double pLoadWeight) {
+        boolean canLoad = false;
+        if(pLoadWeight <= capacity) {
+            load = pLoadWeight;
+            canLoad = true;
+        }
+
+        return canLoad;
+    }
+
+
+    private static boolean loadTruck(String pPlates, int pLoadWeight) {
+        boolean truckLoaded = false;
+        if(truck1.getPlates().equals(pPlates) && canLoad()) {
+            load = pLoadWeight;
+            truckLoaded = true
+        }
+        else if(truck2.getPlates().equals(pPlates) && canLoad()) {
+            load = pLoadWeight;
+            truckLoaded = true
+        }
+        else if(truck3.getPlates().equals(pPlates) && canLoad()) {
+            load = pLoadWeight;
+            truckLoaded = true
+        }
+        else if(truck4.getPlates().equals(pPlates) && canLoad()) {
+            load = pLoadWeight;
+            truckLoaded = true
+        }
+            
+
+            
+
+
+    
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
