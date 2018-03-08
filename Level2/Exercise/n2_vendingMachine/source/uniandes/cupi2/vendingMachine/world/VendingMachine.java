@@ -66,6 +66,7 @@ public class VendingMachine {
 	 */
 	public Product getProduct(String pIdentifier) {
 		Product tempProduct = null;
+		
 		if (product1.getIdentifier().equals(pIdentifier))
 			tempProduct = product1;
 		else if (product2.getIdentifier().equals(pIdentifier))
@@ -141,7 +142,7 @@ public class VendingMachine {
 	 */
 	public int getTotalQuantityOfUnitsPurchased() {
 		return product1.getQuantityOfUnitsPurchased() + product2.getQuantityOfUnitsPurchased() +
-			product3.getQuantityOfUnitsPurchased() + product4.getQuantityOfUnitsPurchased();
+				product3.getQuantityOfUnitsPurchased() + product4.getQuantityOfUnitsPurchased();
 		
 	}
 	
@@ -152,9 +153,9 @@ public class VendingMachine {
 	 */
 	public double getValueTotalPurchases() {
 		return product1.getQuantityOfUnitsPurchased() * product1.getPrice() +
-			product2.getQuantityOfUnitsPurchased() * product2.getPrice() +
-			product3.getQuantityOfUnitsPurchased() * product3.getPrice() +
-			product4.getQuantityOfUnitsPurchased() * product4.getPrice();
+				product2.getQuantityOfUnitsPurchased() * product2.getPrice() +
+				product3.getQuantityOfUnitsPurchased() * product3.getPrice() +
+				product4.getQuantityOfUnitsPurchased() * product4.getPrice();
 		
 	}
 	
@@ -163,8 +164,8 @@ public class VendingMachine {
 	 */
 	public double getPercentAvailability() {
 		return (100 - (((product1.getQuantityOfUnitsAvailable() +
-			product2.getQuantityOfUnitsAvailable() + product3.getQuantityOfUnitsAvailable() +
-			product4.getQuantityOfUnitsAvailable()) / (Product.CAPACITY * 4.0))) * 100);
+				product2.getQuantityOfUnitsAvailable() + product3.getQuantityOfUnitsAvailable() +
+				product4.getQuantityOfUnitsAvailable()) / (Product.CAPACITY * 4.0))) * 100);
 	}
 	
 	/*
@@ -197,7 +198,7 @@ public class VendingMachine {
 	 *
 	 * Returns the sum of FOPRE units purchased per type.
 	 */
-	public int getQuantityOfFopreUnitsAvailable(Types pType) {
+	public int getQuantityOfFopreUnitsPurchased(Types pType) {
 		int fopreUnits = 0;
 		
 		if (product1.getType().equals(pType) && product1.isFopre())
@@ -255,7 +256,7 @@ public class VendingMachine {
 	 */
 	public double getTotalDonations() {
 		return product1.calculateFopreDonation() + product2.calculateFopreDonation() +
-			product3.calculateFopreDonation() + product4.calculateFopreDonation();
+				product3.calculateFopreDonation() + product4.calculateFopreDonation();
 	}
 	
 	// -----------------------------------------------------------------

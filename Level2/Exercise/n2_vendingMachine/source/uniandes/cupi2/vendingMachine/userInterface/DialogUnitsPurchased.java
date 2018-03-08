@@ -37,8 +37,11 @@ public class DialogUnitsPurchased extends JDialog {
 	 * Text field with the purchase information of all the products.
 	 */
 	private JTextField txtProductQuantity1;
+	
 	private JTextField txtProductQuantity2;
+	
 	private JTextField txtProductQuantity3;
+	
 	private JTextField txtProductQuantity4;
 	
 	// -----------------------------------------------------------------
@@ -59,8 +62,8 @@ public class DialogUnitsPurchased extends JDialog {
 	 * pProductName4: Name of product 4. pName != null && pName != "".
 	 */
 	public DialogUnitsPurchased(int pTotalQuantity, int pProductQuantity1, String pProductName1,
-                                int pProductQuantity2, String pProductName2, int
-                                    pProductQuantity3, String pProductName3, int pProductQuantity4,
+	                            int pProductQuantity2, String pProductName2, int
+		                            pProductQuantity3, String pProductName3, int pProductQuantity4,
 	                            String pProductName4) {
 		setTitle("Information about purchased units");
 		setSize(380, 250);
@@ -69,7 +72,7 @@ public class DialogUnitsPurchased extends JDialog {
 		
 		JPanel generalPanel = new JPanel();
 		generalPanel.setBorder(new CompoundBorder(new EmptyBorder(10, 10, 10, 10), new
-            TitledBorder("Quantity of units purchased:")));
+			TitledBorder("Quantity of units purchased:")));
 		generalPanel.setLayout(new GridLayout(5, 2, 4, 4));
 		add(generalPanel, BorderLayout.CENTER);
 		

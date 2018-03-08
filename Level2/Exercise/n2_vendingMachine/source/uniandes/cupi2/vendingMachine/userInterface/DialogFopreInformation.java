@@ -58,7 +58,7 @@ public class DialogFopreInformation extends JDialog {
 	 * totalDonation: total donation to FOPRE.
 	 */
 	public DialogFopreInformation(int quantityOfFoodPurchases, double foodDonation, int
-        quantityOFDrinkPurchases, double drinkDonation, double totalDonation) {
+		quantityOFDrinkPurchases, double drinkDonation, double totalDonation) {
 		setTitle("FOPRE Information");
 		setSize(400, 300);
 		setLayout(new BorderLayout());
@@ -74,7 +74,7 @@ public class DialogFopreInformation extends JDialog {
 		
 		JPanel panelInferior = new JPanel();
 		panelInferior.setBorder(new CompoundBorder(new TitledBorder("Donations:"), new
-            EmptyBorder(3, 3, 3, 3)));
+			EmptyBorder(3, 3, 3, 3)));
 		panelInferior.setLayout(new GridLayout(3, 2, 3, 3));
 		generalPanel.add(panelInferior, BorderLayout.CENTER);
 		
@@ -89,15 +89,16 @@ public class DialogFopreInformation extends JDialog {
 		panelInferior.add(new JLabel("Food:"));
 		
 		txtFoodDonation = new JTextField(df.format(foodDonation) + "(" + quantityOfFoodPurchases
-                                               + " units)");
+			                                 + " units)");
 		txtFoodDonation.setEditable(false);
 		txtFoodDonation.setHorizontalAlignment(JTextField.CENTER);
 		panelInferior.add(txtFoodDonation);
 		
 		panelInferior.add(new JLabel("Drink:"));
 		
-		txtDrinkDonation = new JTextField(df.format(drinkDonation) + " (" + quantityOFDrinkPurchases
-                                               + " units)");
+		txtDrinkDonation = new JTextField(df.format(drinkDonation) + " (" +
+			                                  quantityOFDrinkPurchases
+			                                  + " units)");
 		txtDrinkDonation.setEditable(false);
 		txtDrinkDonation.setHorizontalAlignment(JTextField.CENTER);
 		

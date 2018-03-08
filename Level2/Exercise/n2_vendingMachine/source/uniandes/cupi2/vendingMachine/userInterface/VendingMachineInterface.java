@@ -306,19 +306,21 @@ public class VendingMachineInterface extends JFrame {
 			                              JOptionPane.INFORMATION_MESSAGE);
 		
 		else {
-			String message = "The most purchased product is : " + mostPurchased.getIdentifier() + " " +
+			String message = "The most purchased product is : " + mostPurchased.getIdentifier() +
+				" " +
 				mostPurchased.getName() + ".\n";
 			
-			if(mostPurchased.getQuantityOfUnitsPurchased() == 1)
+			if (mostPurchased.getQuantityOfUnitsPurchased() == 1)
 				message += "There was " + mostPurchased.getQuantityOfUnitsPurchased() + " unit " +
-				"purchased.";
+					"purchased.";
 			else
-				message += "There were " + mostPurchased.getQuantityOfUnitsPurchased() + " units " +
+				message += "There were " + mostPurchased.getQuantityOfUnitsPurchased() + " units" +
+					" " +
 					"purchased.";
 			JOptionPane.showMessageDialog(this, message, "Most purchased product",
 			                              JOptionPane.INFORMATION_MESSAGE);
 		}
-	
+		
 	}
 	
 	// -----------------------------------------------------------------
