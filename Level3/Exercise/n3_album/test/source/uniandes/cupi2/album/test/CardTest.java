@@ -42,7 +42,7 @@ public class CardTest {
 	
 	/**
 	 * Prepare the card for the tests. <br>
-	 * <b>post </b> A card is created for a player.
+	 * <b>post </b> A card is created for the tests.
 	 */
 	@Before
 	public void setupScenario1() {
@@ -50,7 +50,7 @@ public class CardTest {
 	}
 	
 	/**
-	 * <b>Test</b> Verify the constructor method and the methods getImageName and getCardType.<br>
+	 * <b>Test</b> Verifies the constructor method and the methods getImageName and getCardType.<br>
 	 * <b>Methods to test</b><br>
 	 * Card<br>
 	 * getImageName<br>
