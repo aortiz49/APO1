@@ -85,8 +85,8 @@ public class Team {
 		year = pYear;
 		players = new Player[QUANTITY_OF_PLAYERS];
 		
-		for (int i = 0; i < players.length; i++) {
-			players[i] = new Player(-i, "Player" + Integer.toString(i + 1), Positions.UNKNOWN,
+		for(int i = 0; i < players.length; i++) {
+			players[i] = new Player(-(i+1), "Player" + Integer.toString(i+1), Positions.UNKNOWN,
 			                        1990, 1.78, 65);
 			
 		}
@@ -95,6 +95,7 @@ public class Team {
 	// -----------------------------------------------------------------
 	// Methods
 	// -----------------------------------------------------------------
+	
 	
 	/**
 	 * Returns the team's country.
@@ -152,8 +153,8 @@ public class Team {
 	public Player findPlayer(int pShirtNumber) {
 		Player tempPlayer = null;
 		boolean isFound = false;
-		for (int i = 0; i < players.length && !isFound; i++) {
-			if (players[i].getShirtNumber() == pShirtNumber) {
+		for(int i = 0; i < players.length && !isFound; i++) {
+			if(players[i].getShirtNumber() == pShirtNumber) {
 				tempPlayer = players[i];
 				isFound = true;
 			}
@@ -170,7 +171,7 @@ public class Team {
 	 */
 	public boolean pasteTeamCard() {
 		boolean isPasted = false;
-		if (teamCard == null) {
+		if(teamCard == null) {
 			teamCard = new Card(CardType.TEAM, TEAM_CARD_NAME);
 			isPasted = true;
 		}
@@ -188,7 +189,7 @@ public class Team {
 	 */
 	public boolean pasteCrestCard() {
 		boolean isPasted = false;
-		if (crestCard == null) {
+		if(crestCard == null) {
 			crestCard = new Card(CardType.CREST, CREST_CARD_NAME);
 			isPasted = true;
 		}
@@ -209,7 +210,7 @@ public class Team {
 		boolean isPasted = false;
 		
 		Player tempPlayer = findPlayer(pShirtNumber);
-		if (tempPlayer != null && !tempPlayer.hasCard()) {
+		if(tempPlayer != null && !tempPlayer.hasCard()) {
 			tempPlayer.pasteCard();
 			isPasted = true;
 		}
@@ -245,10 +246,8 @@ public class Team {
 		boolean playerModified = false;
 		
 		Player playerToModify = findPlayer(pShirtNumber);
-		Player playerWithNewShirtNumber = findPlayer(pNewShirtNumber);
-		
-		if ((playerWithNewShirtNumber == null && pShirtNumber != pNewShirtNumber) ||
-				(playerWithNewShirtNumber != null && pShirtNumber == pNewShirtNumber)) {
+		if((findPlayer(pNewShirtNumber) == null && pShirtNumber != pNewShirtNumber) ||
+				(findPlayer(pNewShirtNumber) != null && pShirtNumber == pNewShirtNumber)) {
 			playerToModify.modifyPlayer(pNewShirtNumber, pName, pPositions, pBirthYear, pHeight,
 			                            pWeight);
 			playerModified = true;
@@ -270,33 +269,55 @@ public class Team {
 	public int countCardsNotPasted(CardType pCardType) {
 		int cardsNotPasted = 0;
 		
-		if (pCardType == CardType.CREST && crestCard == null)
+		if(pCardType == CardType.CREST && crestCard == null)
 			cardsNotPasted++;
-		else if (pCardType == CardType.TEAM && teamCard == null)
+		else if(pCardType == CardType.TEAM && teamCard == null)
 			cardsNotPasted++;
 		else if(pCardType == CardType.PLAYER)
-			for (Player player : players) {
-				if (!player.hasCard())
+			for(Player player : players) {
+				if(!player.hasCard())
 					cardsNotPasted++;
 			}
 		return cardsNotPasted;
 		
 	}
 	
-	
 	/**
 	 * Returns the mode of the players' ages. If there are multiple ages with the most
-	 * frequency,
-	 * return any. <br>
+	 * frequency, return any. <br>
 	 * <b>pre: </b> The list of players is initialized.
 	 *
 	 * @return Most common age among the players of the team.
 	 */
 	public int getMostCommonAge() {
-		// TODO Part 3 Point S: Complete the method according to the given documentation.
+		int[] frequency = new int[QUANTITY_OF_PLAYERS];
+		int[] ages = new int[QUANTITY_OF_PLAYERS];
+		int larger = 0;
+		int mostCommonAge = 0;
 		
-		return 0;
+		// Create array that holds all the player's ages.
+		for(int i = 0; i < players.length; i++) {
+			ages[i] = year - players[i].getBirthYear();
+		}
+		// Store frequency of each value in another array.
+		for(int i = 0; i < ages.length; i++) {
+			int count = 0; // Reset the count for every iteration.
+			for(int j = 0; j < ages.length; j++) {
+				if(ages[i] == ages[j])
+					count++;
+			}
+			frequency[i] = count;
+			// Finds which ages is most common.
+			if(frequency[i] > larger) {
+				larger = frequency[i];
+				mostCommonAge = ages[i];
+				
+			}
+			
+		}
+		return mostCommonAge;
 	}
+	
 	
 	/**
 	 * Return a representation of the team in a string. <br>
@@ -307,3 +328,5 @@ public class Team {
 		return country + " - " + year;
 	}
 }
+	
+	

@@ -13,7 +13,6 @@ package uniandes.cupi2.album.world;
 
 import uniandes.cupi2.album.world.Card.CardType;
 
-import java.util.ArrayList;
 
 /**
  * Represents a card in the album.
@@ -199,7 +198,7 @@ public class Player {
 	public boolean pasteCard() {
 		boolean cardPasted = false;
 		String imageName = shirtNumber + "_" + name.replace(" ", "") + ".png";
-		if (!hasCard()) {
+		if(!hasCard()) {
 			card = new Card(CardType.PLAYER, imageName);
 			cardPasted = true;
 		}
@@ -213,7 +212,7 @@ public class Player {
 	 */
 	public boolean hasCard() {
 		boolean hasPlayerCard = false;
-		if (card != null)
+		if(card != null)
 			hasPlayerCard = true;
 		
 		return hasPlayerCard;

@@ -66,11 +66,11 @@ public class TeamTest {
 		assertTrue("List of players was not initialized.", team.getPlayers() != null);
 		assertTrue("The size of the players is not correct.", team.getPlayers().length
 				== Team.QUANTITY_OF_PLAYERS);
-		for (int i = 0; i < team.getPlayers().length; i++) {
+		for(int i = 0; i < team.getPlayers().length; i++) {
 			assertTrue("The default player position is not correct.",
 			           team.getPlayers()[i].getPosition() == Positions.UNKNOWN);
 		}
-		for (int i = 0; i < team.getPlayers().length; i++) {
+		for(int i = 0; i < team.getPlayers().length; i++) {
 			assertTrue("The shirt number is not correct.",
 			           team.getPlayers()[i].getShirtNumber() == -i);
 		}
@@ -88,7 +88,7 @@ public class TeamTest {
 	public void testFindPlayer() {
 		assertNull("There should not exist a player with this shirt number.",
 		           team.findPlayer(-50));
-		for (int i = 0; i < team.getPlayers().length; i++) {
+		for(int i = 0; i < team.getPlayers().length; i++) {
 			assertNotNull("The player should exist.",
 			              team.findPlayer(team.getPlayers()[i].getShirtNumber()));
 		}
@@ -165,7 +165,8 @@ public class TeamTest {
 	public void testPasteCrestCard() {
 		assertNull("Crest card should not exist since team was just created.",
 		           team.getCrestCard());
-		assertTrue("Card should have been pasted since it didn't have one.", team.pasteCrestCard());
+		assertTrue("Card should have been pasted since it didn't have one.", team.pasteCrestCard
+				());
 		assertNotNull("Card should exist since the card was pasted.", team.getCrestCard());
 		assertFalse("Card should not have been pasted since it was already pasted.",
 		            team.pasteCrestCard());
@@ -183,61 +184,65 @@ public class TeamTest {
 	@Test
 	public void testPastePlayerCard() {
 		Player player = team.getPlayers()[0];
-		assertNull("Player card should not exist since player was just created.", player.getCard());
+		assertNull("Player card should not exist since player was just created.", player.getCard
+				());
 		assertTrue("Card should have been pasted because it didn't have one.",
 		           team.pastePlayerCard(player.getShirtNumber()));
 		player = team.getPlayers()[0];
 		assertNotNull("Card should exist since the card was pasted.", player.getCard());
-		assertFalse("Card should not have been pasted since it was already pasted.", team.pastePlayerCard
-				(player.getShirtNumber()));
+		assertFalse("Card should not have been pasted since it was already pasted.", team
+				.pastePlayerCard
+						(player.getShirtNumber()));
 	}
 	
 	/**
-	 * <b>Test:</b> Verifies el method countCardsNotPasted.<br>
+	 * <b>Test:</b> Verifies the method countCardsNotPasted.<br>
 	 * <b>Methods to test:</b><br>
 	 * countCardsNotPasted<br>
 	 * <b>Test Cases:</b><br>
-	 * 1. Se cuentan todas las láminas al crear el álbum. <br>
-	 * 2. La cantidad de láminas se modifica al paste unas cuantas.
+	 * 1. All cards are counted upon creating a new team. <br>
+	 * 2. Quantity of cards is modified upon pasting a few.
 	 */
 	@Test
-	public void testContarCardsSinPaste() {
-		assertEquals("No debería estar pegada la lámina del escudo", team.countCardsNotPasted
+	public void testCountCardsNotPasted() {
+		assertEquals("Team card should not be pasted.", team.countCardsNotPasted
 				(CardType.TEAM), 1);
-		assertEquals("No debería estar pegada la lámina del team", team.countCardsNotPasted
+		assertEquals("Crest card should not be pasted.", team.countCardsNotPasted
 				(CardType.CREST), 1);
-		assertEquals("No debería estar pegada ninguna lámina de los playeres", team
-				.countCardsNotPasted(CardType.PLAYER), 12);
+		assertEquals("No player cards should be pasted.",
+		             team.countCardsNotPasted(CardType.PLAYER), 12);
 		team.pasteTeamCard();
 		team.pasteCrestCard();
 		team.pastePlayerCard(team.getPlayers()[0].getShirtNumber());
 		team.pastePlayerCard(team.getPlayers()[1].getShirtNumber());
-		assertEquals("Debería estar pegada la lámina del escudo", team.countCardsNotPasted
+		assertEquals("Team card should be pasted.", team.countCardsNotPasted
 				(CardType.TEAM), 0);
-		assertEquals("Debería estar pegada la lámina del team", team.countCardsNotPasted
+		assertEquals("Crest card should be pasted.", team.countCardsNotPasted
 				(CardType.CREST), 0);
-		assertEquals("Deberían estar pegadas 2 láminas de playeres", team.countCardsNotPasted
+		assertEquals("2 player cards should be pasted.", team.countCardsNotPasted
 				(CardType.PLAYER), 10);
 	}
 	
 	/**
-	 * <b>Test:</b> Verifies el method getMostCommonAge.<br>
+	 * <b>Test:</b> Verifies the method getMostCommonAge.<br>
 	 * <b>Methods to test:</b><br>
 	 * getMostCommonAge<br>
 	 * <b>Test Cases:</b><br>
-	 * 1. Se retorna la edad más común predeterminada. <br>
-	 * 2. Se modifica la nueva edad más común. Se obtiene esta edad.
+	 * 1. Returns the most common age predetermined.
+	 * <br>
+	 * 2. Most common age is modified that new age is obtained. S
 	 */
 	@Test
 	public void testDarMostCommonAge() {
-		assertTrue("La edad no es correcta", team.getMostCommonAge() == team.getYear() - 1990);
-		Player[] playeres = team.getPlayers();
-		for (int i = 0; i < playeres.length - 4; i++) {
-			Player player = playeres[i];
+		
+		assertTrue("The age is not correct.", team.getMostCommonAge() == team.getYear() - 1990);
+		Player[] players = team.getPlayers();
+		for(int i = 0; i < players.length - 4; i++) {
+			Player player = players[i];
 			team.modifyPlayer(player.getShirtNumber(), player.getShirtNumber(), player.getName()
 					, player.getPosition(), 1950, player.getHeight(), player.getWeight());
 		}
-		assertTrue("La edad no es correcta", team.getMostCommonAge() == team.getYear() - 1950);
+		assertTrue("The age is incorrect", team.getMostCommonAge() == team.getYear() - 1950);
 	}
 	
 }

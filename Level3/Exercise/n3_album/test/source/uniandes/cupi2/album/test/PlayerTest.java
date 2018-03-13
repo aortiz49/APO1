@@ -55,7 +55,7 @@ public class PlayerTest {
 	 * Player<br>
 	 * getShirtNumber<br>
 	 * getName<br>
-	 * getPositions<br>
+	 * getPosition<br>
 	 * getBirthYear<br>
 	 * getHeight<br>
 	 * getWeight<br>
@@ -78,7 +78,7 @@ public class PlayerTest {
 	 * modify<br>
 	 * getShirtNumber<br>
 	 * getName<br>
-	 * getPositions<br>
+	 * getPosition<br>
 	 * getBirthYear<br>
 	 * getHeight<br>
 	 * getWeight<br>
