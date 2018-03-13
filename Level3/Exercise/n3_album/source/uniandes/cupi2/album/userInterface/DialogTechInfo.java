@@ -59,7 +59,7 @@ public class DialogTechInfo extends JDialog {
 	/**
 	 * Campo de texto con la posicion del player.
 	 */
-	private JTextField txtPositions;
+	private JTextField txtPosition;
 	
 	// -----------------------------------------------------------------
 	// Constructors
@@ -114,13 +114,13 @@ public class DialogTechInfo extends JDialog {
 		txtWeight.setEditable(false);
 		panelInfo.add(txtWeight);
 		
-		JLabel lblPositions = new JLabel("Position: ");
-		panelInfo.add(lblPositions);
+		JLabel lblPosition = new JLabel("Position: ");
+		panelInfo.add(lblPosition);
 		String posicion = pPlayer.getPosition().toString().toLowerCase();
-		txtPositions = new JTextField(posicion.substring(0, 1).toUpperCase() + posicion.substring
+		txtPosition = new JTextField(posicion.substring(0, 1).toUpperCase() + posicion.substring
                 (1));
-		txtPositions.setEditable(false);
-		panelInfo.add(txtPositions);
+		txtPosition.setEditable(false);
+		panelInfo.add(txtPosition);
 		
 	}
 	

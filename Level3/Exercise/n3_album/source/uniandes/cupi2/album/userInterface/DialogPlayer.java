@@ -62,7 +62,7 @@ public class DialogPlayer extends JDialog
     /**
      * Campo de texto con la posicion del player.
      */
-    private JTextField txtPositions;
+    private JTextField txtPosition;
     
     /**
      * Campo de texto con el team del player.
@@ -140,11 +140,11 @@ public class DialogPlayer extends JDialog
         txtWeight.setEditable( false );
         panelInfo.add( txtWeight );
 
-        JLabel lblPositions = new JLabel( "Position: " );
-        panelInfo.add( lblPositions );
-        txtPositions = new JTextField( pPlayer.getPosition( ).toString( ).toLowerCase( ) );
-        txtPositions.setEditable( false );
-        panelInfo.add( txtPositions );
+        JLabel lblPosition = new JLabel( "Position: " );
+        panelInfo.add( lblPosition );
+        txtPosition = new JTextField( pPlayer.getPosition( ).toString( ).toLowerCase( ) );
+        txtPosition.setEditable( false );
+        panelInfo.add( txtPosition );
 
     }
 

@@ -24,9 +24,9 @@ public class Player {
 	// -----------------------------------------------------------------
 	
 	/**
-	 * Positions types.
+	 * Position types.
 	 */
-	public enum Positions {
+	public enum Position {
 		GOALKEEPER,
 		WINGER,
 		DEFENDER,
@@ -56,7 +56,7 @@ public class Player {
 	/**
 	 * Player's position.
 	 */
-	private Positions position;
+	private Position position;
 	
 	/**
 	 * Player's birth year.
@@ -84,14 +84,14 @@ public class Player {
 	 *
 	 * @param pShirtNumber Shirt number of the player. pShirtNumber > 0.
 	 * @param pName        Player's name. pName != null && pName !="".
-	 * @param pPosition    New player position.pPositions belongs to {Positions.GOALKEEPER,
-	 *                     Positions.DEFENDER,Positions.WINGER,Positions.STRIKER,
-	 *                     Positions.UNKNOWN}..
+	 * @param pPosition    New player position.pPosition belongs to {Position.GOALKEEPER,
+	 *                     Position.DEFENDER,Position.WINGER,Position.STRIKER,
+	 *                     Position.UNKNOWN}..
 	 * @param pBirthYear   Player's birth year. pBirthYear > 0.
 	 * @param pHeight      New player height. pHeight > 0.
 	 * @param pWeight      New player weight. pWeight > 0.
 	 */
-	public Player(int pShirtNumber, String pName, Positions pPosition, int pBirthYear,
+	public Player(int pShirtNumber, String pName, Position pPosition, int pBirthYear,
 	              double pHeight, double pWeight) {
 		shirtNumber = pShirtNumber;
 		name = pName;
@@ -124,7 +124,7 @@ public class Player {
 	 *
 	 * @return Player's position.
 	 */
-	public Positions getPosition() {
+	public Position getPosition() {
 		return position;
 	}
 	
@@ -171,14 +171,14 @@ public class Player {
 	 *
 	 * @param pShirtNumber Shirt number of the player. pShirtNumber > 0.
 	 * @param pName        Player's name. pName != null && pName !="".
-	 * @param pPosition    New player position.pPositions belongs to {Positions.GOALKEEPER,
-	 *                     Positions.DEFENDER,Positions.WINGER,Positions.STRIKER,
-	 *                     Positions.UNKNOWN}..
+	 * @param pPosition    New player position.pPosition belongs to {Position.GOALKEEPER,
+	 *                     Position.DEFENDER,Position.WINGER,Position.STRIKER,
+	 *                     Position.UNKNOWN}..
 	 * @param pBirthYear   Player's birth year. pBirthYear > 0.
 	 * @param pHeight      New player height. pHeight > 0.
 	 * @param pWeight      New player weight. pWeight > 0.
 	 */
-	public void modifyPlayer(int pShirtNumber, String pName, Positions pPosition, int pBirthYear,
+	public void modifyPlayer(int pShirtNumber, String pName, Position pPosition, int pBirthYear,
 	                         double pHeight, double pWeight) {
 		shirtNumber = pShirtNumber;
 		name = pName;

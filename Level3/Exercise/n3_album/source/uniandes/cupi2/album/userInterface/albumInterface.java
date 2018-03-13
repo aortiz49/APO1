@@ -23,7 +23,7 @@ import javax.swing.UIManager;
 import uniandes.cupi2.album.world.Album;
 import uniandes.cupi2.album.world.Team;
 import uniandes.cupi2.album.world.Player;
-import uniandes.cupi2.album.world.Player.Positions;
+import uniandes.cupi2.album.world.Player.Position;
 import uniandes.cupi2.album.world.Card.CardType;
 
 /**
@@ -215,15 +215,15 @@ public class albumInterface extends JFrame
      * @param pShirtNumber Número of the  shirt del player. pShirtNumber > 0.
      * @param pShirtNumberNueva Número nuevo of the  shirt del player. pShirtNumberNueva > 0.
      * @param pNameNuevo Name nuevo del player. pNameNuevo != null && pNameNuevo != "".
-     * @param pPositions Position nueva del player. pPositions != null && pPositions pertenece a {"GOALKEEPER","DEFENDER","WINGER","STRIKER","UNKNOWN"}.
+     * @param pPosition Position nueva del player. pPosition != null && pPosition pertenece a {"GOALKEEPER","DEFENDER","WINGER","STRIKER","UNKNOWN"}.
      * @param pBirthYear Year de nacimiento del player. pBirthYear > 0.
      * @param pHeight Height nueva del player. pHeight > 0.
      * @param pWeight Weight nuevo del player. pWeight > 0.
      * @return True si se modifico, False en caso contrario.
      */
-    public boolean modifyPlayer( String pCountry, int pYear, int pShirtNumber, int pShirtNumberNueva, String pNameNuevo, String pPositions, int pBirthYear, double pHeight, double pWeight )
+    public boolean modifyPlayer( String pCountry, int pYear, int pShirtNumber, int pShirtNumberNueva, String pNameNuevo, String pPosition, int pBirthYear, double pHeight, double pWeight )
     {
-        boolean response = world.modifyPlayer( pCountry, pYear, pShirtNumber, pShirtNumberNueva, pNameNuevo, getPosition( pPositions ), pBirthYear, pHeight, pWeight );
+        boolean response = world.modifyPlayer( pCountry, pYear, pShirtNumber, pShirtNumberNueva, pNameNuevo, getPosition( pPosition ), pBirthYear, pHeight, pWeight );
         if( response )
         {
             actualizar( );
@@ -366,28 +366,28 @@ public class albumInterface extends JFrame
     }
     /**
      * Retorna la posicion del player con el nombre dado.
-     * @param pPositions Name of the  posicion.
+     * @param pPosition Name of the  posicion.
      * @return Position con el nombre dado.
      */
-    private Positions getPosition( String pPositions )
+    private Position getPosition( String pPosition )
     {
-        Positions posicion;
-        switch( pPositions )
+        Position posicion;
+        switch( pPosition )
         {
             case "GOALKEEPER":
-                posicion = Positions.GOALKEEPER;
+                posicion = Position.GOALKEEPER;
                 break;
             case "DEFENDER":
-                posicion = Positions.DEFENDER;
+                posicion = Position.DEFENDER;
                 break;
             case "STRIKER":
-                posicion = Positions.STRIKER;
+                posicion = Position.STRIKER;
                 break;
             case "WINGER":
-                posicion = Positions.WINGER;
+                posicion = Position.WINGER;
                 break;
             default:
-                posicion = Positions.UNKNOWN;
+                posicion = Position.UNKNOWN;
                 break;
         }
         return posicion;

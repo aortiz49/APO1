@@ -13,7 +13,7 @@ package uniandes.cupi2.album.test;
 import org.junit.Test;
 
 import uniandes.cupi2.album.world.Player;
-import uniandes.cupi2.album.world.Player.Positions;
+import uniandes.cupi2.album.world.Player.Position;
 import uniandes.cupi2.album.world.Card.CardType;
 
 import static org.junit.Assert.assertEquals;
@@ -46,7 +46,7 @@ public class PlayerTest {
 	 */
 	@Before
 	public void setupScenario1() {
-		player = new Player(10, "Carlos Valderrama", Positions.STRIKER, 1961, 1.75, 70);
+		player = new Player(10, "Carlos Valderrama", Position.STRIKER, 1961, 1.75, 70);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class PlayerTest {
 	public void testPlayer() {
 		assertTrue("Incorrect shirt number.", player.getShirtNumber()	== 10);
 		assertTrue("Incorrect name.", player.getName().equals("Carlos Valderrama"));
-		assertTrue("Incorrect position.", player.getPosition() == Positions.STRIKER);
+		assertTrue("Incorrect position.", player.getPosition() == Position.STRIKER);
 		assertTrue("Incorrect birth year.", player.getBirthYear() == 1961);
 		assertTrue("Incorrect height.", player.getHeight() == 1.75);
 		assertTrue("Incorrect weight.", player.getWeight() == 70);
@@ -87,10 +87,10 @@ public class PlayerTest {
 	 */
 	@Test
 	public void testModifyPlayer() {
-		player.modifyPlayer(11, "Juan Guillermo Cuadrado", Positions.WINGER, 1988, 1.78, 71);
+		player.modifyPlayer(11, "Juan Guillermo Cuadrado", Position.WINGER, 1988, 1.78, 71);
 		assertTrue("Incorrect shirt number.", player.getShirtNumber() == 11);
 		assertTrue("Incorrect name.", player.getName().equals("Juan Guillermo Cuadrado"));
-		assertTrue("Incorrect position.", player.getPosition() == Positions.WINGER);
+		assertTrue("Incorrect position.", player.getPosition() == Position.WINGER);
 		assertTrue("Incorrect birth year.", player.getBirthYear() == 1988);
 		assertTrue("Incorrect height.", player.getHeight() == 1.78);
 		assertTrue("Incorrect weight.", player.getWeight() == 71);

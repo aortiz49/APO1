@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import uniandes.cupi2.album.world.Team;
 import uniandes.cupi2.album.world.Player;
-import uniandes.cupi2.album.world.Player.Positions;
+import uniandes.cupi2.album.world.Player.Position;
 import uniandes.cupi2.album.world.Card.CardType;
 
 import static org.junit.Assert.*;
@@ -68,7 +68,7 @@ public class TeamTest {
 				== Team.QUANTITY_OF_PLAYERS);
 		for(int i = 0; i < team.getPlayers().length; i++) {
 			assertTrue("The default player position is not correct.",
-			           team.getPlayers()[i].getPosition() == Positions.UNKNOWN);
+			           team.getPlayers()[i].getPosition() == Position.UNKNOWN);
 		}
 		for(int i = 0; i < team.getPlayers().length; i++) {
 			assertTrue("The shirt number is not correct.",
@@ -115,20 +115,20 @@ public class TeamTest {
 				            "already exists.",
 		            team.modifyPlayer(playerToModify1.getShirtNumber(),
 		                              playerToModify.getShirtNumber(), "New name",
-		                              Positions.GOALKEEPER, 1970, 1.80, 75));
+		                              Position.GOALKEEPER, 1970, 1.80, 75));
 		
 		assertTrue("Player should have been modified because a player with the specified new " +
 				           "shirt" +
 				           " number doesn't exist",
 		           team.modifyPlayer(playerToModify.getShirtNumber(), 25, "New Name",
-		                             Positions.GOALKEEPER, 1970, 1.80, 75));
+		                             Position.GOALKEEPER, 1970, 1.80, 75));
 		
 		assertTrue("Player should have been modified because player with the specified new shirt" +
 				           " " +
 				           "number exists and the new and old shirt numbers coincide.",
 		           team.modifyPlayer(playerToModify.getShirtNumber(),
 		                             playerToModify.getShirtNumber(), "New Name",
-		                             Positions.GOALKEEPER, 1970, 1.80, 75));
+		                             Position.GOALKEEPER, 1970, 1.80, 75));
 		
 	}
 	

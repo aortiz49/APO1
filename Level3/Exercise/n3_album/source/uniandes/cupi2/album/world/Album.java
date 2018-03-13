@@ -13,7 +13,7 @@ package uniandes.cupi2.album.world;
 
 import java.util.ArrayList;
 
-import uniandes.cupi2.album.world.Player.Positions;
+import uniandes.cupi2.album.world.Player.Position;
 import uniandes.cupi2.album.world.Card.CardType;
 
 /**
@@ -102,24 +102,9 @@ public class Album {
 	 * @return Player with the given characteristics. Null if player not found.
 	 */
 	public Player findPlayer(int pShirtNumber, String pCountry, int pYear) {
-		Player playerFound = null;
-		boolean isFound = false;
-		for(int i = 0; i < teams.size() && !isFound; i++) {
-			
-			String countryFound = teams.get(i).getCountry();
-			int yearFound = teams.get(i).getYear();
-			for(int j = 0; j < Team.QUANTITY_OF_PLAYERS && !isFound; j++) {
-				int shirtNumberFound = teams.get(i).getPlayers()[j].getShirtNumber();
-				if(shirtNumberFound == pShirtNumber && countryFound.equals(pCountry) &&
-						yearFound == pYear) {
-					playerFound = teams.get(i).getPlayers()[j];
-					isFound = true;
-				}
-				
-			}
-			
-		}
-		return playerFound;
+		
+		return teams.get(findTeam(pCountry, pYear)).findPlayer(pShirtNumber);
+		
 	}
 	
 	/**
@@ -160,9 +145,9 @@ public class Album {
 	 * @param pShirtNumber    Player's shirt number. pShirtNumber > 0.
 	 * @param pNewShirtNumber New shirt number. pNewShirtNumber > 0.
 	 * @param pName           New player name. pName != null && pName != "".
-	 * @param pPosition       New player position.pPositions belongs to {Positions.GOALKEEPER,
-	 *                        Positions.DEFENDER,Positions.WINGER,Positions.STRIKER,
-	 *                        Positions.UNKNOWN}.
+	 * @param pPosition       New player position.pPosition belongs to {Position.GOALKEEPER,
+	 *                        Position.DEFENDER,Position.WINGER,Position.STRIKER,
+	 *                        Position.UNKNOWN}.
 	 * @param pBirthYear      Player's birth year. pBirthYear > 0.
 	 * @param pHeight         New player height. pHeight > 0.
 	 * @param pWeight         New player weight. pWeight > 0.
@@ -170,10 +155,11 @@ public class Album {
 	 * @return True if player's values were modified, false if contrary.
 	 */
 	public boolean modifyPlayer(String pCountry, int pYear, int pShirtNumber, int
-			pNewShirtNumber, String pName, Positions pPosition, int pBirthYear, double
+			pNewShirtNumber, String pName, Position pPosition, int pBirthYear, double
 			                            pHeight, double pWeight) {
-
-		return teams.get(findTeam(pCountry, pYear)).modifyPlayer(pShirtNumber, pNewShirtNumber, pName,
+		
+		return teams.get(findTeam(pCountry, pYear)).modifyPlayer(pShirtNumber, pNewShirtNumber,
+		                                                         pName,
 		                                                         pPosition, pBirthYear, pHeight,
 		                                                         pWeight);
 	}
@@ -190,7 +176,7 @@ public class Album {
 	 * @return True if the card was pasted to the album, false if the card was already pasted.
 	 */
 	public boolean pasteTeamCard(String pCountry, int pYear) {
-
+		
 		return teams.get(findTeam(pCountry, pYear)).pasteTeamCard();
 	}
 	

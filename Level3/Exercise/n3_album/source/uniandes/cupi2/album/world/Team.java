@@ -11,7 +11,7 @@
 
 package uniandes.cupi2.album.world;
 
-import uniandes.cupi2.album.world.Player.Positions;
+import uniandes.cupi2.album.world.Player.Position;
 import uniandes.cupi2.album.world.Card.CardType;
 
 
@@ -86,7 +86,7 @@ public class Team {
 		players = new Player[QUANTITY_OF_PLAYERS];
 		
 		for(int i = 0; i < players.length; i++) {
-			players[i] = new Player(-(i+1), "Player" + Integer.toString(i+1), Positions.UNKNOWN,
+			players[i] = new Player(-(i+1), "Player" + Integer.toString(i+1), Position.UNKNOWN,
 			                        1990, 1.78, 65);
 			
 		}
@@ -230,17 +230,17 @@ public class Team {
 	 * @param pShirtNumber    Player's shirt number. pShirtNumber > 0.
 	 * @param pNewShirtNumber New shirt number. pNewShirtNumber > 0.
 	 * @param pName           New player name. pName != null && pName != "".
-	 * @param pPositions      New player position.pPositions belongs to {Positions.GOALKEEPER,
-	 *                        Positions.DEFENDER,Positions.WINGER,Positions.STRIKER,
-	 *                        Positions.UNKNOWN}.
+	 * @param pPosition      New player position.pPosition belongs to {Position.GOALKEEPER,
+	 *                        Position.DEFENDER,Position.WINGER,Position.STRIKER,
+	 *                        Position.UNKNOWN}.
 	 * @param pBirthYear      Player's birth year. pBirthYear > 0.
 	 * @param pHeight         New player height. pHeight > 0.
 	 * @param pWeight         New player weight. pWeight > 0.
 	 *
 	 * @return True if player's values were modified, false if contrary.
 	 */
-	public boolean modifyPlayer(int pShirtNumber, int pNewShirtNumber, String pName, Positions
-			pPositions, int pBirthYear, double pHeight, double pWeight) {
+	public boolean modifyPlayer(int pShirtNumber, int pNewShirtNumber, String pName, Position
+			pPosition, int pBirthYear, double pHeight, double pWeight) {
 		
 		// Set to true if a player is modified.
 		boolean playerModified = false;
@@ -248,7 +248,7 @@ public class Team {
 		Player playerToModify = findPlayer(pShirtNumber);
 		if((findPlayer(pNewShirtNumber) == null && pShirtNumber != pNewShirtNumber) ||
 				(findPlayer(pNewShirtNumber) != null && pShirtNumber == pNewShirtNumber)) {
-			playerToModify.modifyPlayer(pNewShirtNumber, pName, pPositions, pBirthYear, pHeight,
+			playerToModify.modifyPlayer(pNewShirtNumber, pName, pPosition, pBirthYear, pHeight,
 			                            pWeight);
 			playerModified = true;
 		}

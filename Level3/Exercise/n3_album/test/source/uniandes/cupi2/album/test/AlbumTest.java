@@ -16,7 +16,7 @@ import org.junit.Test;
 import uniandes.cupi2.album.world.Album;
 import uniandes.cupi2.album.world.Team;
 import uniandes.cupi2.album.world.Player;
-import uniandes.cupi2.album.world.Player.Positions;
+import uniandes.cupi2.album.world.Player.Position;
 import uniandes.cupi2.album.world.Card.CardType;
 
 import static org.junit.Assert.*;
@@ -143,7 +143,7 @@ public class AlbumTest {
 	@Test
 	public void testModifyPlayer() {
 		assertTrue("Debio modify el player", album.modifyPlayer("Colombia", 1990, -10, -10,
-		                                                        "Player", Positions.GOALKEEPER,
+		                                                        "Player", Position.GOALKEEPER,
 		                                                        1960, 1.72, 65));
 	}
 	

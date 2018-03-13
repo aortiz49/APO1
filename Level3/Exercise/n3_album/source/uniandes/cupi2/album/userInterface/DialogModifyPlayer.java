@@ -41,7 +41,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import uniandes.cupi2.album.world.Player;
-import uniandes.cupi2.album.world.Player.Positions;
+import uniandes.cupi2.album.world.Player.Position;
 
 /**
  * Panel que permite modificar la información de un jugador.
@@ -140,10 +140,12 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 	 * <b> post: </b> Todos los botones, etiquetas y campos de texto fueron inicializados y
 	 * ubicados. Se asignaron los atributos principal, jugador, pais y anio con los
 	 * parámetros dados.
+	 *
 	 * @param pInterfaz Interfaz principal de la aplicación. pInterfaz != null
-	 * @param pPais País al cual represento el jugador de la lámina. pPais != null && pPais != "".
-	 * @param pAnio Año en el cual el jugador de la lámina represento al país. pAnio > 0.
-	 * @param pJugador Jugador que se va a modificar. pJugador != null.
+	 * @param pPais     País al cual represento el jugador de la lámina. pPais != null && pPais !=
+	 *                    "".
+	 * @param pAnio     Año en el cual el jugador de la lámina represento al país. pAnio > 0.
+	 * @param pJugador  Jugador que se va a modificar. pJugador != null.
 	 */
 	public DialogModifyPlayer(albumInterface pInterfaz, String pPais, int pAnio, Player
 			pJugador) {
@@ -193,8 +195,8 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 		
 		JLabel lblPosition = new JLabel("Position: ");
 		panelGeneral.add(lblPosition);
-		cbPosition = new JComboBox<>(darPositions());
-		cbPosition.setSelectedItem(pJugador.getPosition());
+		cbPosition = new JComboBox<>(darPosition());
+		cbPosition.setSelectedItem(darPositionString(pJugador.getPosition().toString()));
 		panelGeneral.add(cbPosition);
 		
 		btnGuardar = new JButton("Guardar");
@@ -215,6 +217,7 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 	
 	/**
 	 * Manejo de eventos del usuario.
+	 *
 	 * @param pEvento Evento de usuario. pEvento != null.
 	 */
 	public void actionPerformed(ActionEvent pEvento) {
@@ -224,7 +227,8 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 				
 				String nombre = txtNombre.getText().trim();
 				if(nombre == null || nombre.equals("")) {
-					JOptionPane.showMessageDialog(this, "El nombre del jugador no puede ser vacio" +
+					JOptionPane.showMessageDialog(this, "El nombre del jugador no puede ser " +
+							"vacio" +
 							".", "Valor inválido", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
@@ -255,14 +259,15 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 				}
 				int numeroCamiseta = Integer.parseInt(txtCamiseta.getText());
 				if(numeroCamiseta <= 0) {
-					JOptionPane.showMessageDialog(this, "El número de camiseta ser un valor mayor " +
+					JOptionPane.showMessageDialog(this, "El número de camiseta ser un valor mayor" +
+							" " +
 							"a 0.", "Valor incorrecto", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
 				
 				if(principal.modifyPlayer(pais, anio, jugador.getShirtNumber(),
-				                              numeroCamiseta, nombre, cbPosition.getSelectedItem()
-						                              .toString(), anioNacimiento, altura, peso)) {
+				                          numeroCamiseta, nombre, cbPosition.getSelectedItem()
+						                          .toString(), anioNacimiento, altura, peso)) {
 					dispose();
 				}
 				
@@ -276,10 +281,11 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 	
 	/**
 	 * Retorna la lista de posiciones posibles.
+	 *
 	 * @return Retorna la lista de posiciones.
 	 */
-	public String[] darPositions() {
-		Positions[] posiciones = Positions.values();
+	public String[] darPosition() {
+		Position[] posiciones = Position.values();
 		String[] strPociciones = new String[posiciones.length];
 		for(int i = 0; i < strPociciones.length; i++) {
 			String posicion = posiciones[i].toString();
@@ -290,35 +296,39 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 	
 	/**
 	 * Retorna la posición del jugador con el nombre dado.
+	 *
 	 * @param pPosition Nombre de la posición.
+	 *
 	 * @return Posición con el nombre dado.
 	 */
-	/*
-	public Position darPosition(String pPosition) {
+	
+	public Position darPositionString(String pPosition) {
 		Position posicion;
 		switch(pPosition) {
-			case "ARQUERO":
-				posicion = Position.ARQUERO;
+			case "GOALKEEPER":
+				posicion = Position.GOALKEEPER;
 				break;
-			case "DEFENSA":
-				posicion = Position.DEFENSA;
+			case "DEFENDER":
+				posicion = Position.DEFENDER;
 				break;
-			case "DELANTERO":
-				posicion = Position.DELANTERO;
+			case "STRIKER":
+				posicion = Position.STRIKER;
 				break;
-			case "VOLANTE":
-				posicion = Position.VOLANTE;
+			case "WINGER":
+				posicion = Position.WINGER;
 				break;
 			default:
-				posicion = Position.DESCONCIDA;
+				posicion = Position.UNKNOWN;
 				break;
 		}
 		return posicion;
-	}*/
+	}
 	
 	/**
 	 * Indica si una cadena de caracteres es numérica.
+	 *
 	 * @param pCadena Cadena de caracteres que se va a validar. pCadena != null && pCadena != "".
+	 *
 	 * @return True si la cadena de caracteres es numérica, False en caso contrario.
 	 */
 	private boolean esNumerico(String pCadena) {
