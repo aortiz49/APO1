@@ -102,7 +102,7 @@ public class AlbumTest {
 	public void testFindTeam() {
 		assertEquals("No debio encontrar el team pues no existe", album.findTeam("Colombia", 1998)
 				, -1);
-		assertEquals("No encontro el team", album.findTeam("Colombia", 2014), 3);
+		assertEquals("No encontro el team", album.findTeam("Colombia", 2014), 0);
 		int indice = album.findTeam("Colombia", 2014);
 		assertTrue("El team encontrado no es correcto", album.getTeams().get(indice).getYear() ==
 				2014);
@@ -191,9 +191,9 @@ public class AlbumTest {
 	public void testPastePlayerCard() {
 		Player player = album.getTeams().get(0).getPlayers()[0];
 		assertTrue("Debio paste la lamina ya que no se tenia", album.pastePlayerCard(player
-				                                                                             .getShirtNumber(), "Colombia", 2018));
+				                                                                             .getShirtNumber(), "Colombia", 2014));
 		assertFalse("No debio paste la lamina pues ya estaba pegada", album.pastePlayerCard(player
-				                                                                                    .getShirtNumber(), "Colombia", 2018));
+				                                                                                    .getShirtNumber(), "Colombia", 2014));
 	}
 	
 	/**

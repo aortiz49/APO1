@@ -72,7 +72,7 @@ public class TeamTest {
 		}
 		for(int i = 0; i < team.getPlayers().length; i++) {
 			assertTrue("The shirt number is not correct.",
-			           team.getPlayers()[i].getShirtNumber() == -i);
+			           team.getPlayers()[i].getShirtNumber() == -(i+1));
 		}
 	}
 	

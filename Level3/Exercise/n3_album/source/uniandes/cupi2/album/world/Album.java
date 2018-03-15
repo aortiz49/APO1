@@ -102,8 +102,11 @@ public class Album {
 	 * @return Player with the given characteristics. Null if player not found.
 	 */
 	public Player findPlayer(int pShirtNumber, String pCountry, int pYear) {
+		Player playerFound = null;
+		if(findTeam(pCountry,pYear) != -1)
+			playerFound = teams.get(findTeam(pCountry, pYear)).findPlayer(pShirtNumber);
 		
-		return teams.get(findTeam(pCountry, pYear)).findPlayer(pShirtNumber);
+		return playerFound;
 		
 	}
 	
@@ -121,10 +124,13 @@ public class Album {
 	public boolean addTeam(String pCountry, int pYear) {
 		boolean teamAdded = false;
 		Team newTeam = new Team(pCountry, pYear);
-		if(!teams.contains(newTeam)) {
+		
+		
+		if(findTeam(pCountry, pYear) == -1) {
 			teams.add(newTeam);
 			teamAdded = true;
 		}
+		
 		
 		return teamAdded;
 		
@@ -215,7 +221,7 @@ public class Album {
 	 * Returns the mode of the players' ages given by country and year parameters. <br>
 	 * <b>pre: </b> The list of teams is initialized. Specified team exists.<br>
 	 *
-	 * @param pCountry Team's country. pCountry != null && pCountry != "".
+	 * @param pCountry Team's country. pCountcry != null && pCountry != "".
 	 * @param pYear    Year in which the team represented the country. pYear > 0.
 	 *
 	 * @return Most common age among the players of the searched team.
@@ -247,7 +253,8 @@ public class Album {
 		else
 			totalCards = teams.size() * Team.QUANTITY_OF_PLAYERS;
 		
-		percentage = (int)(100 - (cardsNotPasted / totalCards) * 100) * 100 / 100.0;
+		percentage = (int)((100 - (cardsNotPasted / totalCards) * 100) * 100) / 100.0;
+		
 		return percentage;
 	}
 	
@@ -261,7 +268,7 @@ public class Album {
 	 *
 	 * @return response1.
 	 */
-	public String metodo1() {
+	public String method1() {
 		return "Response 1";
 	}
 	
@@ -270,7 +277,7 @@ public class Album {
 	 *
 	 * @return response2.
 	 */
-	public String metodo2() {
+	public String method2() {
 		return "Response 2";
 	}
 	

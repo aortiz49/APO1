@@ -24,7 +24,7 @@ import java.awt.GridLayout;
 /**
  * Panel que contiene el boton lateral de navegacion.
  */
-public class PanelLateral extends JPanel implements ActionListener
+public class LateralPanel extends JPanel implements ActionListener
 {
 
     // -----------------------------------------------------------------
@@ -69,7 +69,7 @@ public class PanelLateral extends JPanel implements ActionListener
      * @param pUserInterface UserInterface principal of the  aplicacion. pUserInterface != null
      * @param pDireccion Direccion que representa el panel lateral. pDireccion != null && pDireccion pertenece a {ANTERIOR, SIGUIENTE}
      */
-    public PanelLateral( albumInterface pUserInterface, String pDireccion )
+    public LateralPanel( albumInterface pUserInterface, String pDireccion )
     {
         principal = pUserInterface;
 

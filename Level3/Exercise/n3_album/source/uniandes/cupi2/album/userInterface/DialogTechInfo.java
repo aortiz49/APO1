@@ -75,7 +75,7 @@ public class DialogTechInfo extends JDialog {
 	public DialogTechInfo(Player pPlayer) {
 		
 		setSize(400, 300);
-		setTitle("Tech Info");
+		setTitle("Technical Information");
 		
 		JPanel panelGeneral = new JPanel();
 		panelGeneral.setBorder(new EmptyBorder(10, 10, 10, 10));

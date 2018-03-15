@@ -14,16 +14,6 @@ package uniandes.cupi2.album.userInterface;
 
 import java.awt.Color;
 
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad  de  los Andes   (Bogotá - Colombia)
- * Departamento de  Ingeniería  de  Sistemas    y   Computación
- * Licenciado   bajo    el  esquema Academic Free License versión 2.1
- *
- * Proyecto Cupi2   (http://cupi2.uniandes.edu.co)
- * Ejercicio: n3_album
- * Autor: Equipo Cupi2 2018
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- */
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -56,12 +46,12 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 	/**
 	 * Comando para ejecutar la acción del botón btnGuardar.
 	 */
-	private final static String GUARDAR = "Guardar";
+	private final static String SAVE = "Save";
 	
 	/**
 	 * Comando para ejecutar la acción del botón btnCancelar.
 	 */
-	private final static String CANCELAR = "Cancelar";
+	private final static String CANCEL = "Cancel";
 	
 	// -----------------------------------------------------------------
 	// Atributos
@@ -143,7 +133,7 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 	 *
 	 * @param pInterfaz Interfaz principal de la aplicación. pInterfaz != null
 	 * @param pPais     País al cual represento el jugador de la lámina. pPais != null && pPais !=
-	 *                    "".
+	 *                  "".
 	 * @param pAnio     Año en el cual el jugador de la lámina represento al país. pAnio > 0.
 	 * @param pJugador  Jugador que se va a modificar. pJugador != null.
 	 */
@@ -156,38 +146,38 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 		anio = pAnio;
 		
 		setSize(400, 300);
-		setTitle("Modificar Jugador");
+		setTitle("Modify Player");
 		
 		JPanel panelGeneral = new JPanel();
 		add(panelGeneral);
 		panelGeneral.setLayout(new GridLayout(7, 2, 0, 5));
 		panelGeneral.setBorder(new EmptyBorder(10, 10, 10, 10));
 		
-		JLabel lblCamiseta = new JLabel("Número de camiseta:");
+		JLabel lblCamiseta = new JLabel("Shirt number:");
 		panelGeneral.add(lblCamiseta);
 		txtCamiseta = new JTextField(pJugador.getShirtNumber() + "");
 		txtCamiseta.setEditable(true);
 		panelGeneral.add(txtCamiseta);
 		
-		JLabel lblNombre = new JLabel("Nombre:");
+		JLabel lblNombre = new JLabel("Name:");
 		panelGeneral.add(lblNombre);
 		txtNombre = new JTextField(pJugador.getName());
 		txtNombre.setEditable(true);
 		panelGeneral.add(txtNombre);
 		
-		JLabel lblAnioNacimiento = new JLabel("Año de nacimiento: ");
+		JLabel lblAnioNacimiento = new JLabel("Birth year: ");
 		panelGeneral.add(lblAnioNacimiento);
 		txtAnioNacimiento = new JTextField(pJugador.getBirthYear() + "");
 		txtAnioNacimiento.setEditable(true);
 		panelGeneral.add(txtAnioNacimiento);
 		
-		JLabel lblAltura = new JLabel("Altura: ");
+		JLabel lblAltura = new JLabel("Height: ");
 		panelGeneral.add(lblAltura);
 		txtAltura = new JTextField(pJugador.getHeight() + "");
 		txtAltura.setEditable(true);
 		panelGeneral.add(txtAltura);
 		
-		JLabel lblPeso = new JLabel("Peso: ");
+		JLabel lblPeso = new JLabel("Weight: ");
 		panelGeneral.add(lblPeso);
 		txtPeso = new JTextField(pJugador.getWeight() + "");
 		txtPeso.setEditable(true);
@@ -196,16 +186,17 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 		JLabel lblPosition = new JLabel("Position: ");
 		panelGeneral.add(lblPosition);
 		cbPosition = new JComboBox<>(darPosition());
-		cbPosition.setSelectedItem(darPositionString(pJugador.getPosition().toString()));
+		cbPosition.setSelectedItem(pJugador.getPosition());
+		//cbPosition.setSelectedItem(pJugador.getPosition());
 		panelGeneral.add(cbPosition);
 		
-		btnGuardar = new JButton("Guardar");
-		btnGuardar.setActionCommand(GUARDAR);
+		btnGuardar = new JButton("Save");
+		btnGuardar.setActionCommand(SAVE);
 		btnGuardar.addActionListener(this);
 		panelGeneral.add(btnGuardar);
 		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setActionCommand(CANCELAR);
+		btnCancelar = new JButton("Cancel");
+		btnCancelar.setActionCommand(CANCEL);
 		btnCancelar.addActionListener(this);
 		panelGeneral.add(btnCancelar);
 		
@@ -223,45 +214,45 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 	public void actionPerformed(ActionEvent pEvento) {
 		String comando = pEvento.getActionCommand();
 		switch(comando) {
-			case GUARDAR:
+			case SAVE:
 				
 				String nombre = txtNombre.getText().trim();
 				if(nombre == null || nombre.equals("")) {
-					JOptionPane.showMessageDialog(this, "El nombre del jugador no puede ser " +
-							"vacio" +
-							".", "Valor inválido", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "The player's name cannot be empty. "
+							, "Invalid value", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
 				if(!esNumerico(txtAnioNacimiento.getText())) {
-					JOptionPane.showMessageDialog(this, "El año de nacimiento debe ser un valor " +
-							"numérico entero.", "Valor no númerico", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "The year of birth must be an integer " +
+							                              "value. "
+							, "Invalid value", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
 				int anioNacimiento = Integer.parseInt(txtAnioNacimiento.getText());
 				if(!esNumerico(txtAltura.getText())) {
-					JOptionPane.showMessageDialog(this, "La altura debe ser un valor numérico.",
-					                              "Valor no númerico", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "The height must be numeric.",
+					                              "Value is not numeric", JOptionPane
+							                              .ERROR_MESSAGE);
 					break;
 				}
 				double altura = Double.parseDouble(txtAltura.getText());
 				
 				if(!esNumerico(txtPeso.getText())) {
-					JOptionPane.showMessageDialog(this, "El peso debe ser un valor numérico.",
-					                              "Valor no númerico", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "The weight must be numeric.",
+					                              "Value is not numeric", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
 				double peso = Double.parseDouble(txtPeso.getText());
 				
 				if(!esNumerico(txtCamiseta.getText())) {
-					JOptionPane.showMessageDialog(this, "El número de camiseta ser un valor " +
-							"numérico.", "Valor no númerico", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "The shirt number must be numeric. "
+							, "Value is not numeric", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
 				int numeroCamiseta = Integer.parseInt(txtCamiseta.getText());
 				if(numeroCamiseta <= 0) {
-					JOptionPane.showMessageDialog(this, "El número de camiseta ser un valor mayor" +
-							" " +
-							"a 0.", "Valor incorrecto", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "The shirt number must be > 0.",
+					                              "Incorrect value", JOptionPane.ERROR_MESSAGE);
 					break;
 				}
 				
@@ -272,7 +263,7 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 				}
 				
 				break;
-			case CANCELAR:
+			case CANCEL:
 				dispose();
 				break;
 			
@@ -288,41 +279,13 @@ public class DialogModifyPlayer extends JDialog implements ActionListener {
 		Position[] posiciones = Position.values();
 		String[] strPociciones = new String[posiciones.length];
 		for(int i = 0; i < strPociciones.length; i++) {
-			String posicion = posiciones[i].toString();
-			strPociciones[i] = posicion;
+			String posicion = posiciones[i].toString().toLowerCase();
+			strPociciones[i] = posicion.substring(0, 1).toUpperCase() +
+					posicion.substring(1);
 		}
 		return strPociciones;
 	}
 	
-	/**
-	 * Retorna la posición del jugador con el nombre dado.
-	 *
-	 * @param pPosition Nombre de la posición.
-	 *
-	 * @return Posición con el nombre dado.
-	 */
-	
-	public Position darPositionString(String pPosition) {
-		Position posicion;
-		switch(pPosition) {
-			case "GOALKEEPER":
-				posicion = Position.GOALKEEPER;
-				break;
-			case "DEFENDER":
-				posicion = Position.DEFENDER;
-				break;
-			case "STRIKER":
-				posicion = Position.STRIKER;
-				break;
-			case "WINGER":
-				posicion = Position.WINGER;
-				break;
-			default:
-				posicion = Position.UNKNOWN;
-				break;
-		}
-		return posicion;
-	}
 	
 	/**
 	 * Indica si una cadena de caracteres es numérica.

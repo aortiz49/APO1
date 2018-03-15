@@ -45,17 +45,17 @@ public class PanelCard extends JPanel implements ActionListener
     /**
      * Comando para ejecutar la accion del boton btnCard.
      */
-    private static final String PEGAR_LAMINA = "PEGAR LÁMINA";
+    private static final String PEGAR_LAMINA = "PASTE CARD";
 
     /**
      * Comando para ejecutar la accion del boton btnTechInfo.
      */
-    private static final String FICHA_TECNICA = "FICHA TÉCNICA";
+    private static final String FICHA_TECNICA = "TECHNICAL INFO";
 
     /**
      * Comando para ejecutar la accion del boton btnModify.
      */
-    private static final String MODIFICAR = "MODIFICAR";
+    private static final String MODIFICAR = "MODIFY";
 
     // -----------------------------------------------------------------
     // Attributes
@@ -128,8 +128,8 @@ public class PanelCard extends JPanel implements ActionListener
         setOpaque( false );
         setBorder( null );
 
-        JPanel panelOpciones = new JPanel( new GridLayout( 2, 1 ) );
-        add( panelOpciones, BorderLayout.SOUTH );
+        JPanel panelOptions = new JPanel( new GridLayout( 2, 1 ) );
+        add( panelOptions, BorderLayout.SOUTH );
 
         lblNamePlayer = new JLabel( player.getName( ) );
         lblNamePlayer.setHorizontalAlignment( JLabel.CENTER );
@@ -149,15 +149,15 @@ public class PanelCard extends JPanel implements ActionListener
 
         add( btnCard, BorderLayout.CENTER );
 
-        btnTechInfo = new JButton( "Ficha tecnica" );
+        btnTechInfo = new JButton( "Tech. Info." );
         btnTechInfo.setActionCommand( FICHA_TECNICA );
         btnTechInfo.addActionListener( this );
-        panelOpciones.add( btnTechInfo );
+        panelOptions.add( btnTechInfo );
 
         btnModify = new JButton( "Modify" );
         btnModify.setActionCommand( MODIFICAR );
         btnModify.addActionListener( this );
-        panelOpciones.add( btnModify );
+        panelOptions.add( btnModify );
 
     }
 

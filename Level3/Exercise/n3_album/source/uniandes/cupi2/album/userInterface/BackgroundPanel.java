@@ -20,7 +20,7 @@ import java.awt.Graphics;
  * Panel que contiene el fondo y todos los elementos.
  */
 @SuppressWarnings("serial")
-public class PanelFondo extends JPanel
+public class BackgroundPanel extends JPanel
 {
     // -----------------------------------------------------------------
     // Attributes of the  userInterface
@@ -39,7 +39,7 @@ public class PanelFondo extends JPanel
      * Construye el panel con el fondo del album. <br>
      * <b>post:</b> Se crea el panel con el fondo del album.
      */
-    public PanelFondo( )
+    public BackgroundPanel( )
     {
         fondo = new ImageIcon("./data/images/background.png");
     }

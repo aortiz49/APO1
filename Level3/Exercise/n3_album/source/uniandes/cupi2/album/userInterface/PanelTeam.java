@@ -49,12 +49,12 @@ public class PanelTeam extends JPanel implements ActionListener
     /**
      * Comando para ejecutar la accion del boton lamina crest.
      */
-    private static final String LAMINA_CREST = "LÁMINA CREST";
+    private static final String LAMINA_CREST = "CREST CARD";
 
     /**
      * Comando para ejecutar la accion del boton lamina team.
      */
-    private static final String LAMINA_TEAM = "LÁMINA TEAM";
+    private static final String LAMINA_TEAM = "TEAM CARD";
 
     // -----------------------------------------------------------------
     // Attributes
@@ -116,12 +116,12 @@ public class PanelTeam extends JPanel implements ActionListener
         JPanel panelCrestCard = new JPanel( new BorderLayout( ) );
         panelCrestCard.setBorder( null );
         panelCrestCard.setOpaque( false );
-        JPanel panelTeamCard = new JPanel( new BorderLayout( ) );
-        panelTeamCard.setBorder( null );
-        panelTeamCard.setOpaque( false );
+        JPanel teamPanelCard = new JPanel( new BorderLayout( ) );
+        teamPanelCard.setBorder( null );
+        teamPanelCard.setOpaque( false );
 
         panelSuperior.add( panelCrestCard, BorderLayout.WEST );
-        panelSuperior.add( panelTeamCard, BorderLayout.EAST );
+        panelSuperior.add( teamPanelCard, BorderLayout.EAST );
         add( panelSuperior, BorderLayout.NORTH );
         JPanel panelPlayers = new JPanel( new GridLayout( NUM_FILAS, NUM_COLUMNAS, 15, 15 ) );
         panelPlayers.setOpaque( false );
@@ -139,7 +139,7 @@ public class PanelTeam extends JPanel implements ActionListener
         btnCrestCard.setFont( new Font( new JLabel().getFont( ).getFontName( ), Font.BOLD, 16 ) );
         panelCrestCard.add( btnCrestCard, BorderLayout.WEST );
 
-        JLabel lblEscudo = new JLabel( "Escudo" );
+        JLabel lblEscudo = new JLabel( "Crest" );
         lblEscudo.setHorizontalAlignment( JLabel.CENTER );
         lblEscudo.setForeground( Color.WHITE );
         lblEscudo.setFont( new Font( new JLabel().getFont( ).getFontName( ), Font.BOLD, 13 ) );
@@ -161,13 +161,13 @@ public class PanelTeam extends JPanel implements ActionListener
         btnTeamCard.setHorizontalTextPosition( JLabel.CENTER );
         btnTeamCard.setForeground( Color.WHITE );
         btnTeamCard.setFont( new Font( new JLabel().getFont( ).getFontName( ), Font.BOLD, 16 ) );
-        panelTeamCard.add( btnTeamCard, BorderLayout.CENTER );
+        teamPanelCard.add( btnTeamCard, BorderLayout.CENTER );
 
         JLabel lblTeam = new JLabel( "Team" );
         lblTeam.setForeground( Color.WHITE );
         lblTeam.setFont( new Font( new JLabel().getFont( ).getFontName( ), Font.BOLD, 13 ) );
         lblTeam.setHorizontalAlignment( JLabel.CENTER );
-        panelTeamCard.add( lblTeam, BorderLayout.SOUTH );
+        teamPanelCard.add( lblTeam, BorderLayout.SOUTH );
 
         lblCards = new PanelCard[NUM_FILAS][NUM_COLUMNAS];
         int indice = 0;

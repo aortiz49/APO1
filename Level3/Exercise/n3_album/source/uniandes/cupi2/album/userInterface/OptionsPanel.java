@@ -22,7 +22,7 @@ import javax.swing.JPanel;
  * Panel con las opciones generales.
  */
 @SuppressWarnings("serial")
-public class PanelOpciones extends JPanel implements ActionListener
+public class OptionsPanel extends JPanel implements ActionListener
 {
 
     // -----------------------------------------------------------------
@@ -42,12 +42,12 @@ public class PanelOpciones extends JPanel implements ActionListener
     /**
      * Comando para ejecutar la accion del boton btnMostCommonAge.
      */
-    private static final String EDAD_MAS_COMUN = "EDAD MAS COMÚN";
+    private static final String EDAD_MAS_COMUN = "MOST COMMON AGE";
 
     /**
      * Comando para ejecutar la accion del boton btnEstadisticas.
      */
-    private static final String ESTADISTICAS = "ESTADISTICAS";
+    private static final String ESTADISTICAS = "STATISTICS";
 
     /**
      * Comando para ejecutar la accion del boton btnFindPlayer.
@@ -57,12 +57,12 @@ public class PanelOpciones extends JPanel implements ActionListener
     /**
      * Comando para ejecutar la accion del boton btnOpcion1.
      */
-    private static final String OPCION_1 = "OPCIÓN 1";
+    private static final String OPCION_1 = "OPTION 1";
 
     /**
      * Comando para ejecutar la accion del boton btnOpcion2.
      */
-    private static final String OPCION_2 = "OPCIÓN 2";
+    private static final String OPCION_2 = "OPTION 2";
 
     // -----------------------------------------------------------------
     // Attributes
@@ -121,7 +121,7 @@ public class PanelOpciones extends JPanel implements ActionListener
      * <b>post:</b> Todos los botones fueron inicializados. Se asigno el atributo principal con el valor dado por parametro.
      * @param pUserInterface UserInterface principal of the  aplicacion. pUserInterface != null
      */
-    public PanelOpciones( albumInterface pUserInterface )
+    public OptionsPanel( albumInterface pUserInterface )
     {
 
         principal = pUserInterface;
@@ -138,27 +138,27 @@ public class PanelOpciones extends JPanel implements ActionListener
         btnFindPlayer.addActionListener( this );
         add( btnFindPlayer );
 
-        btnFindTeams = new JButton( "Teams por año" );
+        btnFindTeams = new JButton( "Teams by year" );
         btnFindTeams.setActionCommand( FIND_TEAM );
         btnFindTeams.addActionListener( this );
         add( btnFindTeams );
 
-        btnMostCommonAge = new JButton( "Edad mas común" );
+        btnMostCommonAge = new JButton( "Most common age" );
         btnMostCommonAge.setActionCommand( EDAD_MAS_COMUN );
         btnMostCommonAge.addActionListener( this );
         add( btnMostCommonAge );
 
-        btnEstadisticas = new JButton( "Estadisticas" );
+        btnEstadisticas = new JButton( "Statistics" );
         btnEstadisticas.setActionCommand( ESTADISTICAS );
         btnEstadisticas.addActionListener( this );
         add( btnEstadisticas );
 
-        btnOpcion1 = new JButton( "Opcion 1" );
+        btnOpcion1 = new JButton( "Option 1" );
         btnOpcion1.setActionCommand( OPCION_1 );
         btnOpcion1.addActionListener( this );
         add( btnOpcion1 );
 
-        btnOpcion2 = new JButton( "Opcion 2" );
+        btnOpcion2 = new JButton( "Option 2" );
         btnOpcion2.setActionCommand( OPCION_2 );
         btnOpcion2.addActionListener( this );
         add( btnOpcion2 );
