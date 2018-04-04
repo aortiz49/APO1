@@ -160,13 +160,13 @@ public class albumInterface extends JFrame {
 	}
 	
 	/**
-	 * Pega la lamina del player del team con el número de shirt dado.<br>
+	 * Pega la lamina del player del team con el nï¿½mero de shirt dado.<br>
 	 * <b>pre: </b> El player existe.<br>
 	 * <b>post: </b>Se pego la lamina del player.
 	 *
 	 * @param pCountry     Country del team. pCountry != null && pCountry != "".
 	 * @param pYear        Year en el cual el team represento al pais. pYear > 0.
-	 * @param pShirtNumber Número of the  shirt del player. pShirtNumber > 0.
+	 * @param pShirtNumber Nï¿½mero of the  shirt del player. pShirtNumber > 0.
 	 */
 	public void pastePlayerCard(String pCountry, int pYear, int pShirtNumber) {
 		if(world.pastePlayerCard(pShirtNumber, pCountry, pYear)) {
@@ -217,8 +217,8 @@ public class albumInterface extends JFrame {
 	 *
 	 * @param pCountry          Country del team. pCountry != null && pCountry != "".
 	 * @param pYear             Year en el cual el team represento al pais. pYear > 0.
-	 * @param pShirtNumber      Número of the  shirt del player. pShirtNumber > 0.
-	 * @param pShirtNumberNueva Número nuevo of the  shirt del player. pShirtNumberNueva > 0.
+	 * @param pShirtNumber      Nï¿½mero of the  shirt del player. pShirtNumber > 0.
+	 * @param pShirtNumberNueva Nï¿½mero nuevo of the  shirt del player. pShirtNumberNueva > 0.
 	 * @param pNameNuevo        Name nuevo del player. pNameNuevo != null && pNameNuevo != "".
 	 * @param pPosition         Position nueva del player. pPosition != null && pPosition
 	 *                          pertenece a
@@ -245,7 +245,7 @@ public class albumInterface extends JFrame {
 	}
 	
 	/**
-	 * Agrega al album un team que represento a un pais en un año dado.<br>
+	 * Agrega al album un team que represento a un pais en un aï¿½o dado.<br>
 	 * <b>post: </b>Si fue posible, se agrego el team.
 	 *
 	 * @param pCountry Country al cual represento el team. pCountry != null && pCountry != "".
@@ -267,12 +267,12 @@ public class albumInterface extends JFrame {
 	}
 	
 	/**
-	 * Muestra el dialogo para ingresar un año y muestra los teams de ese año.
+	 * Muestra el dialogo para ingresar un aï¿½o y muestra los teams de ese aï¿½o.
 	 */
 	public void findTeamsPorYear() {
 		
 		String input = JOptionPane.showInputDialog(this, "Enter year to search", "Find " +
-				"teams" + " by año", JOptionPane.QUESTION_MESSAGE);
+				"teams" + " by aï¿½o", JOptionPane.QUESTION_MESSAGE);
 		try {
 			int year = Integer.parseInt(input);
 			ArrayList<Team> teams = world.findTeamsByYear(year);
@@ -294,7 +294,7 @@ public class albumInterface extends JFrame {
 	 * <b>post: </b>Si el player existe, navega hasta el team y muestra la ficha tecnica del
 	 * player.
 	 *
-	 * @param pShirt   Número of the  shirt del player. pShirt > 0.
+	 * @param pShirt   Nï¿½mero of the  shirt del player. pShirt > 0.
 	 * @param pCountry Country del team. pCountry != null && pCountry != "".
 	 * @param pYear    Year en el cual el team represento al pais. pYear > 0.
 	 */
@@ -315,7 +315,7 @@ public class albumInterface extends JFrame {
 	}
 	
 	/**
-	 * Muestra el dialogo para conocer la edad mas común de un team del albúm.
+	 * Muestra el dialogo para conocer la edad mas comï¿½n de un team del albï¿½m.
 	 */
 	public void mostrarMostCommonAge() {
 		Object[] teams = world.getTeams().toArray();

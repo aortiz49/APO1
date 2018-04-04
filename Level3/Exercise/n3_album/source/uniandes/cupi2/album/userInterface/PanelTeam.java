@@ -37,12 +37,12 @@ public class PanelTeam extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Constante que representa el número de filas of the  matriz de playeres.
+     * Constante que representa el numero de filas of the  matriz de playeres.
      */
     private static final int NUM_FILAS = 2;
 
     /**
-     * Constante que representa el número de columnas of the  matriz de playeres.
+     * Constante que representa el numero de columnas of the  matriz de playeres.
      */
     private static final int NUM_COLUMNAS = 6;
 
@@ -75,7 +75,7 @@ public class PanelTeam extends JPanel implements ActionListener
     // -----------------------------------------------------------------
 
     /**
-     * Label que contiene el nombre y el año del team.
+     * Label que contiene el nombre y el auo del team.
      */
     private JLabel lblTituloTeam;
 

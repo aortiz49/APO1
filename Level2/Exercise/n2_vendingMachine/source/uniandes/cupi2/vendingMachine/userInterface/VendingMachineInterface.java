@@ -274,8 +274,8 @@ public class VendingMachineInterface extends JFrame {
 	 * Shows dialog showing FOPRE donation.
 	 */
 	public void showDialogFopreInformation() {
-		int foodQuantity = (vendingMachine.getQuantityOfFopreUnitsAvailable(Types.FOOD));
-		int drinkQuantity = vendingMachine.getQuantityOfFopreUnitsAvailable(Types.DRINK);
+		int foodQuantity = (vendingMachine.getQuantityOfFopreUnitsPurchased(Types.FOOD));
+		int drinkQuantity = vendingMachine.getQuantityOfFopreUnitsPurchased(Types.DRINK);
 		double foodDonation = vendingMachine.getDonationsPerType(Types.FOOD);
 		double drinkDonation = vendingMachine.getDonationsPerType(Types.DRINK);
 		double totalDonation = vendingMachine.getTotalDonations();

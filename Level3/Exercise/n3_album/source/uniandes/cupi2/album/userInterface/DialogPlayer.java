@@ -46,7 +46,7 @@ public class DialogPlayer extends JDialog {
 	private JTextField txtName;
 	
 	/**
-	 * Campo de texto con el año de nacimiento del player.
+	 * Campo de texto con el aï¿½o de nacimiento del player.
 	 */
 	private JTextField txtBirthYear;
 	

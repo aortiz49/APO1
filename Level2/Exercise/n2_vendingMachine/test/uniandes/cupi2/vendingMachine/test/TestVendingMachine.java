@@ -292,9 +292,9 @@ public class TestVendingMachine {
 		System.out.println("Fopre donations for DRINK: " +
 			                   newMachine.getDonationsPerType(Product.Types.DRINK));
 		System.out.println("Total quantity of Fopre units available for FOOD: " + newMachine
-			.getQuantityOfFopreUnitsAvailable(Product.Types.FOOD));
+			.getQuantityOfFopreUnitsPurchased(Product.Types.FOOD));
 		System.out.println("Total quantity of Fopre units available for DRINK: " + newMachine
-			.getQuantityOfFopreUnitsAvailable(Product.Types.DRINK));
+			.getQuantityOfFopreUnitsPurchased(Product.Types.DRINK));
 		System.out.println("Total donations: " + newMachine.getTotalDonations());
 		System.out.println("\n===================================================");
 		
