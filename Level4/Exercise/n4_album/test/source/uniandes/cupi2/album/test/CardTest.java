@@ -32,7 +32,7 @@ public class CardTest {
 	// -----------------------------------------------------------------
 	
 	/**
-	 * Card on which the tests will be done.
+	 * Card on which the tests will be executed.
 	 */
 	private Card card;
 	
