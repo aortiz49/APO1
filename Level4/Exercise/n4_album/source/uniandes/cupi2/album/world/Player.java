@@ -226,11 +226,17 @@ public class Player {
 		return hasPlayerCard;
 	}
 	
+	/**
+	 * Changes the status of favorite for a player card. <br>
+	 * <b> post: </b> If the card was a favorite, it changes to not being a favorite and vice
+	 * versa.  <br>
+	 * @throws Exception if there is no player card pasted.
+	 */
 	public void changeFavorite() throws Exception {
 		if (hasCard())
 			card.changeFavorite();
 		else
-			throw new Exception("There is no card pasted.");
+			throw new Exception("There is no player card pasted.");
 		
 	}
 	

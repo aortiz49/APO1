@@ -242,13 +242,13 @@ public class Team {
 	 */
 	private int countFavoriteCards() {
 		int favoriteCards = 0;
-		if (teamCard.isFavorite())
+		if (teamCard != null && teamCard.isFavorite())
 			favoriteCards++;
-		if (crestCard.isFavorite())
+		if (crestCard != null && crestCard.isFavorite())
 			favoriteCards++;
 		
 		for (Player player : players) {
-			if (player.getCard().isFavorite())
+			if (player.getCard() != null && player.getCard().isFavorite())
 				favoriteCards++;
 		}
 		
@@ -266,8 +266,7 @@ public class Team {
 	public void changeFavoriteTeam() throws Exception {
 		if (countFavoriteCards() == MAX_FAVORITES &&
 			teamCard != null && !teamCard.isFavorite()) {
-			throw new Exception("The team has already already reached the max limit of favorite " +
-				                    "cards");
+			throw new Exception("The team has already reached the max limit of favorite cards.");
 		} else if (teamCard != null)
 			teamCard.changeFavorite();
 		else
@@ -346,8 +345,9 @@ public class Team {
 	 *                   shirt number already belongs to another player.
 	 *                   If there is an attempt to modify a player that already has a card pasted.
 	 */
-	public void modifyPlayer(int pShirtNumber, int pNewShirtNumber, String pName, Position
-		pPosition, int pBirthYear, double pHeight, double pWeight) throws Exception {
+	public void modifyPlayer(int pShirtNumber, int pNewShirtNumber, String pName,
+	                         Position pPosition, int pBirthYear, double pHeight, double pWeight)
+		throws Exception {
 		int numGoalkeepers = countPlayersPosition(Position.GOALKEEPER);
 		int numDefenders = countPlayersPosition(Position.DEFENDER);
 		int numStrikers = countPlayersPosition(Position.STRIKER);
@@ -372,6 +372,12 @@ public class Team {
 			throw new Exception("Error when modifying player " + playerToModify.getName() + ":" +
 				                    " The new shirt number is assigned to another player.");
 		else
+			// If the new and old shirt numbers are the same, and a player with the new shirt
+			// doesn't exist.
+			// If the new and old shirt numbers are the same, and a player with the new shirt
+			// number does exist.
+			// If the new and old shirt numbers are different, and a player with the new shirt
+			// number doesn't exist.
 			playerToModify.modifyPlayer(pNewShirtNumber, pName, pPosition, pBirthYear, pHeight,
 			                            pWeight);
 		
@@ -416,12 +422,10 @@ public class Team {
 		int larger = 0;
 		int mostCommonAge = 0;
 		
-		// Create array that holds all the player's ages.
-		for (int i = 0; i < players.length; i++) {
-			ages[i] = year - players[i].getBirthYear();
-		}
 		// Store frequency of each value in another array.
-		for (int i = 0; i < ages.length; i++) {
+		for (int i = 0; i < players.length; i++) {
+			// Create array that holds all the player's ages.
+			ages[i] = year - players[i].getBirthYear();
 			int count = 0; // Reset the count for every iteration.
 			for (int j = 0; j < ages.length; j++) {
 				if (ages[i] == ages[j])

@@ -57,7 +57,7 @@ public class CardTest {
 	 * getCardType<br>
 	 * isFavorite<br>
 	 * <b>Test cases:</b><br>
-	 * Card information is returned.
+	 * Tests if the card is was properly and returns all the information correctly.
 	 */
 	@Test
 	public void testCard() {

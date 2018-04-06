@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 
 /**
- * Test class for Player.
+ * Test class for the player.
  */
 public class PlayerTest {
 	
@@ -59,7 +59,7 @@ public class PlayerTest {
 	 * getWeight<br>
 	 * getCard<br>
 	 * <b>Test cases:</b><br>
-	 * Tests if the player is created properly and returns all the information correctly.
+	 * Tests if the player was created properly and returns all the information correctly.
 	 */
 	@Test
 	public void testPlayer() {
