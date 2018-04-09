@@ -94,22 +94,22 @@ public class TeamPanel extends JPanel implements ActionListener {
 	/**
 	 * Button that contains the crest card.
 	 */
-	private JButton cardBtnEscudo;
+	private JButton crestCardBtn;
 	
 	/**
 	 * Button to mark the crest as a favorite card.
 	 */
-	private JButton favoriteBtnEscudo;
+	private JButton favoriteCrestBtn;
 	
 	/**
 	 * Button that contains the team card.
 	 */
-	private JButton cardBtnTeam;
+	private JButton teamCardBtn;
 	
 	/**
 	 * Button to mark the team as a favorite card.
 	 */
-	private JButton favoriteBtnTeam;
+	private JButton favoriteTeamBtn;
 	
 	/**
 	 * Matrix containing the panels with the player cards.
@@ -135,50 +135,50 @@ public class TeamPanel extends JPanel implements ActionListener {
 		setLayout(new BorderLayout(0, 10));
 		JPanel superiorPanel = new JPanel(new BorderLayout());
 		superiorPanel.setOpaque(false);
-		JPanel panelCardEscudo = new JPanel(new BorderLayout());
-		panelCardEscudo.setBorder(null);
-		panelCardEscudo.setOpaque(false);
+		JPanel panelCardCrest = new JPanel(new BorderLayout());
+		panelCardCrest.setBorder(null);
+		panelCardCrest.setOpaque(false);
 		JPanel panelCardTeam = new JPanel(new BorderLayout());
 		panelCardTeam.setBorder(null);
 		panelCardTeam.setOpaque(false);
 		
-		superiorPanel.add(panelCardEscudo, BorderLayout.WEST);
+		superiorPanel.add(panelCardCrest, BorderLayout.WEST);
 		superiorPanel.add(panelCardTeam, BorderLayout.EAST);
 		add(superiorPanel, BorderLayout.NORTH);
 		JPanel playersPanel = new JPanel(new GridLayout(NUM_ROWS, NUM_COLUMNS, 15, 15));
 		playersPanel.setOpaque(false);
 		add(playersPanel, BorderLayout.CENTER);
 		
-		cardBtnEscudo = new JButton("Paste");
-		cardBtnEscudo.setActionCommand(CREST_CARD);
-		cardBtnEscudo.addActionListener(this);
-		cardBtnEscudo.setContentAreaFilled(false);
-		cardBtnEscudo.setBorder(null);
-		cardBtnEscudo.setIcon(new ImageIcon("./data/images/toPasteCrest.png"));
-		cardBtnEscudo.setPreferredSize(new Dimension(105, 105));
-		cardBtnEscudo.setHorizontalTextPosition(JLabel.CENTER);
-		cardBtnEscudo.setForeground(Color.WHITE);
-		cardBtnEscudo.setFont(new Font(new JLabel().getFont().getFontName(), Font.BOLD, 16));
-		panelCardEscudo.add(cardBtnEscudo, BorderLayout.WEST);
+		crestCardBtn = new JButton("Paste");
+		crestCardBtn.setActionCommand(CREST_CARD);
+		crestCardBtn.addActionListener(this);
+		crestCardBtn.setContentAreaFilled(false);
+		crestCardBtn.setBorder(null);
+		crestCardBtn.setIcon(new ImageIcon("./data/images/toPasteCrest.png"));
+		crestCardBtn.setPreferredSize(new Dimension(105, 105));
+		crestCardBtn.setHorizontalTextPosition(JLabel.CENTER);
+		crestCardBtn.setForeground(Color.WHITE);
+		crestCardBtn.setFont(new Font(new JLabel().getFont().getFontName(), Font.BOLD, 16));
+		panelCardCrest.add(crestCardBtn, BorderLayout.WEST);
 		
 		JPanel escudo = new JPanel();
 		escudo.setOpaque(false);
 		escudo.setLayout(new BorderLayout());
-		panelCardEscudo.add(escudo, BorderLayout.SOUTH);
+		panelCardCrest.add(escudo, BorderLayout.SOUTH);
 		
-		JLabel lblEscudo = new JLabel("Escudo");
-		lblEscudo.setHorizontalAlignment(JLabel.CENTER);
-		lblEscudo.setForeground(Color.WHITE);
-		lblEscudo.setFont(new Font(new JLabel().getFont().getFontName(), Font.BOLD, 13));
-		escudo.add(lblEscudo, BorderLayout.CENTER);
+		JLabel lblCrest = new JLabel("Crest");
+		lblCrest.setHorizontalAlignment(JLabel.CENTER);
+		lblCrest.setForeground(Color.WHITE);
+		lblCrest.setFont(new Font(new JLabel().getFont().getFontName(), Font.BOLD, 13));
+		escudo.add(lblCrest, BorderLayout.CENTER);
 		
-		favoriteBtnEscudo = new JButton();
-		favoriteBtnEscudo.setIcon(new ImageIcon("./data/images/off.png"));
-		favoriteBtnEscudo.setActionCommand(FAVORITE_CREST);
-		favoriteBtnEscudo.addActionListener(this);
-		favoriteBtnEscudo.setContentAreaFilled(false);
-		favoriteBtnEscudo.setBorder(null);
-		escudo.add(favoriteBtnEscudo, BorderLayout.EAST);
+		favoriteCrestBtn = new JButton();
+		favoriteCrestBtn.setIcon(new ImageIcon("./data/images/off.png"));
+		favoriteCrestBtn.setActionCommand(FAVORITE_CREST);
+		favoriteCrestBtn.addActionListener(this);
+		favoriteCrestBtn.setContentAreaFilled(false);
+		favoriteCrestBtn.setBorder(null);
+		escudo.add(favoriteCrestBtn, BorderLayout.EAST);
 		
 		teamTitleLbl = new JLabel(team.getCountry() + " - " + team.getYear());
 		teamTitleLbl.setFont(new Font("Tahoma", Font.BOLD, 40));
@@ -186,17 +186,17 @@ public class TeamPanel extends JPanel implements ActionListener {
 		teamTitleLbl.setForeground(new Color(220, 232, 255));
 		superiorPanel.add(teamTitleLbl, BorderLayout.CENTER);
 		
-		cardBtnTeam = new JButton("Paste");
-		cardBtnTeam.setActionCommand(TEAM_CARD);
-		cardBtnTeam.addActionListener(this);
-		cardBtnTeam.setContentAreaFilled(false);
-		cardBtnTeam.setBorder(null);
-		cardBtnTeam.setIcon(new ImageIcon("./data/images/toPasteTeam.png"));
-		cardBtnTeam.setPreferredSize(new Dimension(150, 100));
-		cardBtnTeam.setHorizontalTextPosition(JLabel.CENTER);
-		cardBtnTeam.setForeground(Color.WHITE);
-		cardBtnTeam.setFont(new Font(new JLabel().getFont().getFontName(), Font.BOLD, 16));
-		panelCardTeam.add(cardBtnTeam, BorderLayout.CENTER);
+		teamCardBtn = new JButton("Paste");
+		teamCardBtn.setActionCommand(TEAM_CARD);
+		teamCardBtn.addActionListener(this);
+		teamCardBtn.setContentAreaFilled(false);
+		teamCardBtn.setBorder(null);
+		teamCardBtn.setIcon(new ImageIcon("./data/images/toPasteTeam.png"));
+		teamCardBtn.setPreferredSize(new Dimension(150, 100));
+		teamCardBtn.setHorizontalTextPosition(JLabel.CENTER);
+		teamCardBtn.setForeground(Color.WHITE);
+		teamCardBtn.setFont(new Font(new JLabel().getFont().getFontName(), Font.BOLD, 16));
+		panelCardTeam.add(teamCardBtn, BorderLayout.CENTER);
 		
 		JPanel teamP = new JPanel();
 		teamP.setOpaque(false);
@@ -209,13 +209,13 @@ public class TeamPanel extends JPanel implements ActionListener {
 		lblTeam.setHorizontalAlignment(JLabel.CENTER);
 		teamP.add(lblTeam, BorderLayout.CENTER);
 		
-		favoriteBtnTeam = new JButton();
-		favoriteBtnTeam.setIcon(new ImageIcon("./data/images/off.png"));
-		favoriteBtnTeam.setActionCommand(FAVORITE_TEAM);
-		favoriteBtnTeam.setContentAreaFilled(false);
-		favoriteBtnTeam.setBorder(null);
-		favoriteBtnTeam.addActionListener(this);
-		teamP.add(favoriteBtnTeam, BorderLayout.EAST);
+		favoriteTeamBtn = new JButton();
+		favoriteTeamBtn.setIcon(new ImageIcon("./data/images/off.png"));
+		favoriteTeamBtn.setActionCommand(FAVORITE_TEAM);
+		favoriteTeamBtn.setContentAreaFilled(false);
+		favoriteTeamBtn.setBorder(null);
+		favoriteTeamBtn.addActionListener(this);
+		teamP.add(favoriteTeamBtn, BorderLayout.EAST);
 		
 		playerCards = new CardPanel[NUM_ROWS][NUM_COLUMNS];
 		int index = 0;
@@ -255,42 +255,42 @@ public class TeamPanel extends JPanel implements ActionListener {
 			ImageIcon icon = new ImageIcon("./data/images/" + team.getCountry() + "/" + team
 				.getYear() + "/" + team.getTeamCard().getImageName());
 			
-			cardBtnTeam.setText("");
-			cardBtnTeam.setBorderPainted(false);
-			cardBtnTeam.setContentAreaFilled(false);
-			cardBtnTeam.setIcon(icon);
+			teamCardBtn.setText("");
+			teamCardBtn.setBorderPainted(false);
+			teamCardBtn.setContentAreaFilled(false);
+			teamCardBtn.setIcon(icon);
 			if (team.getTeamCard().isFavorite()) {
-				favoriteBtnTeam.setIcon(new ImageIcon("./data/images/on.png"));
+				favoriteTeamBtn.setIcon(new ImageIcon("./data/images/on.png"));
 			} else {
-				favoriteBtnTeam.setIcon(new ImageIcon("./data/images/off.png"));
+				favoriteTeamBtn.setIcon(new ImageIcon("./data/images/off.png"));
 			}
 		} else {
-			cardBtnTeam.setText("Paste");
-			cardBtnTeam.setBorderPainted(false);
-			cardBtnTeam.setContentAreaFilled(false);
-			cardBtnTeam.setIcon(new ImageIcon("./data/images/toPasteTeam.png"));
-			favoriteBtnTeam.setIcon(new ImageIcon("./data/images/off.png"));
+			teamCardBtn.setText("Paste");
+			teamCardBtn.setBorderPainted(false);
+			teamCardBtn.setContentAreaFilled(false);
+			teamCardBtn.setIcon(new ImageIcon("./data/images/toPasteTeam.png"));
+			favoriteTeamBtn.setIcon(new ImageIcon("./data/images/off.png"));
 		}
 		
 		if (team.getCrestCard() != null) {
 			ImageIcon icon = new ImageIcon("./data/images/" + team.getCountry() + "/" + team
 				.getYear() + "/" + team.getCrestCard().getImageName());
 			
-			cardBtnEscudo.setText("");
-			cardBtnEscudo.setBorderPainted(false);
-			cardBtnEscudo.setContentAreaFilled(false);
-			cardBtnEscudo.setIcon(icon);
+			crestCardBtn.setText("");
+			crestCardBtn.setBorderPainted(false);
+			crestCardBtn.setContentAreaFilled(false);
+			crestCardBtn.setIcon(icon);
 			if (team.getCrestCard().isFavorite()) {
-				favoriteBtnEscudo.setIcon(new ImageIcon("./data/images/on.png"));
+				favoriteCrestBtn.setIcon(new ImageIcon("./data/images/on.png"));
 			} else {
-				favoriteBtnEscudo.setIcon(new ImageIcon("./data/images/off.png"));
+				favoriteCrestBtn.setIcon(new ImageIcon("./data/images/off.png"));
 			}
 		} else {
-			cardBtnEscudo.setText("Paste");
-			cardBtnEscudo.setBorderPainted(false);
-			cardBtnEscudo.setContentAreaFilled(false);
-			cardBtnEscudo.setIcon(new ImageIcon("./data/images/toPasteCrest.png"));
-			favoriteBtnEscudo.setIcon(new ImageIcon("./data/images/off.png"));
+			crestCardBtn.setText("Paste");
+			crestCardBtn.setBorderPainted(false);
+			crestCardBtn.setContentAreaFilled(false);
+			crestCardBtn.setIcon(new ImageIcon("./data/images/toPasteCrest.png"));
+			favoriteCrestBtn.setIcon(new ImageIcon("./data/images/off.png"));
 		}
 		
 		teamTitleLbl.setText(team.getCountry() + " - " + team.getYear());
