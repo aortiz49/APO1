@@ -1,0 +1,20 @@
+/**
+     * Construye una nueva lámina.<br>
+     * <b> post: </b> Se inicializaron los atributos nombreImagen y tipo con los valores recibidos por parámetro. <br>
+     * La lámina se inicializó como no favorita.<br>
+     * @param pTipo Tipo de lámina. pTipo pertenece a {Tipo.JUGADOR, Tipo.ESCUDO, Tipo.EQUIPO}.
+     * @param pNombreImagen Nombre de la imagen. pNombreImagen != null && pNombreImagen != "".
+     */
+     // TODO Parte 1 Punto 3: Modificar el método constructor para que cumpla con el contrato.
+
+/**
+     * Indica si la lámina es una favorita.
+     * @return True si la lámina es favorita, false de lo contrario.
+     */
+    // TODO Parte 1 Punto 4: Implementar el método esFavorita.
+    
+    // TODO: Parte 1 Punto 5: Definir el contrato del método cambiarFavorita.
+    public void cambiarFavorita()
+    {
+        favorita = !favorita;
+    }

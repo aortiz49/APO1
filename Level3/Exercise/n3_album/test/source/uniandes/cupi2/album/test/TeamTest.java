@@ -10,6 +10,7 @@
  */
 package uniandes.cupi2.album.test;
 
+
 import org.junit.Test;
 
 import uniandes.cupi2.album.world.Team;

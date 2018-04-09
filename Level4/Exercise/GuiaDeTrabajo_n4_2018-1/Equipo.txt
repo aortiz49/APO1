@@ -1,0 +1,117 @@
+/**
+     * Modifica los datos del jugador con el número de camiseta especificado por parámetro. <br>
+     * <b>pre: </b> El arreglo de jugadores está inicializado. El jugador a modificar existe.<br>
+     * <b>post: </b>Si el número de camiseta no cambió o no existía un jugador con el nuevo número de camiseta, se modificó la información del jugador.
+     * @param pNumeroCamiseta Número de camiseta del jugador. Existe un jugador con este número de camiseta.
+     * @param pNumeroCamisetaNuevo Nuevo número de camiseta del jugador. pNumeroCamisetaNuevo > 0.
+     * @param pNombre Nuevo nombre del jugador. pNombre != null && pNombre != "".
+     * @param pPosicion Nueva posición del jugador. pPosicion pertenece a {Posicion.ARQUERO,Posicion.DEFENSA,Posicion.VOLANTE,Posicion.DELANTERO,Posicion.DESCONOCIDA}.
+     * @param pAnioNacimiento Nuevo año de nacimiento del jugador. pAnioNacimiento > 0.
+     * @param pAltura Nueva altura del jugador. pAltura > 0.
+     * @param pPeso Nuevo peso del jugador. pPeso > 0.
+     * @throws Exception Si se ha alcanzado la cantidad máxima de arqueros en el equipo.
+     *                   Si se ha alcanzado la cantidad máxima de defensas en el equipo.
+     *                   Si se ha alcanzado la cantidad máxima de delanteros en el equipo.
+     *                   Si se intenta cambiar el número de camiseta del jugador por un nuevo número, pero el nuevo número de camiseta ya pertenece a otro jugador.
+     *                   Si se intenta modificar un jugador que ya tiene lámina.
+     */
+
+//TODO Parte 3 Punto 4: Modificar el método modificarJugador para que cumpla con el contrato.
+
+
+
+
+
+
+
+/**
+     * Pega la lámina del equipo.<br>
+     * <b>post: </b> Si no existía la lámina, se inicializó la lámina del equipo de tipo EQUIPO y con el nombre de la imagen correspondiente.
+     * @throws Exception Si la lámina ya se encontraba pegada.
+     */
+
+//TODO Parte 3 Punto 5: Modificar el método pegarLaminaEquipo para que cumpla con el contrato.
+
+
+
+
+
+/**
+     * Pega la lámina del escudo.<br>
+     * <b>post: </b> Si no existía la lámina, se inicializó la lámina del escudo de tipo ESCUDO y con el nombre de la imagen correspondiente.
+     * @throws Exception Si la lámina ya se encontraba pegada.
+     */
+
+    //TODO Parte 3 Punto 6: Modificar el método pegarLaminaEscudo para que cumpla con el contrato.
+
+
+
+
+/**
+     * Pega la lámina del jugador que tiene el número de camiseta recibido por parámetro.<br>
+     * <b>pre: </b>El arreglo con los jugadores está inicializado.<br>
+     * <b>post: </b> Si no existía la lámina, se pegó la lámina del jugador correspondiente.
+     * @param pNumeroCamiseta Número de la camiseta del jugador.
+     * @throws Exception Si la lámina ya se encontraba pegada.
+     */
+
+    //TODO Parte 3 Punto 7: Modificar el método pegarLaminaJugador para que cumpla con el contrato.
+
+    //TODO Parte 3 Punto 9: Definir el contrato del método cambiarFavoritaEquipo.    
+    public void cambiarFavoritaEquipo( ) throws Exception
+    {
+        if(contarLaminasFavoritas( ) == MAX_FAVORITAS && laminaEquipo != null && !laminaEquipo.esFavorita( ))
+        {
+            throw new Exception("Ya tiene la cantidad máxima de láminas favoritas permitida en el equipo.");
+        }
+        else
+        {
+            if(laminaEquipo != null)
+            {
+                laminaEquipo.cambiarFavorita( );
+            }
+            else
+            {
+                throw new Exception("No se tiene la lámina del equipo.");
+            }
+        }
+    }
+    
+    //TODO Parte 3 Punto 10: Definir el contrato del método cambiarFavoritaEscudo.    
+    public void cambiarFavoritaEscudo( ) throws Exception
+    {        
+        if(contarLaminasFavoritas( ) == MAX_FAVORITAS && laminaEscudo != null && !laminaEscudo.esFavorita( ))
+        {
+            throw new Exception("Ya tiene la cantidad máxima de láminas favoritas permitida en el equipo.");
+        }
+        else
+        {
+            if(laminaEscudo != null)
+            {
+                laminaEscudo.cambiarFavorita( );
+            }
+            else
+            {
+                throw new Exception("No se tiene la lámina del escudo.");
+            }
+        }
+    }
+    
+    //TODO Parte 3 Punto 11: Definir el contrato del método cambiarFavoritaJugador.    
+    public void cambiarFavoritaJugador(int pNumeroCamiseta) throws Exception
+    {
+        if(contarLaminasFavoritas( ) == MAX_FAVORITAS && buscarJugador( pNumeroCamiseta ).darLamina( ) != null && !buscarJugador( pNumeroCamiseta ).darLamina( ).esFavorita( ))
+        {
+            throw new Exception("Ya tiene la cantidad máxima de láminas favoritas permitida en el equipo.");
+        }
+        else
+        {
+            for(Jugador jugador: jugadores)
+            {
+                if(jugador.darNumeroCamiseta( ) == pNumeroCamiseta)
+                {
+                    jugador.cambiarFavorita( );
+                } 
+            }
+        }
+    }

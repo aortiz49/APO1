@@ -246,9 +246,7 @@ public class Team {
 		boolean playerModified = false;
 		
 		Player playerToModify = findPlayer(pShirtNumber);
-		if(playerToModify != null && ((findPlayer(pNewShirtNumber) == null && pShirtNumber !=
-				pNewShirtNumber) ||
-				(findPlayer(pNewShirtNumber) != null && pShirtNumber == pNewShirtNumber))) {
+		if((findPlayer(pNewShirtNumber) == null && pShirtNumber != pNewShirtNumber) || (findPlayer(pNewShirtNumber) != null && pShirtNumber == pNewShirtNumber)) {
 			playerToModify.modifyPlayer(pNewShirtNumber, pName, pPosition, pBirthYear, pHeight,
 			                            pWeight);
 			playerModified = true;
@@ -256,6 +254,8 @@ public class Team {
 		
 		return playerModified;
 	}
+
+	
 	
 	/**
 	 * Returns the quantity of cards yet to be pasted of a card type given by the parameter.

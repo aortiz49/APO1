@@ -1,0 +1,107 @@
+//TODO Parte 4 Punto 2: Definir el contrato del atributo reporte.    
+    
+private ArrayList<String> reporte;
+
+/**
+     * Construye un nuevo álbum.<br>
+     * <b>post: </b> Se inicializó el vector de equipos vacío. <br>
+     * Se inicializó vacío el vector de cadenas de caracteres del reporte.
+     */
+//TODO Parte 4 Punto 3: Modificar el método constructor para que cumpla con el contrato.
+
+//TODO Parte 4 Punto 4: Definir el contrato del método darReporte. 
+public ArrayList<String> darReporte( )
+    {
+        return reporte;
+    }
+
+/**
+     * Modifica los datos del jugador con el número de camiseta dada, que pertenece al equipo con el país y el año recibidos por parámetro. <br>
+     * <b>pre: </b> El vector de equipos está inicializado. Existe el equipo y el jugador especificados.<br>
+     * <b>post: </b> Se modificó la información del jugador. Si no se pudo modificar, se registró la razón en el reporte.
+     * @param pPais País al cual represento el equipo. pPais != null && pPais != "".
+     * @param pAnio Año en el cual represento el equipo al país. pAnio > 0.
+     * @param pNumeroCamiseta Número de camiseta del jugador.
+     * @param pNumeroCamisetaNuevo Número de camiseta nueva del jugador. pNumeroCamisetaNuevo > 0.
+     * @param pNombre Nombre nuevo del jugador, pNombre != null && pNombre != "".
+     * @param pPosicion Posición nueva del jugador. pPosicion pertenece a { Posicion.ARQUERO,Posicion.DEFENSA,Posicion.VOLANTE,Posicion.DELANTERO,Posicion.DESCONOCIDA}.
+     * @param pAnioNacimiento Año de nacimiento del jugador. pAnioNacimiento > 0.
+     * @param pAltura Altura nueva del jugador. pAltura > 0.
+     * @param pPeso Peso nuevo del jugador. pPeso > 0.
+     * @throws Exception Si se alcanzó la cantidad máxima de arqueros en el equipo. <br>
+     *                   Si se alcanzó la cantidad máxima de defensas en el equipo. <br>
+     *                   Si se alcanzó la cantidad máxima de delanteros en el equipo. <br>
+     *                   Si se intentó cambiar el número de camiseta del jugador por un nuevo número, pero el nuevo número de camiseta ya pertenece a otro jugador. <br>
+     *                   Si se intentó modificar un jugador que tiene lámina.
+     */
+
+    //TODO Parte 4 Punto 5: Modificar el método modificarJugador para que cumpla con el contrato.
+
+/**
+     * Pega la lámina del equipo con el país y el año recibidos por parámetro.<br>
+     * <b>pre: </b> El vector de equipos está inicializado. Existe el equipo especificado.<br>
+     * <b>post: </b> Se pegó la lámina del equipo.
+     * @param pPais País del equipo. pPais != null && pPais != "".
+     * @param pAnio Año en el que el equipo representó al país. pAnio > 0.
+     * @throws Exception Si la lámina ya se encontraba pegada.
+     */
+
+//TODO Parte 4 Punto 6: Modificar el método pegarLaminaEquipo para que cumpla con el contrato.
+
+/**
+     * Pega la lámina del escudo del equipo que represento al país dado en el año dado.<br>
+     * <b>pre: </b> El vector de equipos está inicializado. Existe el equipo especificado.<br>
+     * <b>post: </b> Se pegó la lámina del escudo del equipo.
+     * @param pPais País del equipo. pPais != null && pPais != "".
+     * @param pAnio Año en el que el equipo representó al país. pAnio > 0.
+     * @throws Exception Si la lámina ya se encontraba pegada.
+     */
+
+//TODO Parte 4 Punto 7: Modificar el método pegarLaminaEscudo para que cumpla con el contrato.
+
+/**
+     * Pega la lámina del jugador especificado por su número de camiseta.<br>
+     * <b>pre: </b> El vector de equipos está inicializado. El equipo y el jugador especificados existen.<br>
+     * <b>post: </b> Se pegó la lámina del jugador.
+     * @param pNumeroCamiseta Número de camiseta del jugador.
+     * @param pPais País del equipo. pPais != null && pPais != "".
+     * @param pAnio Año en el que el equipo representó al país. pAnio > 0.
+     * @throws Exception Si la lámina ya se encontraba pegada.
+     */
+
+//TODO Parte 4 Punto 8: Modificar el método pegarLaminaJugador para que cumpla con el contrato.
+
+/**
+     * Marca o desmarca en un equipo la lámina del equipo como favorita. <br>
+     * <b>post: </b> Si la lámina estaba marcada como favorita ya no lo está. Si no lo estaba ahora lo está.
+     * @param pPais País del equipo. pPais != null && pPais != "".
+     * @param pAnio Año en el que el equipo represento al país. pAnio > 0.
+     * @throws Exception Si no se tiene la lámina del equipo. <br>
+     *                   Si se alcanzó la cantidad máxima de láminas favoritas permitidas en el equipo.
+     */
+
+//TODO Parte 4 Punto 9: Implementar el método marcarFavoritaEquipo para que cumpla con las condiciones establecidas en el contrato.
+
+/**
+     * Marca o desmarca en un equipo la lámina del escudo como favorita. <br>
+     * <b>post: </b> Si la lámina estaba marcada como favorita ya no lo está. Si no lo estaba ahora lo está.
+     * @param pPais País del equipo. pPais != null && pPais != "".
+     * @param pAnio Año en el que el equipo represento al país. pAnio > 0.
+     * @throws Exception Si no se tiene la lámina del escudo. <br>
+     *                   Si se alcanzó la cantidad máxima de láminas favoritas permitidas en el equipo.
+     */
+
+//TODO Parte 4 Punto 10: Implementar el método marcarFavoritaEscudo para que cumpla con las condiciones establecidas en el contrato.
+
+/**
+     * Marca o desmarca en un equipo la lámina del jugador especificado como favorita. <br>
+     * <b>post: </b> Si la lámina estaba marcada como favorita ya no lo está. Si no lo estaba
+     * ahora lo está.
+     * @param pPais País del equipo. pPais != null && pPais != "".
+     * @param pAnio Año en el que el equipo represento al país. pAnio > 0.
+     * @param pNumeroCamiseta Número de camiseta del jugador.
+     * @throws Exception Si no se tiene la lámina del jugador. <br>
+     *                   Si se alcanzó la cantidad máxima de láminas favoritas permitidas en el equipo.
+     */
+
+//TODO Parte 4 Punto 11: Implementar el método marcarFavoritaJugador para que cumpla con las condiciones establecidas en el contrato.

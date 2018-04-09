@@ -1,0 +1,36 @@
+/**
+     * Modifica los datos del jugador.
+     * <b>post: </b> Se ha modificado la información del jugador.
+     * @param pNumeroCamiseta Nuevo número de camiseta del jugador. pNumeroCamiseta > 0.
+     * @param pNombre Nuevo nombre del jugador. pNombre != null && pNombre != "".
+     * @param pPosicion Nueva posición del jugador. pPosicion pertenece a {Posicion.ARQUERO, Posicion.DEFENSA, Posicion.VOLANTE, Posicion.DELANTERO,
+     *        Posicion.DESCONOCIDA}.
+     * @param pAnioNacimiento Nuevo año de nacimiento del jugador. pAnioNacimiento > 0.
+     * @param pAltura Nueva altura del jugador. pAltura > 0.
+     * @param pPeso Nuevo peso del jugador. pPeso > 0.
+     * @throws Exception Si el jugador tiene una lámina.
+     */
+
+//TODO Parte 2 Punto 3: Modificar el método modificar para que cumpla con el contrato.
+
+/**
+     * Pega la lámina del jugador al álbum.<br>
+     * <b>post: </b>Si no existía la lámina, se creó la lámina de tipo JUGADOR, con el nombre de imagen correspondiente.
+     * @throws Exception Si la lámina ya se encontraba pegada.
+     */
+
+//TODO Parte 2 Punto 4: Modificar el método pegarLamina para que cumpla con el contrato.
+
+
+//TODO Parte 2 Punto 5: Definir el contrato del método cambiarFavorita.
+public void cambiarFavorita() throws Exception
+    {
+        if(tieneLamina( ))
+        {
+            lamina.cambiarFavorita( );
+        }
+        else
+        {
+            throw new Exception("No hay lámina pegada.");
+        }
+    }

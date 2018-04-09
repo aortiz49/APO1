@@ -97,8 +97,8 @@ public class Team {
 	 * parameters. <br>
 	 * List of players was initialized and players were created with the default values. <br>
 	 *
-	 * @param pCountry Team's country. pCountry != null && pCountry != "".
-	 * @param pYear    Year in which the team represented the country. pYear > 0.
+	 * @param pCountry Team's country. pCountry != null &amp;&amp;  pCountry != "".
+	 * @param pYear    Year in which the team represented the country. pYear &gt; 0.
 	 */
 	public Team(String pCountry, int pYear) {
 		country = pCountry;
@@ -154,9 +154,9 @@ public class Team {
 	}
 	
 	/**
-	 * Returns the array containing the players on the team.
+	 * Returns the array that contains the players on the team.
 	 *
-	 * @return Array containing team players.
+	 * @return Array that contains team players.
 	 */
 	public Player[] getPlayers() {
 		return players;
@@ -166,7 +166,7 @@ public class Team {
 	 * Returns a player with the shirt number given by the parameter.
 	 * <b>pre: </b> The list of teams is initialized. <br>
 	 *
-	 * @param pShirtNumber Player's shirt number. pShirtNumber > 0.
+	 * @param pShirtNumber Player's shirt number. pShirtNumber &gt; 0.
 	 *
 	 * @return Player with given shirt number, null if player not found.
 	 */
@@ -193,16 +193,14 @@ public class Team {
 		if (teamCard == null)
 			teamCard = new Card(CardType.TEAM, TEAM_CARD_NAME);
 		else
-			throw new Exception("The team card has already been pasted.");
+			throw new Exception("This team card has already been pasted");
 		
 	}
 	
 	/**
 	 * Pastes the team crest card. <br>
-	 * <b>post: </b> If the card didn't already exist, a card of type CREST was initialized
-	 * with
-	 * the
-	 * name of the corresponding image.
+	 * <b>post: </b> If the card didn't already exist, a card of type CREST was initialized with
+	 * the name of the corresponding image.
 	 *
 	 * @throws Exception If the card has already been pasted.
 	 */
@@ -210,26 +208,27 @@ public class Team {
 		if (crestCard == null)
 			crestCard = new Card(CardType.CREST, CREST_CARD_NAME);
 		else
-			throw new Exception("The crest card has already been pasted.");
+			throw new Exception("This crest card has already been pasted");
 		
 	}
 	
 	/**
 	 * Pastes the card of the player with the shirt number given by the parameter. <br>
-	 * <b>pre: </b> The array containing the players is initialized.
+	 * <b>pre: </b> The array that contains the players is initialized.
 	 * <b>post: </b> If the card didn't already exist, the corresponding player's card was
 	 * pasted
 	 *
-	 * @param pShirtNumber Player's shirt number. pShirtNumber > 0.
+	 * @param pShirtNumber Player's shirt number. pShirtNumber &gt; 0.
 	 *
-	 * @return True if the card was pasted, false if the card was already pasted.
+	 * @throws Exception If the card has already been pasted.
 	 */
 	public void pastePlayerCard(int pShirtNumber) throws Exception {
 		Player tempPlayer = findPlayer(pShirtNumber);
-		if (!tempPlayer.hasCard())
+		try {
 			tempPlayer.pasteCard();
-		else
-			throw new Exception("The player card has already been pasted.");
+		} catch (Exception e) {
+			throw new Exception(e.getMessage(), e);
+		}
 		
 	}
 	
@@ -248,7 +247,7 @@ public class Team {
 			favoriteCards++;
 		
 		for (Player player : players) {
-			if (player.getCard() != null && player.getCard().isFavorite())
+			if (player.hasCard() && player.getCard().isFavorite())
 				favoriteCards++;
 		}
 		
@@ -256,7 +255,7 @@ public class Team {
 	}
 	
 	/**
-	 * * Changes the status of favorite for a team card. <br>
+	 * Changes the status of favorite for a team card. <br>
 	 * <b> post: </b> If the card was a favorite, it changes to not being a favorite and vice
 	 * versa.  <br>
 	 *
@@ -266,15 +265,15 @@ public class Team {
 	public void changeFavoriteTeam() throws Exception {
 		if (countFavoriteCards() == MAX_FAVORITES &&
 			teamCard != null && !teamCard.isFavorite()) {
-			throw new Exception("The team has already reached the max limit of favorite cards.");
+			throw new Exception("The team has already reached the max limit of favorite cards");
 		} else if (teamCard != null)
 			teamCard.changeFavorite();
 		else
-			throw new Exception("There is no team card pasted.");
+			throw new Exception("There is no team card pasted");
 	}
 	
 	/**
-	 * * Changes the status of favorite for a crest card. <br>
+	 * Changes the status of favorite for a crest card. <br>
 	 * <b> post: </b> If the card was a favorite, it changes to not being a favorite and vice
 	 * versa.  <br>
 	 *
@@ -289,17 +288,17 @@ public class Team {
 		} else if (crestCard != null)
 			crestCard.changeFavorite();
 		else
-			throw new Exception("There is no crest card pasted.");
+			throw new Exception("There is no crest card pasted");
 	}
 	
 	/**
-	 * * Changes the status of favorite for a player card with the shirt number given by the
+	 * Changes the status of favorite for a player card with the shirt number given by the
 	 * parameter. <br>
 	 * <b>pre: </b> The list of players is initialized. Specified player exists.
 	 * <b>post: </b> If the card was a favorite, it changes to not being a favorite and vice
 	 * versa.  <br>
 	 *
-	 * @param pShirtNumber Player's shirt number. pShirtNumber > 0.
+	 * @param pShirtNumber Player's shirt number. pShirtNumber &gt; 0.
 	 *
 	 * @throws Exception If the team already has the maximum allowed amount of favorite cards.
 	 */
@@ -321,22 +320,22 @@ public class Team {
 	/**
 	 * Modifies the information of a player with the shirt number given by the parameter.
 	 * If the new shirt number is already owned by another player, the information isn't modified.
-	 * <p>
+	 *
 	 * <b>pre: </b> The list of players is initialized. Specified player exists.
 	 * <br>
 	 * <b>post: </b> If the shirt number didn't change(same player) and a player existed with the
 	 * new shirt number, or if a player with the new shirt number didn't exist and the current
 	 * shirt number was different from the new shirt number, the player information was modified.
 	 *
-	 * @param pShirtNumber    Player's shirt number. pShirtNumber > 0.
-	 * @param pNewShirtNumber New shirt number. pNewShirtNumber > 0.
-	 * @param pName           New player name. pName != null && pName != "".
+	 * @param pShirtNumber    Player's shirt number. pShirtNumber &gt; 0.
+	 * @param pNewShirtNumber New shirt number. pNewShirtNumber &gt; 0.
+	 * @param pName           New player name. pName != null &amp;&amp;  pName != "".
 	 * @param pPosition       New player position.pPosition belongs to {Position.GOALKEEPER,
 	 *                        Position.DEFENDER,Position.WINGER,Position.STRIKER,
 	 *                        Position.UNKNOWN}.
-	 * @param pBirthYear      Player's birth year. pBirthYear > 0.
-	 * @param pHeight         New player height. pHeight > 0.
-	 * @param pWeight         New player weight. pWeight > 0.
+	 * @param pBirthYear      Player's birth year. pBirthYear &gt; 0.
+	 * @param pHeight         New player height. pHeight &gt; 0.
+	 * @param pWeight         New player weight. pWeight &gt; 0.
 	 *
 	 * @throws Exception If the the maximum quantity of goalkeepers on the team has been reached.
 	 *                   If the the maximum quantity of defenders on the team has been reached.
@@ -352,34 +351,36 @@ public class Team {
 		int numDefenders = countPlayersPosition(Position.DEFENDER);
 		int numStrikers = countPlayersPosition(Position.STRIKER);
 		
-		Player playerToModify = findPlayer(pShirtNumber);
+		Player playerToBeModified = findPlayer(pShirtNumber);
 		
-		if (pPosition == Position.GOALKEEPER && numGoalkeepers == MAX_GOALKEEPERS)
-			throw new Exception("Error when modifying player " + playerToModify.getName() + ":" +
-				                    " The maximum amount of goalkeepers on the team has been" +
-				                    "reached.");
-		else if (pPosition == Position.DEFENDER && numDefenders == MAX_DEFENDERS)
-			throw new Exception("Error when modifying player " + playerToModify.getName() + ":" +
-				                    " The maximum amount of defenders on the team has been" +
-				                    "reached.");
-		else if (pPosition == Position.STRIKER && numStrikers == MAX_STRIKERS)
-			throw new Exception("Error when modifying player " + playerToModify.getName() + ":" +
-				                    " The maximum amount of strikers on the team has been" +
-				                    "reached.");
 		// If the old shirt number is different from the new shirt number and if a player with
 		// the new shirt number already exists, throw an exception.
 		if (pShirtNumber != pNewShirtNumber && findPlayer(pNewShirtNumber) != null)
-			throw new Exception("Error when modifying player " + playerToModify.getName() + ":" +
-				                    " The new shirt number is assigned to another player.");
-		else
+			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
+				                    ": The new shirt number is assigned to another player.");
+			
 			// If the new and old shirt numbers are the same, and a player with the new shirt
 			// doesn't exist.
 			// If the new and old shirt numbers are the same, and a player with the new shirt
 			// number does exist.
 			// If the new and old shirt numbers are different, and a player with the new shirt
 			// number doesn't exist.
-			playerToModify.modifyPlayer(pNewShirtNumber, pName, pPosition, pBirthYear, pHeight,
-			                            pWeight);
+		else playerToBeModified.modifyPlayer(pNewShirtNumber, pName, pPosition, pBirthYear,
+		                                     pHeight,
+		                                     pWeight);
+		
+		if (pPosition == Position.GOALKEEPER && numGoalkeepers == MAX_GOALKEEPERS)
+			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
+				                    ": The maximum amount of goalkeepers on the team has been" +
+				                    "reached.");
+		else if (pPosition == Position.DEFENDER && numDefenders == MAX_DEFENDERS)
+			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
+				                    ": The maximum amount of defenders on the team has been" +
+				                    "reached.");
+		else if (pPosition == Position.STRIKER && numStrikers == MAX_STRIKERS)
+			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
+				                    ": The maximum amount of strikers on the team has been" +
+				                    "reached.");
 		
 	}
 	
@@ -447,6 +448,10 @@ public class Team {
 	 * Returns the number of players on the team that play in a position given by the parameter.
 	 * <br>
 	 * <b>pre: </b> The list of players is initialized.
+	 *
+	 * @param pPosition New player position.pPosition belongs to {Position.GOALKEEPER,
+	 *                  Position.DEFENDER,Position.WINGER,Position.STRIKER,
+	 *                  Position.UNKNOWN}..
 	 *
 	 * @return The number of players in a position.
 	 */

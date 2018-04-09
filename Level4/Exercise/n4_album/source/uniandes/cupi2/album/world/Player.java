@@ -46,7 +46,7 @@ public class Player {
 	/**
 	 * Player's shirt number.
 	 */
-	private int shirtNumber;
+	private int ShirtNumber;
 	
 	/**
 	 * Player's name.
@@ -82,18 +82,18 @@ public class Player {
 	 * <b> post: </b> Player's shirt number, name, position, birth year, height, and weight
 	 * were initialized with the values given by the parameters.  <br>
 	 *
-	 * @param pShirtNumber Shirt number of the player. pShirtNumber > 0.
-	 * @param pName        Player's name. pName != null && pName !="".
+	 * @param pShirtNumber Shirt number of the player. pShirtNumber &gt; 0.
+	 * @param pName        Player's name. pName != null &amp;&amp;  pName !="".
 	 * @param pPosition    New player position.pPosition belongs to {Position.GOALKEEPER,
 	 *                     Position.DEFENDER,Position.WINGER,Position.STRIKER,
-	 *                     Position.UNKNOWN}..
-	 * @param pBirthYear   Player's birth year. pBirthYear > 0.
-	 * @param pHeight      New player height. pHeight > 0.
-	 * @param pWeight      New player weight. pWeight > 0.
+	 *                     Position.UNKNOWN}.
+	 * @param pBirthYear   Player's birth year. pBirthYear &gt; 0.
+	 * @param pHeight      New player height. pHeight &gt; 0.
+	 * @param pWeight      New player weight. pWeight &gt; 0.
 	 */
 	public Player(int pShirtNumber, String pName, Position pPosition, int pBirthYear,
 	              double pHeight, double pWeight) {
-		shirtNumber = pShirtNumber;
+		ShirtNumber = pShirtNumber;
 		name = pName;
 		position = pPosition;
 		birthYear = pBirthYear;
@@ -107,7 +107,7 @@ public class Player {
 	 * @return Player's shirt number.
 	 */
 	public int getShirtNumber() {
-		return shirtNumber;
+		return ShirtNumber;
 	}
 	
 	/**
@@ -169,31 +169,29 @@ public class Player {
 	 * <b> post: </b> If he doesn't already have a card, the player's shirt number, name, position,
 	 * birth year, height, and weight were modified with the values given by the parameters.  <br>
 	 *
-	 * @param pShirtNumber Shirt number of the player. pShirtNumber > 0.
-	 * @param pName        Player's name. pName != null && pName !="".
+	 * @param pShirtNumber Shirt number of the player. pShirtNumber &gt; 0.
+	 * @param pName        Player's name. pName != null &amp;&amp;  pName !="".
 	 * @param pPosition    New player position.pPosition belongs to {Position.GOALKEEPER,
 	 *                     Position.DEFENDER,Position.WINGER,Position.STRIKER,
-	 *                     Position.UNKNOWN}..
-	 * @param pBirthYear   Player's birth year. pBirthYear > 0.
-	 * @param pHeight      New player height. pHeight > 0.
-	 * @param pWeight      New player weight. pWeight > 0.
+	 *                     Position.UNKNOWN}.
+	 * @param pBirthYear   Player's birth year. pBirthYear &gt; 0.
+	 * @param pHeight      New player height. pHeight &gt; 0.
+	 * @param pWeight      New player weight. pWeight &gt; 0.
 	 *
 	 * @throws Exception If the player already has a card.
 	 */
 	public void modifyPlayer(int pShirtNumber, String pName, Position pPosition, int pBirthYear,
 	                         double pHeight, double pWeight) throws Exception {
 		if (!hasCard()) {
-			shirtNumber = pShirtNumber;
+			ShirtNumber = pShirtNumber;
 			name = pName;
 			position = pPosition;
 			birthYear = pBirthYear;
 			height = pHeight;
 			weight = pWeight;
-		}
-		
-		else
+		} else
 			throw new Exception("Error when modifying player " + name + ":" + " Cannot modify a " +
-					                    "player that already has a card.");
+				                    "player that already has a card");
 		
 	}
 	
@@ -205,11 +203,11 @@ public class Player {
 	 * @throws Exception if the card was already pasted.
 	 */
 	public void pasteCard() throws Exception {
-		String imageName = shirtNumber + ".png";
+		String imageName = ShirtNumber + ".png";
 		if (!hasCard())
 			card = new Card(CardType.PLAYER, imageName);
 		else
-			throw new Exception("Card has already been pasted.");
+			throw new Exception("This player card has already been pasted");
 		
 	}
 	
@@ -230,13 +228,14 @@ public class Player {
 	 * Changes the status of favorite for a player card. <br>
 	 * <b> post: </b> If the card was a favorite, it changes to not being a favorite and vice
 	 * versa.  <br>
+	 *
 	 * @throws Exception if there is no player card pasted.
 	 */
 	public void changeFavorite() throws Exception {
 		if (hasCard())
 			card.changeFavorite();
 		else
-			throw new Exception("There is no player card pasted.");
+			throw new Exception("There is no player card pasted");
 		
 	}
 	

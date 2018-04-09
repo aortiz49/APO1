@@ -60,7 +60,7 @@ public class Card {
 	 *
 	 * @param pCardType  Type of card. pCardType belongs to {CardType.PLAYER, CardType.CREST,
 	 *                   CardType.TEAM}.
-	 * @param pImageName Name of the image. pImageName != null && pImageName != "".
+	 * @param pImageName Name of the image. pImageName != null &amp;&amp;  pImageName != "".
 	 */
 	public Card(CardType pCardType, String pImageName) {
 		cardType = pCardType;

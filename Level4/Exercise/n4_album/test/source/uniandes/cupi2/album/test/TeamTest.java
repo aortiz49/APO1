@@ -40,7 +40,7 @@ public class TeamTest {
 	// -----------------------------------------------------------------
 	
 	/**
-	 * Prepare the team for the tests. <br>
+	 * Prepares the team for the tests. <br>
 	 * <b>post: </b> Team was created.
 	 */
 	@Before
@@ -65,8 +65,8 @@ public class TeamTest {
 	public void testTeam() {
 		assertEquals("The team is incorrect.", team.getCountry(), "Colombia");
 		assertEquals("The year is incorrect.", team.getYear(), 2018);
-		assertEquals("The team card should be null by default.", team.getTeamCard(), null);
-		assertEquals("The crest card should be null by default.", team.getCrestCard(), null);
+		assertNull("The team card should be null by default.", team.getTeamCard());
+		assertNull("The crest card should be null by default.", team.getCrestCard());
 		assertNotNull("The list of players wasn't initialized.", team.getPlayers());
 		assertEquals("The size of the list of players is incorrect.", team.getPlayers().length,
 		             Team.QUANTITY_OF_PLAYERS);
@@ -330,9 +330,9 @@ public class TeamTest {
 	@Test
 	public void testChangeFavoritePlayer() {
 		// Test case 1
-		int shirtNumber = team.getPlayers()[0].getShirtNumber();
+		int ShirtNumber = team.getPlayers()[0].getShirtNumber();
 		try {
-			team.changeFavoritePlayer(shirtNumber);
+			team.changeFavoritePlayer(ShirtNumber);
 			fail("Player card cannot be changed to favorite when it hasn't been pasted.");
 			
 		} catch (Exception e) {
@@ -340,24 +340,24 @@ public class TeamTest {
 		}
 		
 		try {
-			team.pastePlayerCard(shirtNumber);
+			team.pastePlayerCard(ShirtNumber);
 		} catch (Exception e) {
 			fail("An exception should not be thrown when pasting the card since it didn't " +
 				     "already have one.");
 		}
 		try {
 			assertFalse("The card should not be a favorite by default.",
-			            team.findPlayer(shirtNumber).getCard().isFavorite());
+			            team.findPlayer(ShirtNumber).getCard().isFavorite());
 			
 			// Test case 2
-			team.changeFavoritePlayer(shirtNumber);
+			team.changeFavoritePlayer(ShirtNumber);
 			assertTrue("The card should be a favorite.",
-			           team.findPlayer(shirtNumber).getCard().isFavorite());
+			           team.findPlayer(ShirtNumber).getCard().isFavorite());
 			
 			// Test case 3
-			team.changeFavoritePlayer(shirtNumber);
+			team.changeFavoritePlayer(ShirtNumber);
 			assertFalse("The card should not be a favorite.",
-			            team.findPlayer(shirtNumber).getCard().isFavorite());
+			            team.findPlayer(ShirtNumber).getCard().isFavorite());
 		} catch (Exception e) {
 			fail("An exception should not be thrown since the player card is already pasted.");
 		}
@@ -383,13 +383,12 @@ public class TeamTest {
 	 * <b>Test cases:</b><br>
 	 * 1. The new and old shirt numbers don't coincide and a player with the specified new shirt
 	 * number exists. <br>
-	 * 2. A player with the specified new shirt number does not exists.No existe un jugador con el
-	 * nuevo número de camiseta. <br>
-	 * 3. El número de camiseta nuevo y anterior coinciden. <br>
-	 * 4. Se tiene la lámina del jugador. <br>
-	 * 5. Se ha alcanzado la cantidad máxima de arqueros. <br>
-	 * 6. Se ha alcanzado la cantidad máxima de defensas. <br>
-	 * 7. Se ha alcanzado la cantidad máxima de delanteros.
+	 * 2. A player with the specified new shirt number does not exist.
+	 * 3. The new and old shirt numbers coincide.  <br>
+	 * 4. Player has a card pasted. <br>
+	 * 5. Maximum amount of goalkeepers has been reached. <br>
+	 * 6. Maximum amount of defenders has been reached. <br>
+	 * 7. Maximum amount of strikers has been reached.
 	 */
 	@Test
 	public void testModifyPlayer() {
@@ -459,7 +458,6 @@ public class TeamTest {
 		
 		// Test case 5
 		setupScenario1();
-		
 		try {
 			for (int i = 0; i < Team.MAX_GOALKEEPERS; i++) {
 				team.modifyPlayer(team.getPlayers()[i].getShirtNumber(),
@@ -485,20 +483,18 @@ public class TeamTest {
 		
 		try {
 			for (int i = 0; i < Team.MAX_DEFENDERS; i++) {
-				team.modifyPlayer(team.getPlayers()[i].getShirtNumber(), team
-					                  .getPlayers()[i].getShirtNumber(), "New name", Position
-					                  .DEFENDER,
-				                  1970, 1.80, 75);
+				team.modifyPlayer(team.getPlayers()[i].getShirtNumber(),
+				                  team.getPlayers()[i].getShirtNumber(), "New name",
+				                  Position.DEFENDER, 1970, 1.80, 75);
 			}
 		} catch (Exception e) {
 			fail("No exception should be thrown when the number of defenders is below the max.");
 		}
 		
 		try {
-			team.modifyPlayer(team.getPlayers()[11].getShirtNumber(), team
-				                  .getPlayers()[11].getShirtNumber(), "New name", Position
-				                  .DEFENDER, 1970,
-			                  1.80, 75);
+			team.modifyPlayer(team.getPlayers()[11].getShirtNumber(),
+			                  team.getPlayers()[11].getShirtNumber(), "New name",
+			                  Position.DEFENDER, 1970, 1.80, 75);
 			fail("No defenders should be added after the team has reached the maximum amount " +
 				     "of defenders.");
 		} catch (Exception e) {
@@ -511,20 +507,18 @@ public class TeamTest {
 		
 		try {
 			for (int i = 0; i < Team.MAX_STRIKERS; i++) {
-				team.modifyPlayer(team.getPlayers()[i].getShirtNumber(), team
-					                  .getPlayers()[i].getShirtNumber(), "New name", Position
-					                  .STRIKER,
-				                  1970, 1.80, 75);
+				team.modifyPlayer(team.getPlayers()[i].getShirtNumber(),
+				                  team.getPlayers()[i].getShirtNumber(), "New name",
+				                  Position.STRIKER, 1970, 1.80, 75);
 			}
 		} catch (Exception e) {
 			fail("No exception should be thrown when the number of strikers is below the max.");
 		}
 		
 		try {
-			team.modifyPlayer(team.getPlayers()[11].getShirtNumber(), team
-				                  .getPlayers()[11].getShirtNumber(), "New name", Position
-				                  .STRIKER, 1970,
-			                  1.80, 75);
+			team.modifyPlayer(team.getPlayers()[11].getShirtNumber(),
+			                  team.getPlayers()[11].getShirtNumber(), "New name",
+			                  Position.STRIKER, 1970, 1.80, 75);
 			fail("No strikers should be added after the team has reached the maximum amount " +
 				     "of strikers.");
 		} catch (Exception e) {
@@ -595,7 +589,7 @@ public class TeamTest {
 	}
 	
 }
-	
+
 
 
 
