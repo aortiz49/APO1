@@ -30,7 +30,7 @@ import javax.swing.border.TitledBorder;
 import uniandes.cupi2.club.world.Member.MembershipType;
 
 /**
- * Di�logo para agregar un nuevo socio al club.
+ * Di�logo para add un nuevo socio al club.
  */
 public class DialogoAfiliarMember extends JDialog implements ActionListener
 {
@@ -115,7 +115,7 @@ public class DialogoAfiliarMember extends JDialog implements ActionListener
         txtName = new JTextField( );
         panelDatos.add( txtName );
 
-        JLabel etiquetaIdentification = new JLabel( "C�dula:" );
+        JLabel etiquetaIdentification = new JLabel( "Ceedula:" );
         panelDatos.add( etiquetaIdentification );
 
         txtIdentification = new JTextField( );

@@ -64,7 +64,7 @@ public class MemberTest
         try
         {
 
-            socio.agregarAuthorized( name );
+            socio.addAuthorized( name );
             ArrayList<String> lista = socio.getAuthorizedUsers( );
             int indice = lista.size( );
             for( int i = 0; i < indice; i++ )
@@ -95,7 +95,7 @@ public class MemberTest
         String name = "name2";
         try
         {
-            socio.agregarAuthorized( name );
+            socio.addAuthorized( name );
             fail( "El socio es el mismo autorizado" );
         }
         catch( Exception e )
@@ -113,11 +113,11 @@ public class MemberTest
         String name = "name2";
         try
         {
-            socio.agregarAuthorized( name );
+            socio.addAuthorized( name );
             ArrayList<String> lista1 = socio.getAuthorizedUsers( );
 
             assertEquals( lista1.size( ), 1 );
-            socio.eliminarAuthorized( name );
+            socio.deleteAuthorized( name );
             ArrayList<String> lista = socio.getAuthorizedUsers( );
 
             assertEquals( lista.size( ), 0 );
@@ -183,11 +183,11 @@ public class MemberTest
         assertEquals( listaBills1.size( ), 1 );
         try
         {
-            socio.pagarBill( 0 );
+            socio.payBill( 0 );
         }
         catch( Exception e )
         {
-            fail( "Deber�a poder pagar la factura" );
+            fail( "Deber�a poder pay la factura" );
         }
         ArrayList<Bill> listaBills2 = socio.getBills( );
         assertEquals( listaBills2.size( ), 0 );

@@ -132,9 +132,9 @@ public class ClubTest
         {
             club.registerMember( socio.getIdentification( ), socio.getName( ), socio.getMembershipType( ) );
 
-            club.agregarAuthorizedMember( socio.getIdentification( ), "nameAuthorized1" );
-            club.agregarAuthorizedMember( socio.getIdentification( ), "nameAuthorized2" );
-            club.agregarAuthorizedMember( socio.getIdentification( ), "nameAuthorized3" );
+            club.addAuthorizedMember( socio.getIdentification( ), "nameAuthorized1" );
+            club.addAuthorizedMember( socio.getIdentification( ), "nameAuthorized2" );
+            club.addAuthorizedMember( socio.getIdentification( ), "nameAuthorized3" );
 
             ArrayList<String> authorizedUsers = club.getAuthorizedUsers( socio.getIdentification( ) );
 
@@ -163,10 +163,10 @@ public class ClubTest
     {
         setupEscenario1( );
 
-        // Cuando intenta agregar un autorizado a un socio inexistente en el club
+        // Cuando intenta add un autorizado a un socio inexistente en el club
         try
         {
-            club.agregarAuthorizedMember( socio.getIdentification( ), "nameAuthorized1" );
+            club.addAuthorizedMember( socio.getIdentification( ), "nameAuthorized1" );
             fail( "Deber�a lanzar la excepci�n de no encontrar el socio" );
         }
         catch( Exception e )
@@ -188,7 +188,7 @@ public class ClubTest
             club.registerMember( socio.getIdentification( ), socio.getName( ), socio.getMembershipType( ) );
 
             int numAuthorizedsAntes = club.getAuthorizedUsers( socio.getIdentification( ) ).size( );
-            club.agregarAuthorizedMember( socio.getIdentification( ), "nameAuthorized" );
+            club.addAuthorizedMember( socio.getIdentification( ), "nameAuthorized" );
             int numAuthorizedsDespues = club.getAuthorizedUsers( socio.getIdentification( ) ).size( );
 
             assertEquals( "La cantidad de authorizedUsers debe ser incrementado", numAuthorizedsAntes + 1, numAuthorizedsDespues );
@@ -210,7 +210,7 @@ public class ClubTest
         // Cuando el socio no existe
         try
         {
-            club.agregarAuthorizedMember( socio.getIdentification( ), "nameAuthorized" );
+            club.addAuthorizedMember( socio.getIdentification( ), "nameAuthorized" );
             fail( "El socio no existe en el club" );
         }
         catch( Exception e )
@@ -221,29 +221,29 @@ public class ClubTest
         try
         {
             club.registerMember( socio.getIdentification( ), socio.getName( ), socio.getMembershipType( ) );
-            club.agregarAuthorizedMember( socio.getIdentification( ), "nameAuthorized" );
+            club.addAuthorizedMember( socio.getIdentification( ), "nameAuthorized" );
         }
         catch( Exception e1 )
         {
-            fail( "Deber�a poder agregar el socio: " + e1.getMessage( ) );
+            fail( "Deber�a poder add el socio: " + e1.getMessage( ) );
         }
 
-        // Cuando intenta agregar a un autorizado con el mismo name del socio
+        // Cuando intenta add a un autorizado con el mismo name del socio
         try
         {
-            club.agregarAuthorizedMember( socio.getIdentification( ), socio.getName( ) );
-            fail( "Deber�a lanzar excepci�n de no poder agregar un autorizado con el mismo name de socio" );
+            club.addAuthorizedMember( socio.getIdentification( ), socio.getName( ) );
+            fail( "Deber�a lanzar excepci�n de no poder add un autorizado con el mismo name de socio" );
         }
         catch( Exception e )
         {
             // Debe lanzar la excepci�n
         }
 
-        // Cuando intenta agregar a un autorizado que ya exist�a
+        // Cuando intenta add a un autorizado que ya exist�a
         try
         {
-            club.agregarAuthorizedMember( socio.getIdentification( ), "nameAuthorized" );
-            fail( "Deber�a lanzar excepci�n de no poder agregar un autorizado ya existente en la lista" );
+            club.addAuthorizedMember( socio.getIdentification( ), "nameAuthorized" );
+            fail( "Deber�a lanzar excepci�n de no poder add un autorizado ya existente en la lista" );
         }
         catch( Exception e )
         {
@@ -262,11 +262,11 @@ public class ClubTest
         try
         {
             club.registerMember( socio.getIdentification( ), socio.getName( ), socio.getMembershipType( ) );
-            club.agregarAuthorizedMember( socio.getIdentification( ), "A" );
+            club.addAuthorizedMember( socio.getIdentification( ), "A" );
         }
         catch( Exception e1 )
         {
-            fail( "Deber�a poder agregar el socio: " + e1.getMessage( ) );
+            fail( "Deber�a poder add el socio: " + e1.getMessage( ) );
         }
 
         try
@@ -314,7 +314,7 @@ public class ClubTest
         try
         {
             club.registerMember( socio.getIdentification( ), socio.getName( ), socio.getMembershipType( ) );
-            club.agregarAuthorizedMember( socio.getIdentification( ), "A" );
+            club.addAuthorizedMember( socio.getIdentification( ), "A" );
 
             club.registerConsumption( socio.getIdentification( ), "A", "invoice1", 1000 );
             club.registerConsumption( socio.getIdentification( ), "A", "invoice2", 1000 );
@@ -367,7 +367,7 @@ public class ClubTest
         try
         {
             club.registerMember( socio.getIdentification( ), socio.getName( ), socio.getMembershipType( ) );
-            club.agregarAuthorizedMember( socio.getIdentification( ), "A" );
+            club.addAuthorizedMember( socio.getIdentification( ), "A" );
 
             club.registerConsumption( socio.getIdentification( ), "A", "invoice1", 1000 );
             club.registerConsumption( socio.getIdentification( ), "A", "invoice2", 1000 );
@@ -375,7 +375,7 @@ public class ClubTest
             club.registerConsumption( socio.getIdentification( ), "A", "invoice4", 1000 );
 
             int billsSinPagarAntes = club.getBillsMember( socio.getIdentification( ) ).size( );
-            club.pagarBillMember( socio.getIdentification( ), 0 );
+            club.payBillMember( socio.getIdentification( ), 0 );
             int billsSinPagarDespues = club.getBillsMember( socio.getIdentification( ) ).size( );
 
             assertEquals( "El n�mero de bills debi� disminuir", billsSinPagarAntes - 1, billsSinPagarDespues );
@@ -387,7 +387,7 @@ public class ClubTest
     }
 
     /**
-     * M�todo que prueba que lanza excepci�n al intentar pagar la factura de un socio del club
+     * M�todo que prueba que lanza excepci�n al intentar pay la factura de un socio del club
      */
     @Test
     public void testPagarBillMember2( )
@@ -397,7 +397,7 @@ public class ClubTest
         // Cuando el socio no existe
         try
         {
-            club.pagarBillMember( socio.getIdentification( ), 0 );
+            club.payBillMember( socio.getIdentification( ), 0 );
             fail( "El socio no existe en el club" );
         }
         catch( Exception e )

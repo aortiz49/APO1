@@ -41,22 +41,22 @@ public class InterfazClub extends JFrame {
 	/**
 	 * Panel authorizedUsers.
 	 */
-	private PanelAuthorizeds panelAuthorizedsMember;
+	private PanelAutorizados panelAuthorizedsMember;
 	
 	/**
 	 * Panel con la lista de members.
 	 */
-	private PanelListaMembers panelListaMembers;
+	private PanelListaSocios panelListaMembers;
 	
 	/**
 	 * Panel con la informaci�n del socio actual.
 	 */
-	private PanelMember panelMember;
+	private PanelSocio panelMember;
 	
 	/**
 	 * Panel de bills.
 	 */
-	private PanelBills panelBills;
+	private PanelFacturas panelBills;
 	
 	/**
 	 * Panel con las opciones de extensi�n.
@@ -95,20 +95,20 @@ public class InterfazClub extends JFrame {
 		panelCentro.setLayout(new BorderLayout());
 		add(panelCentro, BorderLayout.CENTER);
 		
-		panelListaMembers = new PanelListaMembers(this);
+		panelListaMembers = new PanelListaSocios(this);
 		panelCentro.add(panelListaMembers, BorderLayout.WEST);
 		
-		panelMember = new PanelMember(this);
+		panelMember = new PanelSocio(this);
 		panelCentro.add(panelMember, BorderLayout.CENTER);
 		
 		JPanel panelDerecha = new JPanel();
 		panelDerecha.setLayout(new GridLayout(2, 1));
 		add(panelDerecha, BorderLayout.EAST);
 		
-		panelBills = new PanelBills(this);
+		panelBills = new PanelFacturas(this);
 		panelDerecha.add(panelBills);
 		
-		panelAuthorizedsMember = new PanelAuthorizeds(this);
+		panelAuthorizedsMember = new PanelAutorizados(this);
 		panelDerecha.add(panelAuthorizedsMember);
 		
 		panelOpciones = new PanelOpciones(this);
@@ -148,7 +148,7 @@ public class InterfazClub extends JFrame {
 	/**
 	 * Agrega un autorizado con la informaci�n dada por el usuario.
 	 */
-	public void agregarAuthorized() {
+	public void addAuthorized() {
 		String nameAuthorized = JOptionPane.showInputDialog(this, "Ingrese el name del " +
 				"autorizado:", "Agregar autorizado", JOptionPane.QUESTION_MESSAGE);
 		String IdentificationNumberMember = panelListaMembers
@@ -156,7 +156,7 @@ public class InterfazClub extends JFrame {
 		if (nameAuthorized != null && !nameAuthorized.isEmpty()) {
 			try {
 				// Se agrega el autorizado y se actualiza la informaci�n del panel
-				club.agregarAuthorizedMember(IdentificationNumberMember, nameAuthorized);
+				club.addAuthorizedMember(IdentificationNumberMember, nameAuthorized);
 				ArrayList<String> authorizedUsers = new ArrayList<String>(club.getAuthorizedUsers
 						(IdentificationNumberMember));
 				panelAuthorizedsMember.cambiarAuthorizeds(authorizedUsers);
@@ -171,12 +171,12 @@ public class InterfazClub extends JFrame {
 	/**
 	 * Paga la factura actualmente seleccionada.
 	 */
-	public void pagarBill() {
+	public void payBill() {
 		try {
 			String IdentificationNumber = panelListaMembers.getIdentificationMemberSeleccionado();
 			int facturaIndice = panelBills.darPosicionBillSeleccionada();
 			
-			club.pagarBillMember(IdentificationNumber, facturaIndice);
+			club.payBillMember(IdentificationNumber, facturaIndice);
 			actualizar();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane

@@ -19,7 +19,7 @@ import uniandes.cupi2.club.world.Member.MembershipType;
 /**
  * Panel con la informaci�n de un socio
  */
-public class PanelMember extends JPanel implements ActionListener
+public class PanelSocio extends JPanel implements ActionListener
 {
 
     // -----------------------------------------------------------------
@@ -82,7 +82,7 @@ public class PanelMember extends JPanel implements ActionListener
      * Construye el panel y todos sus componentes
      * @param pPrincipal Ventana principal de la aplicaci�n.
      */
-    public PanelMember( InterfazClub pPrincipal )
+    public PanelSocio(InterfazClub pPrincipal )
     {
         setBorder( new TitledBorder( "Datos socio" ) );
         setLayout( new BorderLayout( ) );
@@ -92,7 +92,7 @@ public class PanelMember extends JPanel implements ActionListener
         panelDatos.setLayout( new GridLayout( 6, 2, 5, 5 ) );
         add( panelDatos, BorderLayout.CENTER );
 
-        JLabel lblIdentification = new JLabel( "C�dula:" );
+        JLabel lblIdentification = new JLabel( "Cedula:" );
         panelDatos.add( lblIdentification );
 
         txtIdentification = new JTextField( );

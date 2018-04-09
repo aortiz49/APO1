@@ -27,14 +27,14 @@ import javax.swing.border.TitledBorder;
  * Panel que administra los usuarios authorizedUsers.
  */
 @SuppressWarnings("serial")
-public class PanelAuthorizeds extends JPanel implements ActionListener
+public class PanelAutorizados extends JPanel implements ActionListener
 {
 
     // -----------------------------------------------------------------
     // Constants
     // -----------------------------------------------------------------
     /**
-     * Constante para el comando agregar autorizado.
+     * Constante para el comando add autorizado.
      */
     private final static String AGREGAR_AUTORIZADO = "Agregar autorizado";
     // -----------------------------------------------------------------
@@ -52,7 +52,7 @@ public class PanelAuthorizeds extends JPanel implements ActionListener
     private JList listaAuthorizeds;
 
     /**
-     * Bot�n para agregar el autorizado.
+     * Bot�n para add el autorizado.
      */
     private JButton btnAgregarAuthorized;
 
@@ -72,7 +72,7 @@ public class PanelAuthorizeds extends JPanel implements ActionListener
      * Crea el panel para el manejo de members Authorizeds.
      * @param pPrincipal Ventana principal de la aplicaci�n. pPrincipal != null.
      */
-    public PanelAuthorizeds( InterfazClub pPrincipal )
+    public PanelAutorizados(InterfazClub pPrincipal )
     {
         principal = pPrincipal;
 
@@ -124,7 +124,7 @@ public class PanelAuthorizeds extends JPanel implements ActionListener
         String comando = pEvento.getActionCommand( );
         if( comando.equals( AGREGAR_AUTORIZADO ) )
         {
-            principal.agregarAuthorized( );
+            principal.addAuthorized( );
         }
 
     }

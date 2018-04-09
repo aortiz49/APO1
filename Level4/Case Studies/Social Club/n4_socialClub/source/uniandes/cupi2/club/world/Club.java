@@ -179,35 +179,50 @@ public class Club {
 	 * @throws Exception <br>
 	 *                   1. Throws an exception if the name of the member is the same as the name
 	 *                   of the guest. <br>
-	 *                   2. Throws an exception if the authorizedUsers user to be added  already
+	 *                   2. Throws an exception if the authorizedUsers user to be added already
 	 *                   exists in the list of authorizedUsers users under the member.  <br>
 	 *                   3. Throws an exception if the member doesn't have enough funds to
 	 *                   afford a new authorizedUsers user.
 	 */
-	public void agregarAuthorizedMember(String pIdentification, String pNameAuthorized)
+	public void addAuthorizedMember(String pIdentification, String pNameAuthorized)
 			throws Exception {
+			if(findMember(pIdentification).getName().equals(pNameAuthorized))
+				throw new Exception("Authorized member cannot have the same name as the user");
+
+			else {
+				ArrayList<String> guests = getAuthorizedUsers(pIdentification);
+				for (String guest : guests) {
+				if (guest.equals(pNameAuthorized))
+					throw new Exception("Authorized member already exists");
+			}
 		
-		Member s = findMember(pIdentification);
-		s.agregarAuthorized(pNameAuthorized);
+		}
+		if(findMember(pIdentification).getFunds() == 0)
+			throw new Exception("Not enough funds");
+		
+		else {
+			Member s = findMember(pIdentification);
+			s.addAuthorized(pNameAuthorized);
+		}
 		
 	}
 	
 	/**
 	 * Elimina la persona autorizada por el socio con la c�dula dada.
 	 *
-	 * @param pIdentificationMember La c�dula del socio que autoriz� a la persona a eliminar
+	 * @param pIdentificationMember La c�dula del socio que autoriz� a la persona a delete
 	 *                              .pIdentificationMember!= null && pIdentificationMember! ""
-	 * @param pNameAuthorized       El name del autorizado a eliminar. pNameAuthorized!= null &&
+	 * @param pNameAuthorized       El name del autorizado a delete. pNameAuthorized!= null &&
 	 *                              pNameAuthorized!=""
 	 *
-	 * @throws Exception Dispara una excepci�n si el el autorizado a eliminar hasBill una factura
-	 *                   sin pagar asociada.
+	 * @throws Exception Dispara una excepci�n si el el autorizado a delete hasBill una factura
+	 *                   sin pay asociada.
 	 */
-	public void eliminarAuthorizedMember(String pIdentificationMember, String pNameAuthorized)
+	public void deleteAuthorizedMember(String pIdentificationMember, String pNameAuthorized)
 			throws
 			Exception {
 		Member s = findMember(pIdentificationMember);
-		s.eliminarAuthorized(pNameAuthorized);
+		s.deleteAuthorized(pNameAuthorized);
 	}
 	
 	/**
@@ -251,14 +266,14 @@ public class Club {
 	 *
 	 * @param pIdentificationMember La c�dula del socio. pIdentificationMember != null &&
 	 *                              pIdentificationMember != "".
-	 * @param pBillIndice           El �ndice de la factura a pagar. pBillIndice >= 0.
+	 * @param pBillIndice           El �ndice de la factura a pay. pBillIndice >= 0.
 	 *
 	 * @throws Exception Dispara una excepci�n en caso de que el usuario no tenga funds
 	 *                   suficientes.
 	 */
-	public void pagarBillMember(String pIdentificationMember, int pBillIndice) throws Exception {
+	public void payBillMember(String pIdentificationMember, int pBillIndice) throws Exception {
 		Member s = findMember(pIdentificationMember);
-		s.pagarBill(pBillIndice);
+		s.payBill(pBillIndice);
 		
 	}
 	

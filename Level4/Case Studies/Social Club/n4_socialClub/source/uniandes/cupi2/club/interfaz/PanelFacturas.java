@@ -27,7 +27,7 @@ import uniandes.cupi2.club.world.Bill;
  * Panel que administra las Bills de los usuarios.
  */
 @SuppressWarnings("serial")
-public class PanelBills extends JPanel implements ActionListener
+public class PanelFacturas extends JPanel implements ActionListener
 {
 
     // -----------------------------------------------------------------
@@ -51,7 +51,7 @@ public class PanelBills extends JPanel implements ActionListener
     private JList listaBills;
 
     /**
-     * Bot�n pagar factura.
+     * Bot�n pay factura.
      */
     private JButton btnPagarBill;
 
@@ -73,7 +73,7 @@ public class PanelBills extends JPanel implements ActionListener
      * Crea el panel de bills
      * @param pPrincipal Instancia del panel contenedor. pPrincipal != null.
      */
-    public PanelBills( InterfazClub pPrincipal )
+    public PanelFacturas(InterfazClub pPrincipal )
     {
         principal = pPrincipal;
         setLayout( new BorderLayout( ) );
@@ -110,7 +110,7 @@ public class PanelBills extends JPanel implements ActionListener
 
         if( PAGAR_FACTURA.equals( actionCommand ) )
         {
-            principal.pagarBill( );
+            principal.payBill( );
         }
     }
 

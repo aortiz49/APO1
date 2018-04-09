@@ -258,7 +258,7 @@ public class Member {
 	 * @param pInvoice Description of the consumption. pInvoice != null && pInvoice != "".
 	 * @param pValue   Value of the consumption. pValue >= 0.
 	 *
-	 * @throws Exception Throws an exception if the member doens't have suffuicient funds
+	 * @throws Exception Throws an exception if the member doesn't have sufficient funds
 	 *                   for the bill.
 	 */
 	public void registerConsumption(String pName, String pInvoice, double pValue) throws
@@ -287,10 +287,10 @@ public class Member {
 	 *                   3. Dispara una excepci�n si el socio no hasBill funds para financiar un
 	 *                   nuevo autorizado.
 	 */
-	public void agregarAuthorized(String pNameAuthorized) throws Exception {
+	public void addAuthorized(String pNameAuthorized) throws Exception {
 		// Verificar que el name del socio no es el mismo del que se quiere autorizar
 		if (pNameAuthorized.equals(getName())) {
-			throw new Exception("No puede agregar el socio como autorizado.");
+			throw new Exception("No puede add el socio como autorizado.");
 		}
 		
 		// Verificar que el socio posee funds para financiar un nuevo autorizado
@@ -314,11 +314,11 @@ public class Member {
 	 *
 	 * @throws Exception Dispara una excepci�n si el autorizado hasBill una factura asociada.
 	 */
-	public void eliminarAuthorized(String pNameAuthorized) throws Exception {
+	public void deleteAuthorized(String pNameAuthorized) throws Exception {
 		boolean found = false;
 		int numAuthorizeds = authorizedUsers.size();
 		if (hasBillAssociated(pNameAuthorized)) {
-			throw new Exception(pNameAuthorized + " hasBill una factura sin pagar.");
+			throw new Exception(pNameAuthorized + " hasBill una factura sin pay.");
 		}
 		for (int i = 0; i < numAuthorizeds && !found; i++) {
 			String a = authorizedUsers.get(i);
@@ -334,14 +334,14 @@ public class Member {
 	 * <b>pre: </b> La lista de bills ha sido inicializada. <br>
 	 * <b>post: </b> Se borr� la factura de la lista de bills.
 	 *
-	 * @param pIndiceBill Posici�n de la factura a eliminar. facturaIndice >= 0.
+	 * @param pIndiceBill Posici�n de la factura a delete. facturaIndice >= 0.
 	 *
-	 * @throws Exception Si el socio no hasBill funds suficientes para pagar la factura.
+	 * @throws Exception Si el socio no hasBill funds suficientes para pay la factura.
 	 */
-	public void pagarBill(int pIndiceBill) throws Exception {
+	public void payBill(int pIndiceBill) throws Exception {
 		Bill factura = bills.get(pIndiceBill);
 		if (factura.getValue() > funds) {
-			throw new Exception("El socio no posee funds suficientes para pagar esta factura");
+			throw new Exception("El socio no posee funds suficientes para pay esta factura");
 		} else {
 			funds = funds - factura.getValue();
 			bills.remove(pIndiceBill);

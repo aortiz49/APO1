@@ -31,14 +31,14 @@ import uniandes.cupi2.club.world.Member;
  * Panel para ver la lista de members y consultar sus consumos.
  */
 @SuppressWarnings("serial")
-public class PanelListaMembers extends JPanel implements ListSelectionListener, ActionListener
+public class PanelListaSocios extends JPanel implements ListSelectionListener, ActionListener
 {
 
     // -----------------------------------------------------------------
     // Constants
     // -----------------------------------------------------------------
     /**
-     * Constante para el comando agregar.
+     * Constante para el comando add.
      */
     private final static String AFILIAR = "Afiliar socio";
     // -----------------------------------------------------------------
@@ -56,7 +56,7 @@ public class PanelListaMembers extends JPanel implements ListSelectionListener, 
     private JList members;
 
     /**
-     * Bot�n para agregar un nuevo socio.
+     * Bot�n para add un nuevo socio.
      */
     private JButton btnAfiliar;
 
@@ -76,7 +76,7 @@ public class PanelListaMembers extends JPanel implements ListSelectionListener, 
      * Crea el Panel donde se organizar�n los objetos para mostrar las personas.
      * @param pPrincipal Instancia de la clase Interfaz. pPrincipal != null.
      */
-    public PanelListaMembers( InterfazClub pPrincipal )
+    public PanelListaSocios(InterfazClub pPrincipal )
     {
         principal = pPrincipal;
         setLayout( new BorderLayout( ) );
