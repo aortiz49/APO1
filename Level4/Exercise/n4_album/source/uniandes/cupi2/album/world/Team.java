@@ -358,6 +358,22 @@ public class Team {
 		if (pShirtNumber != pNewShirtNumber && findPlayer(pNewShirtNumber) != null)
 			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
 				                    ": The new shirt number is assigned to another player.");
+		
+		if (playerToBeModified.getPosition()!= Position.GOALKEEPER &&
+			pPosition == Position.GOALKEEPER && numGoalkeepers == MAX_GOALKEEPERS)
+			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
+				                    ": The maximum amount of goalkeepers on the team has been" +
+				                    "reached.");
+		else if (playerToBeModified.getPosition()!= Position.DEFENDER &&
+			pPosition == Position.DEFENDER && numDefenders == MAX_DEFENDERS)
+			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
+				                    ": The maximum amount of defenders on the team has been" +
+				                    "reached.");
+		else if (playerToBeModified.getPosition()!= Position.STRIKER &&
+			pPosition == Position.STRIKER &&	numStrikers == MAX_STRIKERS)
+			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
+				                    ": The maximum amount of strikers on the team has been" +
+				                    "reached.");
 			
 			// If the new and old shirt numbers are the same, and a player with the new shirt
 			// doesn't exist.
@@ -369,18 +385,7 @@ public class Team {
 		                                     pHeight,
 		                                     pWeight);
 		
-		if (pPosition == Position.GOALKEEPER && numGoalkeepers == MAX_GOALKEEPERS)
-			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
-				                    ": The maximum amount of goalkeepers on the team has been" +
-				                    "reached.");
-		else if (pPosition == Position.DEFENDER && numDefenders == MAX_DEFENDERS)
-			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
-				                    ": The maximum amount of defenders on the team has been" +
-				                    "reached.");
-		else if (pPosition == Position.STRIKER && numStrikers == MAX_STRIKERS)
-			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
-				                    ": The maximum amount of strikers on the team has been" +
-				                    "reached.");
+		
 		
 	}
 	

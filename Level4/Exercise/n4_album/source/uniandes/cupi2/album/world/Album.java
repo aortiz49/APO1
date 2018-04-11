@@ -51,6 +51,59 @@ public class Album {
 	}
 	
 	// -----------------------------------------------------------------
+	// Methods for exam
+	// -----------------------------------------------------------------
+	
+	/**
+	 * Returns the amount of players in the album that are between 25 and 30 years old. <br>
+	 * <b> Pre: </b> The list of teams is initialized <br>
+	 *
+	 * @throws Exception if there are no players within the 25-30 age range.
+	 * @returns The amount of players in the age range.
+	 */
+	public int countPlayersAge() throws Exception{
+		int numPlayers = 0;
+		for(int i = 0; i < teams.size(); i++) {
+			for(int j = 0; j < Team.QUANTITY_OF_PLAYERS; j++) {
+				// Calculate the age of the player.
+				int age = teams.get(i).getYear() - teams.get(i).getPlayers()[j].getBirthYear();
+				if(age >= 25 && age <= 30)
+					numPlayers++;
+			}
+		}
+		if(numPlayers == 0)
+			throw new Exception("There are no players in the age range 25-30.");
+		
+		
+		return numPlayers;
+	}
+	
+	/**
+	 * Returns a list containing players whose BMI(Body Mass Index) is not within normal range. <br>
+	 * Normal range is defined as: 18.5 - 24.99.
+	 * <b> Pre: </b> The list of teams is initialized <br>
+	 *
+	 * @throws Exception if there are no players outside the normal BMI range.
+	 * @returns The list of players outside the normal BMI range.
+	 */
+	public ArrayList<Player> playersOutsideBMIRange() throws Exception {
+		ArrayList<Player> playerList = new ArrayList<>();
+		for(int i = 0; i < teams.size(); i++) {
+			for(int j = 0; j < Team.QUANTITY_OF_PLAYERS; j++) {
+				// Calculate the BMI of the player.
+				double bmi = teams.get(i).getPlayers()[j].getWeight() /
+					Math.pow(teams.get(i).getPlayers()[j].getHeight(), 2);
+				if(bmi >= 18.5 && bmi <=24.99)
+					playerList.add(teams.get(i).getPlayers()[j]);
+			}
+		}
+		
+		if(playerList.size() == 0)
+			throw new Exception("All players have a normal BMI");
+		return playerList;
+	}
+	
+	// -----------------------------------------------------------------
 	// Methods
 	// -----------------------------------------------------------------
 	
