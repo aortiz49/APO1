@@ -13,7 +13,7 @@ import java.util.Properties;
 /**
  * Contains the map of the interface.
  */
-public class MapPanel extends JPanel {
+public class MapPanel extends JPanel implements ActionListener {
 	
 	
 	// -----------------------------------------------------------------
@@ -29,6 +29,12 @@ public class MapPanel extends JPanel {
 	// -----------------------------------------------------------------
 	// Attributes
 	// -----------------------------------------------------------------
+	
+	
+	/**
+	 * Principal window of the application.
+	 */
+	private MagicalCreaturesUserInterface principal;
 	
 	/**
 	 * Number of movements left for the player.
@@ -46,6 +52,11 @@ public class MapPanel extends JPanel {
 	private int numberOfColumns;
 	
 	/**
+	 * Number of creatures in the map.
+	 */
+	private int numberOfCreatures;
+	
+	/**
 	 * Array of buttons for the map.
 	 */
 	private JButton buttons[][];
@@ -55,11 +66,29 @@ public class MapPanel extends JPanel {
 	 */
 	private Properties data;
 	
+	/**
+	 * Array of creatures on the map.
+	 */
+	String[][] creaturesArray;
 	
-	public MapPanel() throws Exception {
+	int[] creatureX;
+	
+	int[] creatureY;
+	
+	/**
+	 * Constructs a new map panel.
+	 *
+	 * @param pPrincipal
+	 *
+	 * @throws Exception
+	 */
+	public MapPanel(MagicalCreaturesUserInterface pPrincipal) throws Exception {
+		
+		principal = pPrincipal;
 		setLayout(new GridLayout(10, 12));
 		System.out.println("data: " + numberOfColumns + "__" + numberOfRows);
-	
+		JButton x = new JButton();
+		
 	}
 	
 	
@@ -91,13 +120,29 @@ public class MapPanel extends JPanel {
 		numberOfMoves = Integer.parseInt(pData.getProperty("map.numberOfMoves"));
 		numberOfRows = Integer.parseInt(pData.getProperty("map.numberOfRows"));
 		numberOfColumns = Integer.parseInt(pData.getProperty("map.numberOfColumns"));
+		numberOfCreatures = Integer.parseInt(pData.getProperty("map.numberOfCreatures"));
+		
 		
 		buttons = new JButton[numberOfRows][numberOfColumns];
-		String[] properties;
+		
+		
+		// Create an array containing the locations of the creatures.
+		creaturesArray = new String[numberOfRows][numberOfColumns];
+		creatureX = new int[numberOfCreatures];
+		creatureY = new int[numberOfCreatures];
+		for (int i = 0; i < numberOfCreatures; i++) {
+			String[] creatures = pData.getProperty("map.creature" + (i + 1)).split(",");
+			creatureX[i] = Integer.parseInt(creatures[1]);
+			creatureY[i] = Integer.parseInt(creatures[2]);
+			creaturesArray[creatureX[i]][creatureY[i]] = creatures[0];
+			
+		}
+		
+		// Set the map configuration according to the properties file.
 		int[][] icons = new int[numberOfRows][numberOfColumns];
 		for (int i = 0; i < numberOfRows; i++) {
+			String[] properties = pData.getProperty("map.row" + (i + 1)).split(",");
 			for (int j = 0; j < numberOfColumns; j++) {
-				properties = pData.getProperty("map.row" + (i + 1)).split(",");
 				icons[i][j] = Integer.parseInt(properties[j]);
 				buttons[i][j] = new JButton();
 				
@@ -116,11 +161,17 @@ public class MapPanel extends JPanel {
 						break;
 					
 				}
+				buttons[i][j].addActionListener(this);
+				buttons[i][j].setActionCommand(Integer.toString(i) + Integer.toString(j));
 				//buttons[i][j].setBorderPainted(false);
+				buttons[i][j].setBackground(new Color(237, 221, 123));
 				add(buttons[i][j]);
+				
+				setVisible(false);
+				
 			}
 		}
-		setVisible(false);
+		
 	}
 	
 	
@@ -138,20 +189,47 @@ public class MapPanel extends JPanel {
 	
 	public void updateMap(File pFile) throws Exception {
 		removeAll();
+		//	setBackground(new Color(237, 221, 123));
 		initializeMap(loadMapInformation(pFile));
 		setVisible(true);
 		
 	}
 	
-	
-	public void actionPerformed(ActionEvent event) {
-	
+	public JButton[][] getButtons() {
+		return buttons;
 	}
 	
 	
+	public void actionPerformed(ActionEvent pEvent) {
+		
+		String command = pEvent.getActionCommand();
+		//int creature
+		for (int i = 0; i < numberOfRows; i++) {
+			for (int j = 0; j < numberOfColumns; j++) {
+				if (command.equals(Integer.toString(i) + Integer.toString(j))) {
+					principal.updateMovements();
+					if (creaturesArray[i][j] != null) {
+						JOptionPane.showMessageDialog(this, "YOU FOUND A " + creaturesArray[i][j],
+							"TEST", JOptionPane
+								.INFORMATION_MESSAGE);
+						buttons[i][j].setIcon(new ImageIcon(new ImageIcon("" +
+							"./data/creatures/" + creaturesArray[i][j] + ".png")
+							.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
+						principal.updatePoints(creaturesArray[i][j]);
+					} else {
+						buttons[i][j].setIcon(new ImageIcon("./data/images/visited.png"));
+				
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+	}
 	
 }
-	
 
 
 	

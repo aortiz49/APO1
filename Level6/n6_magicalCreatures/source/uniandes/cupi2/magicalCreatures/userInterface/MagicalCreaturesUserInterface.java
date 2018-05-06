@@ -53,7 +53,7 @@ public class MagicalCreaturesUserInterface extends JFrame {
 	private MagicalCreatures magicalCreatures;
 	
 	
-	// -----------------------------------------------------------------
+	// -----------------s------------------------------------------------
 	// Attributes of the interface
 	// -----------------------------------------------------------------
 	
@@ -81,6 +81,7 @@ public class MagicalCreaturesUserInterface extends JFrame {
 	 * Panel that displays the map.
 	 */
 	private MapPanel mapPanel;
+	
 	
 	/**
 	 * Constructs a new user interface. <br>
@@ -118,7 +119,7 @@ public class MagicalCreaturesUserInterface extends JFrame {
 		
 		//mapImageLbl= new JLabel();
 		//centerPanel.add(mapImageLbl,BorderLayout.CENTER);
-		mapPanel = new MapPanel();
+		mapPanel = new MapPanel(this);
 		centerPanel.add(mapPanel, BorderLayout.CENTER);
 		
 		
@@ -154,13 +155,33 @@ public class MagicalCreaturesUserInterface extends JFrame {
 	// -----------------------------------------------------------------
 	// Methods
 	// -----------------------------------------------------------------
+	public void updatePoints(String pName) {
+		/*
+		JOptionPane.showMessageDialog(this, "THIS IS A MESSAGE", "TEST", JOptionPane
+			.INFORMATION_MESSAGE);
+		//mapPanel.markAsVisited();
+		*/
+		magicalCreatures.setPlayerPoints(magicalCreatures.findCreature(pName).getPoints());
+		//magicalCreatures.decrementNumberOfMoves();
+		statusPanel.updatePanel(magicalCreatures.getPoints(),magicalCreatures.getRemainingMoves());
+	}
 	
+	public void updateMovements() {
+		magicalCreatures.decrementNumberOfMoves();
+		statusPanel.updatePanel(magicalCreatures.getPoints(),magicalCreatures.getRemainingMoves());
+		if(magicalCreatures.getRemainingMoves() == 0) {
+			JOptionPane.showMessageDialog(this, "THE END OF THE GAME", "VISIT BOX", JOptionPane
+				.ERROR_MESSAGE);
+			
+		}
+			
+	}
 	/**
 	 * Loads the information from the game.
 	 * <b>post: </b> Updates the encyclopedia information for current creature, loads the map
 	 * image, and activates the disabled actions panel buttons.
 	 */
-	public void loadGame() throws Exception {
+	public void loadGame() {
 		
 		//mapPanel = new MapPanel();
 		// Load the chosen map properties.
@@ -173,7 +194,6 @@ public class MagicalCreaturesUserInterface extends JFrame {
 			try {
 				mapPanel.updateMap(file);
 				statusPanel.updatePanel(magicalCreatures.getPoints(), mapPanel.getNumberOfMoves());
-				
 				// Set initial number of moves for the map.
 				magicalCreatures.setNumberOfMoves(mapPanel.getNumberOfMoves());
 				

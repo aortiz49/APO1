@@ -47,6 +47,7 @@ public class StatusPanel extends JPanel {
 	private JTextField remainingMovesTxt;
 	
 	
+	
 	// -----------------------------------------------------------------
 	// Constructor
 	// -----------------------------------------------------------------

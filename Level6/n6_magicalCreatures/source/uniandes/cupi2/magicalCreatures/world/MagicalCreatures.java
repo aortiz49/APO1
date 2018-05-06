@@ -41,7 +41,12 @@ public class MagicalCreatures {
 	/**
 	 * Number of movements.
 	 */
-	private  int numberOfMoves;
+	private int numberOfMoves;
+	
+	/**
+	 * Player's points.
+	 */
+	private int playerPoints;
 	
 	// -----------------------------------------------------------------
 	// Constructor
@@ -73,9 +78,19 @@ public class MagicalCreatures {
 	/**
 	 * Sets initial number of movements.
 	 */
-	
 	public void setNumberOfMoves(int pNumberOfMoves) {
 		numberOfMoves = pNumberOfMoves;
+	}
+	
+	/**
+	 * Decreases number of moves available by one.
+	 */
+	public void decrementNumberOfMoves() {
+		numberOfMoves--;
+	}
+	
+	public void setPlayerPoints(int pPoints) {
+		playerPoints += pPoints;
 	}
 	
 	/**
@@ -125,7 +140,7 @@ public class MagicalCreatures {
 	 * @return The player's points.
 	 */
 	public int getPoints() {
-		return 0;
+		return playerPoints;
 	}
 	
 	/**
@@ -145,7 +160,7 @@ public class MagicalCreatures {
 	 * @return Creature with the specified name. If not found return null.
 	 */
 	public Creature findCreature(String pName) {
-			Creature found = null;
+		Creature found = null;
 		for (int i = 0; i < encyclopedia.length && found == null; i++) {
 			if (encyclopedia[i].getName().equals(pName)) {
 				found = encyclopedia[i];
@@ -159,7 +174,7 @@ public class MagicalCreatures {
 	 * Loads the file given by the parameter to process it.
 	 *
 	 * @param pImagePath File path of specified file. . pImagePath != null &amp;&amp; pImagePath
-	 *                      != "".
+	 *                   != "".
 	 *
 	 * @throws Exception If there is a problem when loading the file.
 	 */
