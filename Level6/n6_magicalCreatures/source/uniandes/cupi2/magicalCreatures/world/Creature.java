@@ -74,6 +74,7 @@ public class Creature {
 		beingOfLight = pBeingOfLight;
 		points = pPoints;
 		creatureImagePath = pCreatureImagePath;
+		
 	}
 	
 	// -----------------------------------------------------------------
@@ -133,4 +134,5 @@ public class Creature {
 	public String getCreatureImagePath() {
 		return creatureImagePath;
 	}
+	
 }

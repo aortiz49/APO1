@@ -1,14 +1,12 @@
 package uniandes.cupi2.magicalCreatures.userInterface;
 
+
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.Properties;
+
+import uniandes.cupi2.magicalCreatures.world.*;
 
 /**
  * Contains the map of the interface.
@@ -21,25 +19,18 @@ public class MapPanel extends JPanel implements ActionListener {
 	// -----------------------------------------------------------------
 	
 	/**
-	 * Path of the map.
+	 * Image path of the visited block.
 	 */
-	public final static String MAP_IMAGE_PATH = "./data/map.png";
-	
+	public final static String VISITED_IMAGE_PATH = "./data/images/visited.png";
 	
 	// -----------------------------------------------------------------
 	// Attributes
 	// -----------------------------------------------------------------
 	
-	
 	/**
 	 * Principal window of the application.
 	 */
 	private MagicalCreaturesUserInterface principal;
-	
-	/**
-	 * Number of movements left for the player.
-	 */
-	private int numberOfMoves;
 	
 	/**
 	 * Height of the map.
@@ -51,10 +42,6 @@ public class MapPanel extends JPanel implements ActionListener {
 	 */
 	private int numberOfColumns;
 	
-	/**
-	 * Number of creatures in the map.
-	 */
-	private int numberOfCreatures;
 	
 	/**
 	 * Array of buttons for the map.
@@ -62,165 +49,285 @@ public class MapPanel extends JPanel implements ActionListener {
 	private JButton buttons[][];
 	
 	/**
-	 * The latest data loaded by the game.
+	 * Array of cells.
 	 */
-	private Properties data;
-	
-	/**
-	 * Array of creatures on the map.
-	 */
-	String[][] creaturesArray;
-	
-	int[] creatureX;
-	
-	int[] creatureY;
+	private MapCell[][] cells;
 	
 	/**
 	 * Constructs a new map panel.
 	 *
-	 * @param pPrincipal
-	 *
-	 * @throws Exception
+	 * @param pPrincipal Principal interface of the application.
 	 */
-	public MapPanel(MagicalCreaturesUserInterface pPrincipal) throws Exception {
-		
+	public MapPanel(MagicalCreaturesUserInterface pPrincipal) {
 		principal = pPrincipal;
-		setLayout(new GridLayout(10, 12));
-		System.out.println("data: " + numberOfColumns + "__" + numberOfRows);
-		JButton x = new JButton();
-		
 	}
-	
 	
 	/**
-	 * Loads the map information with the creatures in an object of type Properties.
+	 * Initializes the terrain for the map configuration.
+	 * <b>post: The map is initialized with the terrain to represent the newly loaded map. </b>
 	 *
-	 * @param pFile The file that contains the description of the map and creatures.
-	 *
-	 * @return An object of the Properties class with the information from the file.
-	 * @throws Exception Throws an exception if the file doesn't exist or if the format cis
-	 *                   invalid and cannot be read.
+	 * @param pCells           The cells to be initialized in the map.
+	 * @param pNumberOfRows    Number rows in the map properties.
+	 * @param pNumberOfColumns Number of columns in the map properties.
 	 */
-	private Properties loadMapInformation(File pFile) throws Exception {
-		
-		Properties mapData = new Properties();
-		FileInputStream in = new FileInputStream(pFile);
-		try {
-			mapData.load(in);
-			in.close();
-		} catch (Exception e) {
-			throw new Exception("Invalid format");
-		}
-		return mapData;
-	}
-	
-	
-	private void initializeMap(Properties pData) {
-		
-		numberOfMoves = Integer.parseInt(pData.getProperty("map.numberOfMoves"));
-		numberOfRows = Integer.parseInt(pData.getProperty("map.numberOfRows"));
-		numberOfColumns = Integer.parseInt(pData.getProperty("map.numberOfColumns"));
-		numberOfCreatures = Integer.parseInt(pData.getProperty("map.numberOfCreatures"));
-		
-		
+	private void initializeMap(MapCell[][] pCells, int pNumberOfRows, int pNumberOfColumns) {
+		cells = pCells;
+		numberOfRows = pNumberOfRows;
+		numberOfColumns = pNumberOfColumns;
+		setLayout(new GridLayout(numberOfRows, numberOfColumns));
+		setBackground(new Color(237, 221, 123));
 		buttons = new JButton[numberOfRows][numberOfColumns];
-		
-		
-		// Create an array containing the locations of the creatures.
-		creaturesArray = new String[numberOfRows][numberOfColumns];
-		creatureX = new int[numberOfCreatures];
-		creatureY = new int[numberOfCreatures];
-		for (int i = 0; i < numberOfCreatures; i++) {
-			String[] creatures = pData.getProperty("map.creature" + (i + 1)).split(",");
-			creatureX[i] = Integer.parseInt(creatures[1]);
-			creatureY[i] = Integer.parseInt(creatures[2]);
-			creaturesArray[creatureX[i]][creatureY[i]] = creatures[0];
-			
-		}
-		
-		// Set the map configuration according to the properties file.
-		int[][] icons = new int[numberOfRows][numberOfColumns];
 		for (int i = 0; i < numberOfRows; i++) {
-			String[] properties = pData.getProperty("map.row" + (i + 1)).split(",");
 			for (int j = 0; j < numberOfColumns; j++) {
-				icons[i][j] = Integer.parseInt(properties[j]);
 				buttons[i][j] = new JButton();
 				
-				switch (icons[i][j]) {
-					case 0:
-						buttons[i][j].setIcon(new ImageIcon("./data/images/meadow.png"));
-						break;
-					case 1:
-						buttons[i][j].setIcon(new ImageIcon("./data/images/woods.png"));
-						break;
-					case 2:
-						buttons[i][j].setIcon(new ImageIcon("./data/images/ocean.png"));
-						break;
-					case 3:
-						buttons[i][j].setIcon(new ImageIcon("./data/images/cave.png"));
-						break;
-					
-				}
+				// Allocate the terrain to each block of the map. Scale the icon to support
+				// smaller sizes in the map dimensions. (+1 pixel for width and height to remove
+				// division offset).
+				String path = "./data/images/" + cells[i][j].getTerrainType() + ".png";
+				buttons[i][j].setIcon(new ImageIcon(new ImageIcon(path).getImage().
+					getScaledInstance(this.getWidth() / numberOfColumns + 1,
+						this.getHeight() / numberOfRows + 1, Image.SCALE_DEFAULT)));
+				
 				buttons[i][j].addActionListener(this);
-				buttons[i][j].setActionCommand(Integer.toString(i) + Integer.toString(j));
-				//buttons[i][j].setBorderPainted(false);
+				buttons[i][j].setActionCommand("X" + Integer.toString(i) +
+					"Y" + Integer.toString(j));
+				buttons[i][j].setBorderPainted(false);
 				buttons[i][j].setBackground(new Color(237, 221, 123));
 				add(buttons[i][j]);
-				
 				setVisible(false);
-				
 			}
 		}
+	}
+	
+	/**
+	 * Updates map with the next map.
+	 * <b>post: The map is updated to represent the newly loaded map. </b>
+	 *
+	 * @param pCells           The cells to be initialized in the map.
+	 * @param pNumberOfRows    Number rows in the map properties.
+	 * @param pNumberOfColumns Number of columns in the map properties.
+	 */
+	public void updateMap(MapCell[][] pCells, int pNumberOfRows, int pNumberOfColumns) {
 		
-	}
-	
-	
-	public int getNumberOfMoves() {
-		return numberOfMoves;
-	}
-	
-	public int getNumberOfRows() {
-		return numberOfRows;
-	}
-	
-	public int getNumberOfColumns() {
-		return numberOfColumns;
-	}
-	
-	public void updateMap(File pFile) throws Exception {
+		// Remove the icons from the buttons to repaint for the next map.
 		removeAll();
-		//	setBackground(new Color(237, 221, 123));
-		initializeMap(loadMapInformation(pFile));
+		initializeMap(pCells, pNumberOfRows, pNumberOfColumns);
 		setVisible(true);
 		
 	}
 	
-	public JButton[][] getButtons() {
-		return buttons;
+	/**
+	 * When the game is lost, disable the buttons and display a black image in order to prevent
+	 * the player from continuing the game.
+	 *
+	 * <b>post: The buttons are disabled and the screen turns black.</b>
+	 */
+	public void disableMapButtons() {
+		setVisible(false);
+		for (int i = 0; i < numberOfRows; i++) {
+			for (int j = 0; j < numberOfColumns; j++) {
+				buttons[i][j].setEnabled(false);
+				buttons[i][j].setDisabledIcon(new ImageIcon(new ImageIcon("" +
+					"./data/images/black.png")
+					.getImage().getScaledInstance(this.getWidth() / numberOfColumns + 1,
+						this.getHeight() / numberOfRows + 1, Image.SCALE_DEFAULT)));
+			}
+		}
+		// Disabling before and enabling visibility after allows for the black display to appear
+		// at once.
+		setVisible(true);
 	}
 	
 	
+	public int terrainCreature(String pTerrain) {
+		int x = 0;
+		for (int i = 0; i < numberOfRows; i++) {
+			for (int j = 0; j < numberOfColumns; j++) {
+				if (cells[i][j].getTerrainType().equals(pTerrain) && cells[i][j].getCellCreature()
+					!= null)
+					x++;
+			}
+		}
+		return x;
+	}
+	
+	public String diagonal1() {
+		int ocean = 0;
+		int woods = 0;
+		int meadow = 0;
+		int cave = 0;
+		String terr = null;
+		int max = 0;
+		
+		for (int i = 0; i < numberOfRows; i++) {
+			for (int j = 0; j <= i; j++) {
+				if (cells[i][j].isVisited() && cells[i][j].getTerrainType().equals("ocean"))
+					ocean++;
+				else if (cells[i][j].isVisited() && cells[i][j].getTerrainType().equals("woods"))
+					woods++;
+				else if (cells[i][j].isVisited() && cells[i][j].getTerrainType().equals("meadow"))
+					meadow++;
+				else if (cells[i][j].isVisited() && cells[i][j].getTerrainType().equals("cave"))
+					cave++;
+			}
+			
+		}
+		if (ocean > max) {
+			max = ocean;
+			terr = "ocean";
+		}
+		if (woods > max) {
+			max = woods;
+			terr = "woods";
+		}
+		if (meadow > max) {
+			max = meadow;
+			terr = "meadow";
+		}
+		if (cave > max) {
+			max = cave;
+			terr = "cave";
+		}
+		return terr;
+	}
+	
+	public String diagonal2() {
+		int ocean = 0;
+		int woods = 0;
+		int meadow = 0;
+		int cave = 0;
+		String terr = null;
+		int max = 0;
+		
+		for (int i = 0; i < numberOfRows; i++) {
+			for (int j = numberOfColumns - i - 1; j < numberOfColumns; j++) {
+				if (cells[i][j].isVisited() && cells[i][j].getTerrainType().equals("ocean"))
+					ocean++;
+				else if (cells[i][j].isVisited() && cells[i][j].getTerrainType().equals("woods"))
+					woods++;
+				else if (cells[i][j].isVisited() && cells[i][j].getTerrainType().equals("meadow"))
+					meadow++;
+				else if (cells[i][j].isVisited() && cells[i][j].getTerrainType().equals("cave"))
+					cave++;
+			}
+			
+		}
+		if (ocean > max) {
+			max = ocean;
+			terr = "ocean";
+		}
+		if (woods > max) {
+			max = woods;
+			terr = "woods";
+		}
+		if (meadow > max) {
+			max = meadow;
+			terr = "meadow";
+		}
+		if (cave > max) {
+			max = cave;
+			terr = "cave";
+		}
+		return terr;
+	}
+	
+	public String diagonal3(int x, int y) throws Exception {
+		int ocean = 0;
+		int woods = 0;
+		int meadow = 0;
+		int cave = 0;
+		String terr = null;
+		int max = 0;
+		
+		if (x < 0 || x >= numberOfColumns || y < 0 || y >= numberOfRows)
+			throw new Exception("Cell out of bounds");
+		
+		if (y == 0 || x == 0) {// si esta en el borne norte o west
+			// x = 3
+			// y = 0
+			
+			/// proximo 4,1
+			for (int i = x; i < numberOfRows;i++) {
+			
+					if (cells[i][y++].isVisited() && cells[i][y++].getTerrainType().equals
+						("ocean"))
+					ocean++;
+				
+				}
+			
+		}
+		return terr;
+	}
+	
+	public void test() {
+		for (int i = 0; i < 5; ++i) {
+			if(i == 0)
+				System.out.println("es 0");
+		}
+	}
+	
+	/**
+	 * Executes actions based off the button the user has pressed.
+	 * <b>post: Button is updated with the information caused by the user event. </b>
+	 *
+	 * @param pEvent The action event generated by the user.
+	 */
 	public void actionPerformed(ActionEvent pEvent) {
 		
 		String command = pEvent.getActionCommand();
-		//int creature
-		for (int i = 0; i < numberOfRows; i++) {
-			for (int j = 0; j < numberOfColumns; j++) {
-				if (command.equals(Integer.toString(i) + Integer.toString(j))) {
-					principal.updateMovements();
-					if (creaturesArray[i][j] != null) {
-						JOptionPane.showMessageDialog(this, "YOU FOUND A " + creaturesArray[i][j],
-							"TEST", JOptionPane
-								.INFORMATION_MESSAGE);
-						buttons[i][j].setIcon(new ImageIcon(new ImageIcon("" +
-							"./data/creatures/" + creaturesArray[i][j] + ".png")
-							.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT)));
-						principal.updatePoints(creaturesArray[i][j]);
-					} else {
-						buttons[i][j].setIcon(new ImageIcon("./data/images/visited.png"));
+		
+		
+		for (int i = 0; i < numberOfRows;) {
+			for (int j = 0; j < numberOfColumns;) {
 				
+				// Detects when a button [i][j] is clicked.
+				if (command.equals("X" + Integer.toString(i++) + "Y" + Integer.toString(j++))) {
+					System.out.println(command);
+					
+					// If the box is visited for a second time, display an information
+					// message. One movement is lost but not points are awarded.
+					if (cells[i][j].isVisited()) {
+						JOptionPane.showMessageDialog(this, "You have already visited this box.",
+							"Visit box",
+							JOptionPane.INFORMATION_MESSAGE);
+						principal.updateMovements();
 					}
 					
+					// Else, if the box is being visited for the first time keep going.
+					else {
+						// If a creature exists in the box, update the mapPanel button with the
+						// image of the creature and display an information message to the user.
+						if (cells[i][j].getCellCreature() != null) {
+							cells[i][j].setIsVisited(true);
+							JOptionPane.showMessageDialog(this, "You found 1 " +
+									cells[i][j].getCellCreature().getName(), "Visit block",
+								JOptionPane
+									.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon(cells[i][j]
+									.getCellCreature().getCreatureImagePath())
+									.getImage().getScaledInstance(150, 150, Image.SCALE_DEFAULT)));
+							
+							// Update movement after displaying information message.
+							principal.updateMovements();
+							buttons[i][j].setIcon(new ImageIcon(new ImageIcon("" +
+								"./data/creatures/" + cells[i][j].getCellCreature().getName() +
+								"" +
+								".png")
+								.getImage().getScaledInstance(this.getWidth() / numberOfColumns,
+									this.getHeight() / numberOfRows, Image.SCALE_DEFAULT)));
+							principal.updatePoints(cells[i][j].getCellCreature().getName());
+						} else {
+							// Else, if a creature doesn't exist in the box, update the mapPanel
+							// button with the image of a "visited" icon.
+							cells[i][j].setIsVisited(true);
+							buttons[i][j].setIcon(new ImageIcon(new ImageIcon(VISITED_IMAGE_PATH)
+								.getImage().getScaledInstance(this.getWidth() / numberOfColumns,
+									this
+										.getHeight() / numberOfRows, Image.SCALE_DEFAULT)));
+							principal.updateMovements();
+						}
+						
+					}
 				}
 				
 			}
@@ -230,6 +337,7 @@ public class MapPanel extends JPanel implements ActionListener {
 	}
 	
 }
+
 
 
 	

@@ -8,6 +8,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+
+/**
+ * Contains the options of the interface.
+ */
 public class OptionsPanel extends JPanel implements ActionListener {
 	
 	// -----------------------------------------------------------------
@@ -17,7 +21,7 @@ public class OptionsPanel extends JPanel implements ActionListener {
 	/**
 	 * Command to load the map.
 	 */
-	public final static String LOAD = "Load Map";
+	public final static String LOAD = "Load Game";
 	
 	/**
 	 * Command to restart the game.
@@ -27,7 +31,7 @@ public class OptionsPanel extends JPanel implements ActionListener {
 	/**
 	 * Command to execute option1.
 	 */
-	public final static String OPTION_1 = "Optionsdkljfs";
+	public final static String OPTION_1 = "Option 1";
 	
 	/**
 	 * Command to execute option2.
@@ -64,13 +68,13 @@ public class OptionsPanel extends JPanel implements ActionListener {
 	// -----------------------------------------------------------------
 	
 	/**
-	 * Principal window of theapplication.
+	 * Principal window of the application.
 	 */
 	private MagicalCreaturesUserInterface principal;
 	
 	/**
 	 * Creates a new options panel.
-	 * @param pPrincipal
+	 * @param pPrincipal Principal interface of the application.
 	 */
 	public OptionsPanel(MagicalCreaturesUserInterface pPrincipal) {
 		principal = pPrincipal;
@@ -87,7 +91,7 @@ public class OptionsPanel extends JPanel implements ActionListener {
 		add(loadMapBtn);
 		
 		// Create "reset game" button and add to the options panel.
-		restartGameBtn = new JButton("Reset");
+		restartGameBtn = new JButton("Restart");
 		restartGameBtn.setActionCommand(RESTART);
 		restartGameBtn.addActionListener(this);
 		add(restartGameBtn);
@@ -111,11 +115,15 @@ public class OptionsPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent pEvent) {
 		String command = pEvent.getActionCommand();
 		
-		if (command.equals(LOAD)) {
+		if (command.equals(LOAD))
 			principal.loadGame();
+		else if(command.equals(RESTART))
+			System.out.println("Do nothing");
+		else if(command.equals(OPTION_1))
+			principal.reqFunctOption1();
+		else
+			principal.reqFunctOption2();
 			
-		} else
-			principal.loadGame();
 	}
 	
 

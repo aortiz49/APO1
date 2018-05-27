@@ -10,9 +10,6 @@
  */
 package uniandes.cupi2.magicalCreatures.userInterface;
 
-import uniandes.cupi2.magicalCreatures.world.Creature;
-import uniandes.cupi2.magicalCreatures.world.MagicalCreatures;
-
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
@@ -45,7 +42,6 @@ public class StatusPanel extends JPanel {
 	 * Text field for the points.
 	 */
 	private JTextField remainingMovesTxt;
-	
 	
 	
 	// -----------------------------------------------------------------
@@ -94,7 +90,7 @@ public class StatusPanel extends JPanel {
 	 *
 	 * @param pPoints         Points accumulated by the user. pPoints &gt; =  0.
 	 * @param pRemainingMoves Remaining moves to be performed by the user. pRemaining moves &gt;
-	 *                           = 0.
+	 *                        = 0.
 	 */
 	public void updatePanel(int pPoints, int pRemainingMoves) {
 		pointsTxt.setText(Integer.toString(pPoints));

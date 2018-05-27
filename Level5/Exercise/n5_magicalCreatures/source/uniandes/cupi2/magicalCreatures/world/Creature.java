@@ -57,13 +57,13 @@ public class Creature {
 	 * Creates a creature with the characteristics specified by the parameters. <br>
 	 * <b>post: </b> The attributes were initialized with the values given by the parameter.
 	 *
-	 * @param pName              Name of the creature. pName != null && pName != "".
-	 * @param pInterests         Interests of the creature. pInterests != null && pInterests != "".
-	 * @param pFears             Fears of the creature. pFears != null && pFears != "".
+	 * @param pName              Name of the creature. pName != null &amp;&amp; pName != "".
+	 * @param pInterests         Interests of the creature. pInterests != null &amp;&amp; pInterests != "".
+	 * @param pFears             Fears of the creature. pFears != null &amp;&amp; pFears != "".
 	 * @param pBeingOfLight      True if the creature is a being of light, false if contrary.
-	 * @param pPoints            Points the player obtains when finding a creature. pPoints > 0.
+	 * @param pPoints            Points the player obtains when finding a creature. pPoints &gt; 0.
 	 * @param pCreatureImagePath Image path of the creature.
-	 *                           pCreatureImagePath != null && pCreatureImagePath != "".
+	 *                           pCreatureImagePath != null &amp;&amp; pCreatureImagePath != "".
 	 */
 	public Creature(String pName, String pInterests, String pFears, boolean pBeingOfLight, int
 		pPoints, String pCreatureImagePath) {

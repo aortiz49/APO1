@@ -359,18 +359,18 @@ public class Team {
 			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
 				                    ": The new shirt number is assigned to another player.");
 		
-		if (playerToBeModified.getPosition()!= Position.GOALKEEPER &&
+		if (playerToBeModified.getPosition() != Position.GOALKEEPER &&
 			pPosition == Position.GOALKEEPER && numGoalkeepers == MAX_GOALKEEPERS)
 			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
 				                    ": The maximum amount of goalkeepers on the team has been" +
 				                    "reached.");
-		else if (playerToBeModified.getPosition()!= Position.DEFENDER &&
+		else if (playerToBeModified.getPosition() != Position.DEFENDER &&
 			pPosition == Position.DEFENDER && numDefenders == MAX_DEFENDERS)
 			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
 				                    ": The maximum amount of defenders on the team has been" +
 				                    "reached.");
-		else if (playerToBeModified.getPosition()!= Position.STRIKER &&
-			pPosition == Position.STRIKER &&	numStrikers == MAX_STRIKERS)
+		else if (playerToBeModified.getPosition() != Position.STRIKER &&
+			pPosition == Position.STRIKER && numStrikers == MAX_STRIKERS)
 			throw new Exception("Error when modifying player " + playerToBeModified.getName() +
 				                    ": The maximum amount of strikers on the team has been" +
 				                    "reached.");
@@ -384,8 +384,6 @@ public class Team {
 		else playerToBeModified.modifyPlayer(pNewShirtNumber, pName, pPosition, pBirthYear,
 		                                     pHeight,
 		                                     pWeight);
-		
-		
 		
 	}
 	

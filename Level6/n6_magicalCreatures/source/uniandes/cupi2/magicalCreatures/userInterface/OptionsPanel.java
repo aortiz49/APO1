@@ -1,13 +1,11 @@
 package uniandes.cupi2.magicalCreatures.userInterface;
 
-import uniandes.cupi2.magicalCreatures.world.MagicalCreatures;
-
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+
 
 /**
  * Contains the options of the interface.
@@ -74,6 +72,7 @@ public class OptionsPanel extends JPanel implements ActionListener {
 	
 	/**
 	 * Creates a new options panel.
+	 *
 	 * @param pPrincipal Principal interface of the application.
 	 */
 	public OptionsPanel(MagicalCreaturesUserInterface pPrincipal) {
@@ -107,22 +106,26 @@ public class OptionsPanel extends JPanel implements ActionListener {
 		option2Btn.setActionCommand(OPTION_2);
 		option2Btn.addActionListener(this);
 		add(option2Btn);
-}
+	}
 	
 	public void actionPerformed(ActionEvent pEvent) {
 		String command = pEvent.getActionCommand();
 		
-		if (command.equals(LOAD))
-			principal.loadGame();
-		else if(command.equals(RESTART))
-			System.out.println("Do nothing");
-		else if(command.equals(OPTION_1))
-			principal.reqFunctOption1();
-		else
-			principal.reqFunctOption2();
-			
+		switch (command) {
+			case LOAD:
+				principal.loadGame();
+				break;
+			case RESTART:
+				principal.restartGame();
+				break;
+			case OPTION_1:
+				principal.reqFunctOption1();
+				break;
+			default:
+				principal.reqFunctOption2();
+				break;
+		}
+		
 	}
-	
-
 	
 }

@@ -16,6 +16,10 @@ import uniandes.cupi2.magicalCreatures.world.MagicalCreatures;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+
+/**
+ * Contains the status panel of the interface.
+ */
 public class StatusPanel extends JPanel {
 	
 	// -----------------------------------------------------------------
@@ -41,7 +45,7 @@ public class StatusPanel extends JPanel {
 	 * Text field for the points.
 	 */
 	private JTextField remainingMovesTxt;
-
+	
 	
 	// -----------------------------------------------------------------
 	// Constructor
@@ -84,6 +88,13 @@ public class StatusPanel extends JPanel {
 		
 	}
 	
+	/**
+	 * Updates the panel to show the player's accumulated points of moves remaining.
+	 *
+	 * @param pPoints         Points accumulated by the user. pPoints &gt; =  0.
+	 * @param pRemainingMoves Remaining moves to be performed by the user. pRemaining moves &gt;
+	 *                           = 0.
+	 */
 	public void updatePanel(int pPoints, int pRemainingMoves) {
 		pointsTxt.setText(Integer.toString(pPoints));
 		remainingMovesTxt.setText(Integer.toString(pRemainingMoves));

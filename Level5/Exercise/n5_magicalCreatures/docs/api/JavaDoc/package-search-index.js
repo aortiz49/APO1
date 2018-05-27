@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"uniandes.cupi2.magicalCreatures.userInterface"},{"l":"uniandes.cupi2.magicalCreatures.world"}]

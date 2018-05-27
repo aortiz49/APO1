@@ -38,11 +38,6 @@ public class MagicalCreaturesUserInterface extends JFrame {
 	public final static String IMAGE_PATH = "./data/images/banner.png";
 	
 	/**
-	 * Image path of the map.
-	 */
-	public final static String MAP_IMAGE_PATH = "./data/map.png";
-	
-	/**
 	 * Image path of the creatures.
 	 */
 	public final static String CREATURES_PATH = "./data/creatures.properties";
@@ -86,7 +81,11 @@ public class MagicalCreaturesUserInterface extends JFrame {
 	 */
 	private MapPanel mapPanel;
 	
-	
+	/**
+	 * Constructs a new user interface. <br>
+	 *
+	 * @throws Exception if the interface cannot be loaded.
+	 */
 	public MagicalCreaturesUserInterface() throws Exception {
 		
 		setTitle("Magical creatures");
@@ -143,65 +142,186 @@ public class MagicalCreaturesUserInterface extends JFrame {
 		southPanel.add(optionsPanel, BorderLayout.SOUTH);
 		
 		Creature current = magicalCreatures.getCurrentCreature();
-		encyclopediaPanel.updatePanel2(current.getName(), current.getPoints(), current
+		
+		encyclopediaPanel.updatePanel(current.getName(), current.getPoints(), current
 			.getCreatureImagePath(), current.getInterests(), current.getFears(), current
 			.isBeingOfLight());
 		
 	}
 	
+	/**
+	 * Loads the information from the game.
+	 * <b>post: </b> Updates the encyclopedia information for current creature, loads the map
+	 * image, and activates the disabled actions panel buttons.
+	 */
 	public void loadGame() {
 		
-		try {
-			statusPanel.updatePanel(magicalCreatures.getPoints(), magicalCreatures
-				.getRemainingMoves());
-			mapPanel.loadMap(MAP_IMAGE_PATH);
-			
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this, e.getMessage(), "There were problems loading the" +
-					" " +
-					"map, the file could not be loaded.",
-				JOptionPane.ERROR_MESSAGE);
-			
-		}
+		// Update the encyclopedia information
+		statusPanel.updatePanel(magicalCreatures.getPoints(),
+			magicalCreatures.getRemainingMoves());
 		
+		// Load the map image.
+		mapPanel.loadMap();
+		
+		// Activate actions panel.
+		actionsPanel.updatePanel();
 	}
 	
 	/**
-	 * Muestra el nextCreature veh�culo en la lista.
+	 * Shows the next creature in the list.
+	 * <b>post: </b> Updates the encyclopedia panel to display the next creature.
 	 */
 	public void seeNext() {
 		try {
 			Creature nextCreature = magicalCreatures.getNext();
-			encyclopediaPanel.updatePanel2(nextCreature.getName(), nextCreature.getPoints(),
-				nextCreature
-					.getCreatureImagePath(), nextCreature.getInterests(), nextCreature.getFears(),
-				nextCreature
-					.isBeingOfLight());
+			encyclopediaPanel.updatePanel(nextCreature.getName(), nextCreature.getPoints(),
+				nextCreature.getCreatureImagePath(), nextCreature.getInterests(),
+				nextCreature.getFears(), nextCreature.isBeingOfLight());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this, e.getMessage(), "Ver veh�culo nextCreature",
-				JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, e.getMessage(), "See next creature",
+				JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
 	
 	/**
-	 * Muestra el nextCreature veh�culo en la lista.
+	 * Shows the previous creature in the list.
+	 * <b>post: </b> Updates the encyclopedia panel to display the previous creature.
 	 */
 	public void seePrevious() {
 		try {
 			Creature previousCreature = magicalCreatures.getPrevious();
-			encyclopediaPanel.updatePanel2(previousCreature.getName(),
+			encyclopediaPanel.updatePanel(previousCreature.getName(),
 				previousCreature.getPoints(), previousCreature.getCreatureImagePath(),
 				previousCreature.getInterests(), previousCreature.getFears(),
 				previousCreature.isBeingOfLight());
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this, e.getMessage(), "Ver veh�culo nextCreature",
-				JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(this, e.getMessage(), "See previous creature",
+				JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 	}
 	
+	/**
+	 * Shows the number of creatures in the row.
+	 */
+	public void seeCreaturesInRow() {
+		
+		String str = " there are ";
+		String str1 = " creatures.";
+		try {
+			String row = JOptionPane.showInputDialog(this, "Enter the row:", "See " +
+				"creatures in row", JOptionPane.QUESTION_MESSAGE);
+			
+			if (row == null) {
+				System.out.println("User pressed CANCEL, or window has been closed");
+			} else {
+				int quantity = magicalCreatures.getQuantityCreaturesRow(Integer.parseInt(row));
+				
+				if (quantity == 1) {
+					str = " there is ";
+					str1 = " creature.";
+				}
+				JOptionPane.showMessageDialog(this, "In row " + row + str +
+					quantity + str1, "See creatures in row", JOptionPane.INFORMATION_MESSAGE);
+			}
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(this, "Value of the row is invalid.", "See " +
+				"creatures in row", JOptionPane.ERROR_MESSAGE);
+		}
+		
+	}
 	
+	/**
+	 * Shows the number of creatures in the column.
+	 */
+	public void seeCreaturesInColumn() {
+		String str = " there are ";
+		String str1 = " creatures.";
+		try {
+			String column = JOptionPane.showInputDialog(this, "Enter the column:", "See " +
+				"creatures in column", JOptionPane.QUESTION_MESSAGE);
+			
+			if (column == null) {
+				System.out.println("User pressed CANCEL, or window has been closed");
+			} else {
+				int quantity = magicalCreatures.getQuantityCreaturesColumn(Integer.parseInt
+					(column));
+				if (quantity == 1) {
+					str = " there is ";
+					str1 = " creature.";
+				}
+				
+				JOptionPane.showMessageDialog(this, "In column " + column + str +
+					quantity + str1, "See creatures in column", JOptionPane
+					.INFORMATION_MESSAGE);
+			}
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(this, "Value of the column is invalid.", "See " +
+				"creatures in column", JOptionPane.ERROR_MESSAGE);
+		}
+		
+	}
+	
+	/**
+	 * Shows the number of points in the quadrant.
+	 */
+	public void seePointsInQuadrant() {
+		
+		try {
+			String quadrant = JOptionPane.showInputDialog(this, "Enter the quadrant:", "See " +
+				"points in quadrant", JOptionPane.QUESTION_MESSAGE);
+			
+			if (quadrant == null) {
+				System.out.println("User pressed CANCEL, or window has been closed");
+			} else {
+				
+				JOptionPane.showMessageDialog(this, "There are " + magicalCreatures
+						.calculatePointsInQuadrant(Integer.parseInt(quadrant)) + " points " +
+						"available in quadrant " + quadrant + ".", "See points in quadrant",
+					JOptionPane.INFORMATION_MESSAGE);
+			}
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(this, "Value of the quadrant is invalid.", "See " +
+				"points in quadrant", JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	/**
+	 * Shows the creature with the highest points that has not yet been found.
+	 */
+	public void seeHighestPointCreature() {
+		
+		JOptionPane.showMessageDialog(this, "The creature with the highest points \n that has " +
+			"not" +
+			" " +
+			"been found is: " + magicalCreatures.getHighestPointsCreature().getName(), "See " +
+			"creature with " +
+			"highest points", JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+	
+	/**
+	 * Display option 1.
+	 */
+	public void reqFunctOption1() {
+		JOptionPane.showMessageDialog(this, "Response 1", "Response",
+			JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	/**torr
+	 * Display option 2.
+	 */
+	public void reqFunctOption2() {
+		JOptionPane.showMessageDialog(this, "Response 2", "Response",
+			JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	/**
+	 * Main method of the application that executes the interface.
+	 *
+	 * @param args Argument of main method.
+	 */
 	public static void main(String[] args) {
 		try {
 			// Unify the interface for Mac and for Windows.

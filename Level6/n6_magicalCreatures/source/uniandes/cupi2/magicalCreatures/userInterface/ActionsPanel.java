@@ -1,12 +1,11 @@
 package uniandes.cupi2.magicalCreatures.userInterface;
 
-import uniandes.cupi2.magicalCreatures.world.MagicalCreatures;
-
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 /**
  * Contains the panel that holds the buttons to perform different actions.
  */
@@ -59,7 +58,6 @@ public class ActionsPanel extends JPanel implements ActionListener {
 	 * Button to view the creature with the highest points yet to be discovered.
 	 */
 	private JButton highestPointCreatureBtn;
-	
 	
 	// -----------------------------------------------------------------
 	// Attributes
@@ -121,29 +119,44 @@ public class ActionsPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent pEvent) {
 		String command = pEvent.getActionCommand();
 		
-		if (command.equals(CREATURES_IN_ROW))
-			principal.seeCreaturesInRow();
-		
-		else if (command.equals(CREATURES_IN_COLUMN))
-			principal.seeCreaturesInColumn();
-		
-		else if (command.equals(POINTS_IN_QUADRANT))
-			principal.seePointsInQuadrant();
-		else
-			principal.seeHighestPointCreature();
+		switch (command) {
+			case CREATURES_IN_ROW:
+				principal.seeCreaturesInRow();
+				break;
+			case CREATURES_IN_COLUMN:
+				principal.seeCreaturesInColumn();
+				break;
+			case POINTS_IN_QUADRANT:
+				principal.seePointsInQuadrant();
+				break;
+			default:
+				principal.seeHighestPointCreature();
+				break;
+		}
 	}
 	
 	
 	/**
 	 * Updates the panel if the load button is pressed in the options panel.
-	 * <b>post: </b> The actions panel is enabled.
+	 * <b>post: </b> The actions panel buttons are enabled.
 	 */
-	public void updatePanel() {
+	public void enableActionsPanel() {
 		creaturesInRowBtn.setEnabled(true);
 		creaturesInColumnBtn.setEnabled(true);
 		pointsInQuadrantBtn.setEnabled(true);
 		highestPointCreatureBtn.setEnabled(true);
 		
+	}
+	
+	/**
+	 * Updates the panel if the game is won or lost.
+	 * <b>post: </b> The actions panel buttons are disabled.
+	 */
+	public void disableActionsPanel() {
+		creaturesInRowBtn.setEnabled(false);
+		creaturesInColumnBtn.setEnabled(false);
+		pointsInQuadrantBtn.setEnabled(false);
+		highestPointCreatureBtn.setEnabled(false);
 	}
 	
 }

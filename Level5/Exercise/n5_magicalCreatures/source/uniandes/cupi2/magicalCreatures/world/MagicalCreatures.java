@@ -43,15 +43,14 @@ public class MagicalCreatures {
 	// -----------------------------------------------------------------
 	
 	/**
-	 * Crea la instancia principal of the aplicaci�n y carga la encyclopedia de creatures. <br>
-	 * <b>post: </b> Se ha cargado la informaci�n del arreglo de creatures.
+	 * Creates the magical creatures and loads the encyclopedia. <br>
+	 * <b>post: </b> Array of creatures is initialized with the information from the encyclopedia.
 	 *
-	 * @param pImagePathCreatures Ruta del archivo donde se encuentra la informaci�n of the
-	 *                       encyclopedia de creatures. pImagePathCreatures != null && pImagePathCreatures
-	 *                       != "".
+	 * @param pImagePathCreatures Image path of the creatures' pictures.
+	 *                            pImagePathCreatures != null &amp;&amp; pImagePathCreatures != "".
 	 *
-	 * @throws Exception Si hubo error al load the archivo.
-	 *                   Si hubo error al leer the formato del archivo.
+	 * @throws Exception If there was an error when loading the file.
+	 *                   If there was an error when reading the format of the file.
 	 */
 	public MagicalCreatures(String pImagePathCreatures) throws Exception {
 		try {
@@ -76,15 +75,15 @@ public class MagicalCreatures {
 	}
 	
 	/**
-	 * Returns la nextCreature creature a la creature actual. <br>
-	 * <b>post: </b> Se ha modificado la creature actual a la nextCreature creature.
+	 * Returns the creature next to the current one. <br>
+	 * <b>post: </b> The current creature has been changed to the next creature.
 	 *
-	 * @return La nextCreature creature.
-	 * @throws Exception Si ya se encuentra en la �ltima creature of the encyclopedia.
+	 * @return The nextCreature creature.
+	 * @throws Exception If the last creature is the current creature in the encyclopedia.
 	 */
 	public Creature getNext() throws Exception {
 		if (currentCreature == encyclopedia.length - 1) {
-			throw new Exception("Ya se encuentra en la �ltima creature.");
+			throw new Exception("You are already on the last creature.");
 		}
 		
 		currentCreature++;
@@ -92,15 +91,15 @@ public class MagicalCreatures {
 	}
 	
 	/**
-	 * Returns la anterior creature a la creature actual. <br>
-	 * <b>post: </b> Se ha modificado la creature actual a la anterior creature.
+	 * Returns the creature previous to the current one. <br>
+	 * <b>post: </b> The current creature has been changed to the previous creature.
 	 *
-	 * @return La anterior creature.
-	 * @throws Exception Si ya se encuentra en la primera creature of the encyclopedia.
+	 * @return The previous creature.
+	 * @throws Exception If the first creature is the current creature in the encyclopedia.
 	 */
 	public Creature getPrevious() throws Exception {
 		if (currentCreature == 0) {
-			throw new Exception("Ya se encuentra en la primera creature.");
+			throw new Exception("You are already on the first creature.");
 		}
 		
 		currentCreature--;
@@ -108,29 +107,29 @@ public class MagicalCreatures {
 	}
 	
 	/**
-	 * Returns the puntaje del jugador. Este valor siempre es 0.
+	 * Returns the player's points. This value is always 0.
 	 *
-	 * @return El  puntaje del jugador.
+	 * @return The player's points.
 	 */
 	public int getPoints() {
 		return 0;
 	}
 	
 	/**
-	 * Returns la cantidad de movimientos restantes del jugador. Este valor siempre es 10.
+	 * Returns the player's quantity of remaining moves. This value is always 10.
 	 *
-	 * @return La cantidad de movimientos restantes del jugador.
+	 * @return The player's quantity of remaining moves
 	 */
 	public int getRemainingMoves() {
 		return 10;
 	}
 	
 	/**
-	 * Busca una creature por su name en la encyclopedia de creatures.
+	 * Finds a new creature in the encyclopedia by the name given in the parameter.
 	 *
-	 * @param pName Name of the creature. pName != null && pName != "".
+	 * @param pName Name of the creature. pName != null &amp;&amp; pName != "".
 	 *
-	 * @return La creature con the name especificado. Si no la encuentra retorna null.
+	 * @return Creature with the specified name. If not found return null.
 	 */
 	public Creature findCreature(String pName) {
 		Creature buscada = null;
@@ -144,11 +143,11 @@ public class MagicalCreatures {
 	}
 	
 	/**
-	 * Carga the archivo especificado por par�metro para procesarlo.
+	 * Loads the file given by the parameter to process it.
 	 *
-	 * @param pImagePath Ruta del archivo especificado. pImagePath != null && pImagePath != "".
+	 * @param pImagePath File path of specified file. . pImagePath != null &amp;&amp; pImagePath != "".
 	 *
-	 * @throws Exception Si se encuentra alg�n problema al load the archivo.
+	 * @throws Exception If there is a problem when loading the file.
 	 */
 	private void load(String pImagePath) throws Exception {
 		data = new Properties();
@@ -158,123 +157,123 @@ public class MagicalCreatures {
 			in.close();
 			
 		} catch (IOException e) {
-			throw new Exception("Error al load the archivo, archivo no v�lido.");
+			throw new Exception("Error when loading the file, file not valid.");
 		}
 	}
 	
 	/**
-	 * Inicializa the arreglo de creatures a partir del archivo de configuraci�n. <br>
-	 * <b>post: </b> Ha sido inicializada la encyclopedia de creatures.
+	 * Initialize the array of creatures from the configuration file.  <br>
+	 * <b>post: </b> Encyclopedia of creatures has been initialized.
 	 *
-	 * @throws Exception Lanza excepci�n si hay alg�n error al initialize las creatures.
+	 * @throws Exception If there is an error when initializing the creatures.
 	 */
 	private void initializeCreatures() throws Exception {
 		try {
-			int cantidadCreatures = Integer.parseInt(data.getProperty("creatures.cantidad"));
+			int quantityCreatures = Integer.parseInt(data.getProperty("creatures.quantity"));
 			
-			encyclopedia = new Creature[cantidadCreatures];
-			for (int i = 0; i < cantidadCreatures; i++) {
+			encyclopedia = new Creature[quantityCreatures];
+			for (int i = 0; i < quantityCreatures; i++) {
 				String name = data.getProperty("creatures.creature" + (i + 1) + ".name");
 				String interests = data.getProperty("creatures.creature" + (i + 1) + "" +
-                                                         ".interests");
+					".interests");
 				String fears = data.getProperty("creatures.creature" + (i + 1) + ".fears");
 				boolean isBeingOfLight = true;
-				int points = Integer.parseInt(data.getProperty("creatures.creature" + (i + 1) + "" +
-                                                                    ".points"));
+				int points = Integer.parseInt(data.getProperty("creatures.creature" + (i + 1) +
+					"" +
+					".points"));
 				
 				if (data.getProperty("creatures.creature" + (i + 1) + ".isBeingOfLight").equals
-                    ("false")) {
+					("false")) {
 					isBeingOfLight = false;
 				}
 				String creatureImagePath = data.getProperty("creatures.creature" + (i + 1) + "" +
-                                                                 ".path");
+					".path");
 				
 				encyclopedia[i] = new Creature(name, interests, fears, isBeingOfLight, points,
-                                               creatureImagePath);
+					creatureImagePath);
 			}
 			
 			currentCreature = 0;
 		} catch (Exception e) {
-			throw new Exception("Error al leer the formato del archivo.");
+			throw new Exception("Error when reading the file format.");
 		}
 	}
 	
 	/**
-	 * Returns la cantidad de creatures en la fila especificada. Esta cantidad se genera
-	 * aleatoriamente.
+	 * Returns the quantity of creatures in the specified row. This quantity is generated at
+	 * random.
 	 *
-	 * @param pFila Fila que se desea consultar.
+	 * @param pRow Row to be consulted.
 	 *
-	 * @return Cantidad de creatures en la fila especificada.
+	 * @return Quantity of creatures in the specified row.
 	 */
-	public int getQuantityCreaturesRow(int pFila) {
-		double valorAleatorio = Math.random();
-		int cantidad = (int)(5 * valorAleatorio);
+	public int getQuantityCreaturesRow(int pRow) {
+		double randomValue = Math.random();
+		int quantity = (int)(5 * randomValue);
 		
-		return cantidad;
+		return quantity;
 	}
 	
 	/**
-	 * Returns la cantidad de creatures en la columna especificada. Esta cantidad se genera
-	 * aleatoriamente.
+	 * Returns the quantity of creatures in the specified column. This quantity is generated at
+	 * random.
 	 *
-	 * @param pColumna Columna que se desea consultar.
+	 * @param pColumn Column to be consulted.
 	 *
-	 * @return Cantidad de creatures en la columna especificada.
+	 * @return Quantity of creatures in the specified column.
 	 */
-	public int getQuantityCreaturesColumn(int pColumna) {
-		double valorAleatorio = Math.random();
-		int cantidad = (int)(5 * valorAleatorio);
+	public int getQuantityCreaturesColumn(int pColumn) {
+		double randomValue = Math.random();
+		int quantity = (int)(5 * randomValue);
 		
-		return cantidad;
+		return quantity;
 	}
 	
 	/**
-	 * Returns the puntaje total que se puede obtener si se encuentran todas las creatures the
-	 * cuadrante especificado. Esta cantidad se genera aleatoriamente.
+	 * Returns the total amount of points that can be obtained if every creature in the specified
+	 * quadrant is found. This quantity is generated at random.
 	 *
-	 * @param pCuadrante Cuadrante que se desea consultar. pCuadrante > 0 && pCuadrante <= 4
+	 * @param pQuadrant Quadrant to be consulted. pQuadrant &gt; 0 &amp;&amp; pQuadrant &lt; 4
 	 *
-	 * @return El puntaje que se puede obtener en cuadrante especificado.
+	 * @return Points that can be obtained in a specific quadrant.
 	 */
-	public int calculatePointsInQuadrant(int pCuadrante) {
-		double valorAleatorio = Math.random();
-		int cantidad = (int)(2000 * valorAleatorio);
+	public int calculatePointsInQuadrant(int pQuadrant) {
+		double randomValue = Math.random();
 		
-		return cantidad;
+		return (int)(2000 * randomValue);
 		
 	}
 	
 	/**
-	 * Returns la creature de luz no encontrada que tiene the mayor puntaje. Siempre retorna the
-     * drag�n.
+	 * Returns the creature of light that has not yet been found with the highest points. Always
+	 * returns dragon.
 	 *
-	 * @return Creature con the mayor puntaje.
+	 * @return Creature with the highest points.
 	 */
 	public Creature getHighestPointsCreature() {
 		return findCreature("Dragon");
 	}
 	
 	// ----------------------------------------------------------------
-	// Methods de Extensi�n
+	// Extension methods
 	// ----------------------------------------------------------------
 	
 	/**
-	 * M�todo para la extensi�n 1.
+	 * Method for extension 1.
 	 *
-	 * @return Respuesta 1.
+	 * @return Response 1.
 	 */
 	public String method1() {
-		return "Respuesta 1";
+		return "Response 1";
 	}
 	
 	/**
-	 * M�todo para la extensi�n 2.
+	 * Method for extension 2.
 	 *
-	 * @return Respuesta 2.
+	 * @return Response 2.
 	 */
 	public String method2() {
-		return "Respuesta 2";
+		return "Response 2";
 	}
 	
 }

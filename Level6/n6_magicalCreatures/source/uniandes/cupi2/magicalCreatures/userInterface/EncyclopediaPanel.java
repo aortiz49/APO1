@@ -1,12 +1,10 @@
 package uniandes.cupi2.magicalCreatures.userInterface;
 
-import uniandes.cupi2.magicalCreatures.world.MagicalCreatures;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
 /**
@@ -231,7 +229,7 @@ public class EncyclopediaPanel extends JPanel implements ActionListener {
 	 * @param pImagePath    Image path of the creature.
 	 *                      pCreatureImagePath != null &amp;&amp; pCreatureImagePath != "".
 	 * @param pInterests    Interests of the creature. pInterests != null &amp;&amp; pInterests !=
-	 *                        "".
+	 *                      "".
 	 * @param pFears        Fears of the creature. pFears != null &amp;&amp; pFears != "".
 	 * @param pBeingOfLight True if the creature is a being of light, false if contrary.
 	 */

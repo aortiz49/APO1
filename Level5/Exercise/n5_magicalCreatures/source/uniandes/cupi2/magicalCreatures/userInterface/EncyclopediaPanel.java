@@ -29,11 +29,6 @@ public class EncyclopediaPanel extends JPanel implements ActionListener {
 	 */
 	public final static String NEXT = "Next";
 	
-	/**
-	 * Image path of the banner.
-	 */
-	public final static String IMAGE_PATH = "./data/creatures/witch.png";
-	
 	// -----------------------------------------------------------------
 	// Attributes of the interface
 	// -----------------------------------------------------------------
@@ -79,14 +74,15 @@ public class EncyclopediaPanel extends JPanel implements ActionListener {
 	private JCheckBox creatureIsLightCb;
 	
 	/**
+	 * Button to view the previous creature.
+	 */
+	private JButton previousBtn;
+	
+	/**
 	 * Button to view the next creature.
 	 */
 	private JButton nextBtn;
 	
-	/**
-	 * Button to view the previous creature.
-	 */
-	private JButton previousBtn;
 	
 	// -----------------------------------------------------------------
 	// Attributes
@@ -104,7 +100,7 @@ public class EncyclopediaPanel extends JPanel implements ActionListener {
 	/**
 	 * Creates a new Encyclopedia panel.
 	 *
-	 * @param pPrincipal Principal window of theapplication.
+	 * @param pPrincipal Principal window of the application.
 	 */
 	public EncyclopediaPanel(MagicalCreaturesUserInterface pPrincipal) {
 		
@@ -124,14 +120,14 @@ public class EncyclopediaPanel extends JPanel implements ActionListener {
 		// Create label for creature's name and add to the top panel.
 		creatureNameLbl = new JLabel();
 		creatureNameLbl.setForeground(new Color(255, 252, 222));
-		creatureNameLbl.setFont(new Font("Helvetica", Font.BOLD, 18));
+		creatureNameLbl.setFont(new Font("Helvetica", Font.BOLD, 22));
 		creatureNameLbl.setHorizontalAlignment(JLabel.CENTER);
 		topPanel.add(creatureNameLbl);
 		
 		// Create label for creature's points and add to the top panel.
 		creaturePointsLbl = new JLabel();
 		creaturePointsLbl.setForeground(Color.WHITE);
-		creaturePointsLbl.setFont(new Font("Helvetica", Font.BOLD, 18));
+		creaturePointsLbl.setFont(new Font("Helvetica", Font.BOLD, 22));
 		creaturePointsLbl.setHorizontalAlignment(JLabel.CENTER);
 		topPanel.add(creaturePointsLbl);
 		
@@ -144,7 +140,6 @@ public class EncyclopediaPanel extends JPanel implements ActionListener {
 		bottomPanel.setBackground(new Color(48, 41, 84));
 		bottomPanel.setLayout(new BorderLayout());
 		add(bottomPanel, BorderLayout.SOUTH);
-		
 		
 		// Create information panel to hold the creature's interests and fears.
 		JPanel informationPanel = new JPanel();
@@ -227,21 +222,26 @@ public class EncyclopediaPanel extends JPanel implements ActionListener {
 			principal.seePrevious();
 	}
 	
-	public void updatePanel1() {
-		creatureImageLbl.setIcon(new ImageIcon(new ImageIcon("./data/creatures/ogre.png")
-			                                       .getImage().getScaledInstance(
-				200, 200, Image.SCALE_DEFAULT)));
-		
-	}
-	
-	public void updatePanel2(String pName, int pPoints, String pImagePath, String pInterests,
-	                         String pFears, boolean pBeingOfLight) {
+	/**
+	 * Updates the encyclopedia information that is displayed for each magical creature. <br>
+	 * <b>post: </b> The information in the panel is updated for the current magical creature.
+	 *
+	 * @param pName         Name of the creature. pName != null &amp;&amp; pName != "".
+	 * @param pPoints       Points the player obtains when finding a creature. pPoints &gt; 0.
+	 * @param pImagePath    Image path of the creature.
+	 *                      pCreatureImagePath != null &amp;&amp; pCreatureImagePath != "".
+	 * @param pInterests    Interests of the creature. pInterests != null &amp;&amp; pInterests != "".
+	 * @param pFears        Fears of the creature. pFears != null &amp;&amp; pFears != "".
+	 * @param pBeingOfLight True if the creature is a being of light, false if contrary.
+	 */
+	public void updatePanel(String pName, int pPoints, String pImagePath, String pInterests,
+	                        String pFears, boolean pBeingOfLight) {
 		creatureNameLbl.setText(pName);
 		creaturePointsLbl.setText(Integer.toString(pPoints));
-		creatureImageLbl.setIcon(new ImageIcon(new ImageIcon(pImagePath).getImage()
-		                                                                .getScaledInstance(
-			                                                                200, 200, Image
-				                                                                .SCALE_DEFAULT)));
+		creatureImageLbl.setIcon(
+			new ImageIcon(new ImageIcon(pImagePath).getImage().getScaledInstance(
+				200, 200, Image.SCALE_DEFAULT)));
+		
 		creatureInterestsTxt.setText(pInterests);
 		creatureFearsTxt.setText(pFears);
 		creatureIsLightCb.setSelected(pBeingOfLight);

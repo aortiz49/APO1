@@ -5,7 +5,22 @@ import java.awt.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+
+/**
+ * Contains the map of the interface.
+ */
 public class MapPanel extends JPanel {
+	
+	// -----------------------------------------------------------------
+	// Constants
+	// -----------------------------------------------------------------
+	
+	/**
+	 * Image path of the map.
+	 */
+	public final static String MAP_IMAGE_PATH = "./data/map.png";
+	
+	
 	// -----------------------------------------------------------------
 	// Attributes of the interface
 	// -----------------------------------------------------------------
@@ -14,22 +29,23 @@ public class MapPanel extends JPanel {
 	 * Label to display the map image.
 	 */
 	private JLabel mapImageLbl;
-	/**
-	 * The last date loaded by the game.
-	 */
-	private Properties data;
 	
 	public MapPanel() {
-		
+		setLayout(new BorderLayout());
 		mapImageLbl = new JLabel();
-		add(mapImageLbl);
+		
+		add(mapImageLbl, BorderLayout.CENTER);
 		
 	}
-	
-	public void loadMap(String pImagePath) throws Exception {
-		mapImageLbl.setIcon(new ImageIcon(pImagePath));
+	/**
+	 * Loads the map of the game.
+	 * <b>post: </b> Display the image in the user interface.
+	 */
+	public void loadMap()  {
+		mapImageLbl.setIcon(new ImageIcon(new ImageIcon(MAP_IMAGE_PATH).getImage().getScaledInstance(
+			mapImageLbl.getWidth(), mapImageLbl.getHeight(), Image.SCALE_DEFAULT)));
 		
-		}
 	}
+}
 	
 

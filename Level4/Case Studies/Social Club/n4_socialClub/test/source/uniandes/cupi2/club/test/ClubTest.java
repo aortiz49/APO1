@@ -89,6 +89,7 @@ public class ClubTest
         setupEscenario0( );
 
         try
+        
         {
             club.registerMember( "3", "name3", MembershipType.REGULAR );
             club.registerMember( "3", "name3", MembershipType.REGULAR );

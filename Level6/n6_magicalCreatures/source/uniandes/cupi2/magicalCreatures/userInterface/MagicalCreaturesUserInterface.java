@@ -11,21 +11,15 @@
 package uniandes.cupi2.magicalCreatures.userInterface;
 
 import uniandes.cupi2.magicalCreatures.world.Creature;
-import uniandes.cupi2.magicalCreatures.world.GameMap;
 import uniandes.cupi2.magicalCreatures.world.MagicalCreatures;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * User interface of the magical creatures game.
  */
-
 @SuppressWarnings("serial")
 public class MagicalCreaturesUserInterface extends JFrame {
 	
@@ -53,7 +47,7 @@ public class MagicalCreaturesUserInterface extends JFrame {
 	private MagicalCreatures magicalCreatures;
 	
 	
-	// -----------------s------------------------------------------------
+	// -----------------------------------------------------------------
 	// Attributes of the interface
 	// -----------------------------------------------------------------
 	
@@ -101,7 +95,6 @@ public class MagicalCreaturesUserInterface extends JFrame {
 		// Create the magical creatures.
 		magicalCreatures = new MagicalCreatures(CREATURES_PATH);
 		
-		
 		// Create a label to hold the banner image and add it to the north border of the frame.
 		JLabel imageLbl = new JLabel();
 		imageLbl.setIcon(new ImageIcon(IMAGE_PATH));
@@ -117,8 +110,8 @@ public class MagicalCreaturesUserInterface extends JFrame {
 		statusPanel = new StatusPanel();
 		centerPanel.add(statusPanel, BorderLayout.NORTH);
 		
-		//mapImageLbl= new JLabel();
-		//centerPanel.add(mapImageLbl,BorderLayout.CENTER);
+		// Create a map panel to hold the map of the game and add it to the center border of the
+		// center panel.
 		mapPanel = new MapPanel(this);
 		centerPanel.add(mapPanel, BorderLayout.CENTER);
 		
@@ -155,35 +148,70 @@ public class MagicalCreaturesUserInterface extends JFrame {
 	// -----------------------------------------------------------------
 	// Methods
 	// -----------------------------------------------------------------
-	public void updatePoints(String pName) {
-		/*
-		JOptionPane.showMessageDialog(this, "THIS IS A MESSAGE", "TEST", JOptionPane
-			.INFORMATION_MESSAGE);
-		//mapPanel.markAsVisited();
-		*/
-		magicalCreatures.setPlayerPoints(magicalCreatures.findCreature(pName).getPoints());
-		//magicalCreatures.decrementNumberOfMoves();
-		statusPanel.updatePanel(magicalCreatures.getPoints(),magicalCreatures.getRemainingMoves());
-	}
 	
-	public void updateMovements() {
-		magicalCreatures.decrementNumberOfMoves();
-		statusPanel.updatePanel(magicalCreatures.getPoints(),magicalCreatures.getRemainingMoves());
-		if(magicalCreatures.getRemainingMoves() == 0) {
-			JOptionPane.showMessageDialog(this, "THE END OF THE GAME", "VISIT BOX", JOptionPane
-				.ERROR_MESSAGE);
+	/**
+	 * Updates the points of the game.
+	 *
+	 * <b>post: </b> Current player points are updated with the points of the found creature whose
+	 * name is given by the parameter. If the amount of points reaches below 3000, the game is
+	 * lost. If the amount of points reaches more than 5000, the game is won.
+	 *
+	 * @param pName Name of the creature. pName != null &amp;&amp; pName != "".
+	 */
+	public void updatePoints(String pName) {
+		Creature tempCreature = magicalCreatures.findCreature(pName);
+		
+		if (!tempCreature.isBeingOfLight())
+			magicalCreatures.addPlayerPoints(0 - tempCreature.getPoints());
+		else
+			magicalCreatures.addPlayerPoints(tempCreature.getPoints());
+		
+		statusPanel.updatePanel(magicalCreatures.getPoints(),
+			magicalCreatures.getRemainingMoves());
+		
+		if (magicalCreatures.getPoints() <= -3000) {
+			JOptionPane.showMessageDialog(this, "Sorry! You have lost the game.",
+				"Visit cell", JOptionPane.INFORMATION_MESSAGE);
+			mapPanel.disableMapButtons();
+			actionsPanel.disableActionsPanel();
+		} else if (magicalCreatures.getPoints() >= 5000) {
+			JOptionPane.showMessageDialog(this, "Your points are greater than 5000!. You have " +
+				"won the game!", "Visit cell", JOptionPane.INFORMATION_MESSAGE);
+			mapPanel.disableMapButtons();
+			actionsPanel.disableActionsPanel();
 			
 		}
-			
+		
 	}
+	
 	/**
-	 * Loads the information from the game.
+	 * Updates the amount of moves remaining in the game. <br>
+	 * <b>post: </b> Modifies the moves remaining in the game. If the number of moves reaches 0,
+	 * the game is lost.
+	 */
+	public void updateMovements() {
+		magicalCreatures.decrementNumberOfMoves();
+		statusPanel.updatePanel(magicalCreatures.getPoints(),
+			magicalCreatures.getRemainingMoves());
+		
+		if (magicalCreatures.getRemainingMoves() == 0) {
+			JOptionPane.showMessageDialog(this, "THE END OF THE GAME", "VISIT BOX",
+				JOptionPane.INFORMATION_MESSAGE);
+			mapPanel.disableMapButtons();
+			actionsPanel.disableActionsPanel();
+			
+		}
+		
+	}
+	
+	
+	/**
+	 * Loads the information from the game. <br>
 	 * <b>post: </b> Updates the encyclopedia information for current creature, loads the map
 	 * image, and activates the disabled actions panel buttons.
 	 */
 	public void loadGame() {
 		
-		//mapPanel = new MapPanel();
 		// Load the chosen map properties.
 		JFileChooser fileChooser = new JFileChooser("./data");
 		fileChooser.setDialogTitle("Load game map");
@@ -192,29 +220,39 @@ public class MagicalCreaturesUserInterface extends JFrame {
 		if (result == JFileChooser.APPROVE_OPTION) {
 			File file = fileChooser.getSelectedFile();
 			try {
-				mapPanel.updateMap(file);
-				statusPanel.updatePanel(magicalCreatures.getPoints(), mapPanel.getNumberOfMoves());
+				magicalCreatures.LoadMapProperties(file);
+				mapPanel.updateMap(magicalCreatures.getCells(),
+					magicalCreatures.getNumberOfRows(), magicalCreatures.getNumberOfColumns());
+				
+				// Reset the player points every time a new map is loaded.
+				magicalCreatures.addPlayerPoints(0);
 				// Set initial number of moves for the map.
-				magicalCreatures.setNumberOfMoves(mapPanel.getNumberOfMoves());
+				magicalCreatures.setNumberOfMoves(magicalCreatures.getDefaultNumberOfMoves());
+				statusPanel.updatePanel(magicalCreatures.getPoints(),
+					magicalCreatures.getNumberOfMoves());
 				
 			} catch (Exception e) {
-				
-				JOptionPane.showMessageDialog(this, "Hubo problemas cargando el campeonato: \n" +
-					e.getMessage(), "Cargar", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "There were problems loading the file: \n" +
+					e.getMessage(), "Load file", JOptionPane.ERROR_MESSAGE);
 				e.printStackTrace();
 			}
 		}
-		
-		
-		// Update the encyclopedia information
-		statusPanel.updatePanel(magicalCreatures.getPoints(),
-			magicalCreatures.getRemainingMoves());
-		
-		// Load the map image.
-		//mapPanel.loadMap();
-		
-		// Activate actions panel.
-		actionsPanel.updatePanel();
+		actionsPanel.enableActionsPanel();
+	}
+	
+	/**
+	 * Restarts the game.
+	 * <b>post: </b> The map is reset to the default state, the status panel is reset to default
+	 * values for points and movements.
+	 */
+	public void restartGame() {
+		magicalCreatures.resetMagicalCreaturesMap();
+		mapPanel.updateMap(magicalCreatures.getCells(),
+			magicalCreatures.getNumberOfRows(), magicalCreatures.getNumberOfColumns());
+		magicalCreatures.setNumberOfMoves(magicalCreatures.getDefaultNumberOfMoves());
+		magicalCreatures.addPlayerPoints(0);
+		statusPanel.updatePanel(magicalCreatures.getPoints(), magicalCreatures.getRemainingMoves
+			());
 	}
 	
 	/**
@@ -276,10 +314,12 @@ public class MagicalCreaturesUserInterface extends JFrame {
 					quantity + str1, "See creatures in row", JOptionPane.INFORMATION_MESSAGE);
 			}
 		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(this, "Value of the row is invalid.", "See " +
-				"creatures in row", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Please enter an integer value.", "See " +
+				"creatures in column", JOptionPane.ERROR_MESSAGE);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "See creatures in row",
+				JOptionPane.ERROR_MESSAGE);
 		}
-		
 	}
 	
 	/**
@@ -303,12 +343,15 @@ public class MagicalCreaturesUserInterface extends JFrame {
 				}
 				
 				JOptionPane.showMessageDialog(this, "In column " + column + str +
-					quantity + str1, "See creatures in column", JOptionPane
-					.INFORMATION_MESSAGE);
+						quantity + str1, "See creatures in column",
+					JOptionPane.INFORMATION_MESSAGE);
 			}
 		} catch (NumberFormatException e) {
-			JOptionPane.showMessageDialog(this, "Value of the column is invalid.", "See " +
+			JOptionPane.showMessageDialog(this, "Please enter an integer value.", "See " +
 				"creatures in column", JOptionPane.ERROR_MESSAGE);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "See creatures in column",
+				JOptionPane.ERROR_MESSAGE);
 		}
 		
 	}
@@ -334,6 +377,9 @@ public class MagicalCreaturesUserInterface extends JFrame {
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(this, "Value of the quadrant is invalid.", "See " +
 				"points in quadrant", JOptionPane.ERROR_MESSAGE);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "See points in quadrant",
+				JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
@@ -342,12 +388,15 @@ public class MagicalCreaturesUserInterface extends JFrame {
 	 */
 	public void seeHighestPointCreature() {
 		
-		JOptionPane.showMessageDialog(this, "The creature with the highest points \n that has " +
-			"not" +
-			" " +
-			"been found is: " + magicalCreatures.getHighestPointsCreature().getName(), "See " +
-			"creature with " +
-			"highest points", JOptionPane.INFORMATION_MESSAGE);
+		try {
+			JOptionPane.showMessageDialog(this, "The creature with the highest points that " +
+				"has not yet been found is: " + magicalCreatures.getHighestPointsCreature()
+				                                                .getName(), "See creature with " +
+				"highest points", JOptionPane.INFORMATION_MESSAGE);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "See points in quadrant",
+				JOptionPane.ERROR_MESSAGE);
+		}
 		
 	}
 	
@@ -355,17 +404,26 @@ public class MagicalCreaturesUserInterface extends JFrame {
 	 * Display option 1.
 	 */
 	public void reqFunctOption1() {
-		JOptionPane.showMessageDialog(this, "Response 1", "Response",
-			JOptionPane.INFORMATION_MESSAGE);
+		try {
+			JOptionPane.showMessageDialog(this, magicalCreatures.numOfCreatureNeighbors(4,4),
+				"Response",
+				JOptionPane.INFORMATION_MESSAGE);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage(), "See points in quadrant",
+				JOptionPane.ERROR_MESSAGE);
+		}
 	}
 	
 	/**
-	 * torr
 	 * Display option 2.
 	 */
 	public void reqFunctOption2() {
-		JOptionPane.showMessageDialog(this, "Response 2", "Response",
-			JOptionPane.INFORMATION_MESSAGE);
+		try {
+			JOptionPane.showMessageDialog(this, "g", "Response",
+				JOptionPane.INFORMATION_MESSAGE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -381,6 +439,8 @@ public class MagicalCreaturesUserInterface extends JFrame {
 			MagicalCreaturesUserInterface userInterface = new MagicalCreaturesUserInterface();
 			userInterface.setVisible(true);
 		} catch (Exception e) {
+			// If you're reading this, thanks for a great semester. I learned a lot in this
+			// course and I look forward to taking APO2. Good luck with finals!
 			e.printStackTrace();
 		}
 	}
