@@ -1,4 +1,4 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
@@ -6,7 +6,7 @@
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
  * Exercise: L1- employee
  * Author: Andres Ortiz
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.employee.world;
 
@@ -61,16 +61,17 @@ public class DateInfo {
         // Calculate the difference in months
         difference = 12 * (tempYear - year) + (tempMonth - month);
 
-        // If the day is not greater, subtract one month
+        // If the day is not greater, subtract one month.
         if(tempDay < day) {
             difference--;
         }
+
 
         return difference;
     }
 
     /**
-     * Return a string that represents the date
+     * Return a string that represents the date.
      */
     public String dateToString() {
         String tempDay = Integer.toString(day);
@@ -82,4 +83,6 @@ public class DateInfo {
 
 
         return tempDay + "-" + tempMonth + "-" + year; }
+
+
 }
