@@ -39,13 +39,19 @@ public class DateInfo {
     }
 
     // Returns the day
-    public int getDay() {return day; }
+    public int getDay() {
+        return day;
+    }
 
     // Returns the month
-    public int getMonth() {return month; }
+    public int getMonth() {
+        return month;
+    }
 
     // Returns the year
-    public int getYear() {return year; }
+    public int getYear() {
+        return year;
+    }
 
     /**
      * Returns the difference in months between two dates
@@ -62,11 +68,9 @@ public class DateInfo {
         difference = 12 * (tempYear - year) + (tempMonth - month);
 
         // If the day is not greater, subtract one month.
-        if(tempDay < day) {
+        if (tempDay < day) {
             difference--;
         }
-
-
         return difference;
     }
 
@@ -76,13 +80,12 @@ public class DateInfo {
     public String dateToString() {
         String tempDay = Integer.toString(day);
         String tempMonth = Integer.toString(month);
-        if (day < 10)
-            tempDay = "0" + Integer.toString(day);
-        if (month < 10)
-            tempMonth = "0" + Integer.toString(month);
+        if (day < 10) tempDay = "0" + Integer.toString(day);
+        if (month < 10) tempMonth = "0" + Integer.toString(month);
 
 
-        return tempDay + "-" + tempMonth + "-" + year; }
+        return tempDay + "-" + tempMonth + "-" + year;
+    }
 
 
 }

@@ -1,8 +1,9 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/**
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
- *
+ * <p>
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
  * Exercise: L1- employee
  * Author: Andres Ortiz
@@ -10,25 +11,15 @@
  */
 package uniandes.cupi2.employee.userInterface;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import com.toedter.calendar.JDateChooser;
+import uniandes.cupi2.employee.world.DateInfo;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Date;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
-import com.toedter.calendar.JDateChooser;
-
-import uniandes.cupi2.employee.world.DateInfo;
 
 /**
  * Dialog to change employee
@@ -75,6 +66,12 @@ public class DialogChangeEmployee extends JDialog implements ActionListener {
     // Text field for salary
     private JTextField txtSalary;
 
+    // Text field for children
+    private JTextField txtChildren;
+
+    // Text field for subordinates
+    private JTextField txtSubordinates;
+
     // Text field for the image
     private JTextField txtImage;
 
@@ -102,7 +99,7 @@ public class DialogChangeEmployee extends JDialog implements ActionListener {
         setSize(450, 250);
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-        setLayout(new GridLayout(8, 2));
+        setLayout(new GridLayout(10, 2));
 
         add(new JLabel("Name:"));
         txtName = new JTextField();
@@ -130,6 +127,14 @@ public class DialogChangeEmployee extends JDialog implements ActionListener {
         txtSalary = new JTextField();
         add(txtSalary);
 
+        add(new JLabel("Children:"));
+        txtChildren = new JTextField();
+        add(txtChildren);
+
+        add(new JLabel("Subordinates:"));
+        txtSubordinates = new JTextField();
+        add(txtSubordinates);
+
         add(new JLabel("Image:"));
         JPanel panelAux = new JPanel();
         panelAux.setLayout(new BorderLayout());
@@ -141,7 +146,7 @@ public class DialogChangeEmployee extends JDialog implements ActionListener {
         btnSelectImage.addActionListener(this);
         panelAux.add(btnSelectImage, BorderLayout.EAST);
         add(panelAux);
-        
+
         btnAccept = new JButton("Accept");
         btnAccept.setActionCommand(ACCEPT);
         btnAccept.addActionListener(this);
@@ -163,50 +168,58 @@ public class DialogChangeEmployee extends JDialog implements ActionListener {
      */
     public void actionPerformed(ActionEvent pEvent) {
         String command = pEvent.getActionCommand();
-        if(command.equals(ACCEPT)) {
+        if (command.equals(ACCEPT)) {
             String name = txtName.getText();
             String lastName = txtLastName.getText();
             int gender = cbGender.getSelectedIndex();
             Date dateOfEntry = dcDateOfEntry.getDate();
-            DateInfo dateOfEntry2 = new DateInfo(dateOfEntry.getDay(), dateOfEntry.getMonth(), dateOfEntry.getYear() + 1900);
+            DateInfo dateOfEntry2 = new DateInfo(dateOfEntry.getDay(), dateOfEntry.getMonth(),
+                                                 dateOfEntry.getYear() + 1900);
             Date dateOfBirth = dcDateOfBirth.getDate();
-            DateInfo dateOfBirth2 = new DateInfo(dateOfBirth.getDay(), dateOfBirth.getMonth(), dateOfBirth.getYear() + 1900);
+            DateInfo dateOfBirth2 = new DateInfo(dateOfBirth.getDay(), dateOfBirth.getMonth(),
+                                                 dateOfBirth.getYear() + 1900);
             String salaryStr = txtSalary.getText();
+            String childrenStr = txtChildren.getText();
+            String subordinateStr = txtSubordinates.getText();
             String image = txtImage.getText();
-            if(name.equals("") || lastName.equals("") || dateOfEntry == null || dateOfBirth == null || salaryStr.equals("") || image.equals(""))
-                JOptionPane.showMessageDialog(this, "You must fill out every entry.", "Change Employee", JOptionPane.ERROR_MESSAGE);
+            if (name.equals("") || lastName.equals("") || dateOfEntry == null || dateOfBirth == null
+                    || salaryStr.equals("") || image.equals("")) JOptionPane
+                    .showMessageDialog(this, "You must fill out every entry.", "Change Employee",
+                                       JOptionPane.ERROR_MESSAGE);
 
             else {
                 try {
                     int salary = Integer.parseInt(salaryStr);
-                    if(salary <= 0)
-                        JOptionPane.showMessageDialog(this, "Salary must be greater than 0.", "Change Employee", JOptionPane.ERROR_MESSAGE);
+                    int children = Integer.parseInt(childrenStr);
+                    int subordinates = Integer.parseInt(subordinateStr);
+                    if (salary <= 0) JOptionPane
+                            .showMessageDialog(this, "Salary must be greater than 0.",
+                                               "Change Employee", JOptionPane.ERROR_MESSAGE);
 
-                    else if(dateOfBirth2.getDifferenceInMonths(dateOfEntry2) < 0)
-                        JOptionPane.showMessageDialog(this, "Date of entry cannot be before date of birth.", "Change Employee", JOptionPane.ERROR_MESSAGE);
+                    else if (dateOfBirth2.getDifferenceInMonths(dateOfEntry2) < 0) JOptionPane
+                            .showMessageDialog(this,
+                                               "Date of entry cannot be before date of birth.",
+                                               "Change Employee", JOptionPane.ERROR_MESSAGE);
 
                     else {
-                        principal.changeEmployee(name, lastName, gender, dateOfBirth2, dateOfEntry2, salary, image);
+                        principal.changeEmployee(name, lastName, gender, dateOfBirth2, dateOfEntry2,
+                                                 salary, image, children, subordinates);
                         dispose();
                     }
 
-                }
-                catch(NumberFormatException e)
-                {
-                    JOptionPane.showMessageDialog(this, "Salary must be a number.", "Change Employee", JOptionPane.ERROR_MESSAGE);
+                } catch (NumberFormatException e) {
+                    JOptionPane
+                            .showMessageDialog(this, "Salary must be a number.", "Change Employee",
+                                               JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }
-        else if(command.equals(SELECT_IMAGE)) {
+        } else if (command.equals(SELECT_IMAGE)) {
             JFileChooser jfc = new JFileChooser("./data/images");
-            if(jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            if (jfc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                 File selected = jfc.getSelectedFile();
-                if(selected != null)
-                    txtImage.setText(selected.getName());
+                if (selected != null) txtImage.setText(selected.getName());
             }
-        }
-        else if(command.equals(CANCEL))
-            dispose();
+        } else if (command.equals(CANCEL)) dispose();
     }
 
 }

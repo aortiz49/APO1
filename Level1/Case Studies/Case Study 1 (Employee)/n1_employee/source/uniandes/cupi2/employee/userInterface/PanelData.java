@@ -1,8 +1,9 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/**
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
- *
+ * <p>
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
  * Exercise: L1- employee
  * Author: Andres Ortiz
@@ -10,25 +11,15 @@
  */
 package uniandes.cupi2.employee.userInterface;
 
-import uniandes.cupi2.employee.userInterface.EmployeeInterface;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
 
 // Panel that shows employee data
 public class PanelData extends JPanel implements ActionListener {
@@ -69,6 +60,12 @@ public class PanelData extends JPanel implements ActionListener {
     // Salary label
     private JLabel lblSalary;
 
+    // Children label
+    private JLabel lblChildren;
+
+    // Subordinates label
+    private JLabel lblSubordinates;
+
     // Image path label
     private JLabel lblImage;
 
@@ -90,12 +87,17 @@ public class PanelData extends JPanel implements ActionListener {
     // Salary text field
     private JTextField txtSalary;
 
+    // Children text field
+    private JTextField txtChildren;
+
+    // Subordinates text field
+    private JTextField txtSubordinates;
+
     // Button to modify salary
     private JButton btnModifySalary;
 
     // Button to modify date of entry
     private JButton btnModifyDateOfEntry;
-
 
 
     // -----------------------------------------------------------------
@@ -110,7 +112,7 @@ public class PanelData extends JPanel implements ActionListener {
         principal = pPrincipal;
 
         setLayout(new BorderLayout());
-        setBorder(new CompoundBorder(new EmptyBorder(0, 0, 5, 0), new TitledBorder("Data")));
+        setBorder(new CompoundBorder(new EmptyBorder(0, 0, 6, 0), new TitledBorder("Data")));
 
         lblName = new JLabel("Name: ");
         lblLastName = new JLabel("Last Name: ");
@@ -118,27 +120,33 @@ public class PanelData extends JPanel implements ActionListener {
         lblDateOfBirth = new JLabel("Date of Birth: ");
         lblDateOfEntry = new JLabel("Date of Entry: ");
         lblSalary = new JLabel("Salary: ");
+        lblChildren = new JLabel("Children: ");
+        lblSubordinates = new JLabel("Subordinates:");
 
-        txtName = new JTextField(15);
+        txtName = new JTextField();
         txtName.setEditable(false);
-        txtLastName = new JTextField(15);
+        txtLastName = new JTextField();
         txtLastName.setEditable(false);
-        txtGender = new JTextField(2);
+        txtGender = new JTextField();
         txtGender.setEditable(false);
-        txtDateOfBirth = new JTextField(10);
+        txtDateOfBirth = new JTextField();
         txtDateOfBirth.setEditable(false);
-        txtDateOfEntry = new JTextField(10);
+        txtDateOfEntry = new JTextField();
         txtDateOfEntry.setEditable(false);
-        txtSalary = new JTextField(10);
+        txtSalary = new JTextField();
         txtSalary.setEditable(false);
         txtSalary.setDisabledTextColor(Color.DARK_GRAY);
+        txtChildren = new JTextField();
+        txtChildren.setEditable(false);
+        txtSubordinates = new JTextField();
+        txtSubordinates.setEditable(false);
 
         btnModifySalary = new JButton();
         btnModifySalary.setText("Modify salary");
         btnModifySalary.setActionCommand(MODIFY_SALARY);
         btnModifySalary.addActionListener(this);
 
-        JPanel panelData = new JPanel(new GridLayout(7, 2));
+        JPanel panelData = new JPanel(new GridLayout(9, 2));
         panelData.add(lblName);
         panelData.add(txtName);
         panelData.add(lblLastName);
@@ -151,6 +159,10 @@ public class PanelData extends JPanel implements ActionListener {
         panelData.add(txtDateOfEntry);
         panelData.add(lblSalary);
         panelData.add(txtSalary);
+        panelData.add(lblChildren);
+        panelData.add(txtChildren);
+        panelData.add(lblSubordinates);
+        panelData.add(txtSubordinates);
         panelData.add(new JLabel());
         panelData.add(btnModifySalary);
 
@@ -165,19 +177,26 @@ public class PanelData extends JPanel implements ActionListener {
 
     /**
      * Updates the panel fields with employee information.
-     * pName: Employee's name. pName != null && pName != "".
-     * pLastName: Employee's last name. pLastName != null && pLastName != "".
-     * pGender: Employee's gender. pGender belongs to {"m","f"}.
-     * pDateOfEntry: Employee's date of entry. pDateOfEntry != null && pDateOfEntry != "".
-     * pDateOfBirth: Employee's date of birth. pDateOfBirth != null && pDateOfBirth != "".
-     * pImage: Image path. pImage != null.
+     *
+     * @param pName:         Employee's name. pName != null && pName != "".
+     * @param pLastName:     Employee's last name. pLastName != null && pLastName != "".
+     * @param pGender:       Employee's gender. pGender belongs to {"m","f"}.
+     * @param pDateOfEntry:  Employee's date of entry. pDateOfEntry != null && pDateOfEntry != "".
+     * @param pDateOfBirth:  Employee's date of birth. pDateOfBirth != null && pDateOfBirth != "".
+     * @param pImage:        Image path. pImage != null.
+     * @param pChildren:     Employee's children. pChildren &gt;=0.
+     * @param pSubordinates: Employee's subordinates. pSubordinates &gt;=0.
      */
-    public void updateFields(String pName, String pLastName, String pGender, String pDateOfEntry, String pDateOfBirth, String pImage) {
+    public void updateFields(String pName, String pLastName, String pGender, String pDateOfEntry,
+                             String pDateOfBirth, String pImage, int pChildren, int pSubordinates) {
+
         txtName.setText(pName);
         txtLastName.setText(pLastName);
         txtGender.setText(pGender);
         txtDateOfEntry.setText(pDateOfEntry);
         txtDateOfBirth.setText(pDateOfBirth);
+        txtChildren.setText(Integer.toString(pChildren));
+        txtSubordinates.setText(Integer.toString(pSubordinates));
         remove(lblImage);
         lblImage = new JLabel(new ImageIcon("./data/images/" + pImage));
         lblImage.setHorizontalAlignment(JLabel.CENTER);
@@ -192,7 +211,7 @@ public class PanelData extends JPanel implements ActionListener {
      * pSalary: Employee salary. pSalary > 0.
      */
     public void updateSalary(double pSalary) {
-        DecimalFormat df = (DecimalFormat)NumberFormat.getInstance();
+        DecimalFormat df = (DecimalFormat) NumberFormat.getInstance();
         df.applyPattern("$###,###.##");
         txtSalary.setText(df.format(pSalary));
     }
@@ -204,8 +223,7 @@ public class PanelData extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent pEvent) {
         String command = pEvent.getActionCommand();
 
-        if(command.equals(MODIFY_SALARY))
-            principal.modifySalary();
+        if (command.equals(MODIFY_SALARY)) principal.modifySalary();
 
     }
 

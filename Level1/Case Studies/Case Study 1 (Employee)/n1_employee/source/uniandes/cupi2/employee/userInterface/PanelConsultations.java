@@ -10,21 +10,13 @@
  */
 package uniandes.cupi2.employee.userInterface;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
 
 /**
  * Panel for consultations and operations of the application
@@ -86,7 +78,9 @@ public class PanelConsultations extends JPanel implements ActionListener {
     public PanelConsultations(EmployeeInterface pPrincipal) {
         principal = pPrincipal;
         setLayout(new BorderLayout());
-        setBorder(new CompoundBorder(new EmptyBorder(0, 0, 5, 0), new TitledBorder("Calculations")));
+        TitledBorder border = new TitledBorder("Actions");
+        border.setTitleColor(Color.BLACK);
+        setBorder(border);
 
         btnAge = new JButton();
         btnAge.setText("Calculate age");

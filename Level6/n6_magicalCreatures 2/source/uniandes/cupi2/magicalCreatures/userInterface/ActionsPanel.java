@@ -78,7 +78,7 @@ public class ActionsPanel extends JPanel implements ActionListener {
 		setBackground(new Color(48, 41, 84));
 		setLayout(new GridLayout(1, 4, 0, 20));
 		TitledBorder border = new TitledBorder("Actions");
-		border.setTitleColor(Color.WHITE);
+		border.setTitleColor(Color.BLACK);
 		setBorder(border);
 		
 		// Create "creatures in row" button and add to navigation panel.

@@ -1,8 +1,9 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/**
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
- *
+ * <p>
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
  * Exercise: L1- employee
  * Author: Andres Ortiz
@@ -10,15 +11,11 @@
  */
 package uniandes.cupi2.employee.userInterface;
 
-import java.awt.BorderLayout;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-
-import uniandes.cupi2.employee.world.Employee;
 import uniandes.cupi2.employee.world.DateInfo;
+import uniandes.cupi2.employee.world.Employee;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Principal window of the application
@@ -59,7 +56,7 @@ public class EmployeeInterface extends JFrame {
      */
     public EmployeeInterface() {
         setTitle("Employee System");
-        setSize(600, 580);
+        setSize(600, 605);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Construct an employee
@@ -82,7 +79,6 @@ public class EmployeeInterface extends JFrame {
         panelCentral.setLayout(new BorderLayout());
         panelCentral.add(panelData, BorderLayout.NORTH);
         panelCentral.add(panelConsultations, BorderLayout.SOUTH);
-
         setLocationRelativeTo(null);
         setResizable(false);
 
@@ -99,14 +95,12 @@ public class EmployeeInterface extends JFrame {
     }
 
     // Calculate employee work history
-    public void calculateEmployeeWorkHistory()
-    {
+    public void calculateEmployeeWorkHistory() {
         panelConsultations.updateWorkHistory(employee.calculateWorkHistory());
     }
 
     // Calculate work benefits
-    public void calculateEmployeeBenefits()
-    {
+    public void calculateEmployeeBenefits() {
         panelConsultations.updateBenefits(employee.calculateBenefits());
     }
 
@@ -114,21 +108,23 @@ public class EmployeeInterface extends JFrame {
      * Modifies and updates employee salary.
      */
     public void modifySalary() {
-        String strSalary = JOptionPane.showInputDialog(this, "Input new salary.", "Modify salary", JOptionPane.QUESTION_MESSAGE);
+        String strSalary = JOptionPane.showInputDialog(this, "Input new salary.", "Modify salary",
+                                                       JOptionPane.QUESTION_MESSAGE);
 
-        if(strSalary != null) {
+        if (strSalary != null) {
             try {
                 double newSalary = Double.parseDouble(strSalary);
-                if(newSalary <= 0)
-                    JOptionPane.showMessageDialog(this, "Salary must be > 0.", "Modify salary", JOptionPane.ERROR_MESSAGE);
+                if (newSalary <= 0) JOptionPane
+                        .showMessageDialog(this, "Salary must be > 0.", "Modify salary",
+                                           JOptionPane.ERROR_MESSAGE);
 
                 else {
                     employee.changeSalary(newSalary);
                     panelData.updateSalary(employee.getSalary());
                 }
-            }
-            catch(NumberFormatException nfe) {
-                JOptionPane.showMessageDialog(this, "Salary must be a number.", "Modify salary", JOptionPane.ERROR_MESSAGE);
+            } catch (NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(this, "Salary must be a number.", "Modify salary",
+                                              JOptionPane.ERROR_MESSAGE);
             }
         }
     }
@@ -139,22 +135,25 @@ public class EmployeeInterface extends JFrame {
     private void refresh() {
         String name, lastName, gender, dateOfEntry, dateOfBirth, image;
         double salary;
+        int children;
+        int subordinates;
 
         name = employee.getName();
         lastName = employee.getLastName();
 
         int iGender = employee.getGender();
-        if(iGender == 1)
-            gender = "Male";
-        else
-            gender = "Female";
+        if (iGender == 1) gender = "Male";
+        else gender = "Female";
 
         dateOfEntry = employee.getDateOfEntry();
         dateOfBirth = employee.getDateOfBirth();
         salary = employee.getSalary();
         image = employee.getImage();
+        children = employee.getNumberOfChildren();
+        subordinates = employee.getNumberOfSubordinates();
 
-        panelData.updateFields(name, lastName, gender, dateOfEntry, dateOfBirth, image);
+        panelData.updateFields(name, lastName, gender, dateOfEntry, dateOfBirth, image,children,
+                               subordinates);
         panelData.updateSalary(salary);
 
         panelConsultations.clearFields();
@@ -163,19 +162,24 @@ public class EmployeeInterface extends JFrame {
     }
 
     /**
-     * Changes employee 
-     * pName: New employee name. pName != "" && pName != null.
-     * pLastName: New employee last name. pLastName != "" && pLastName != null.
-     * pGender: New employee gender pGender == 1 && pGender == 0.
-     * pDateOfBirth: New employee date of birth. pDateOfBirth != null.
-     * pDateOfEntry: New employee date of entry. pDateOfEntry != null.
-     * pSalary: New employee salary. pSalary > 0.
-     * pImage: New employee image. pImage != null && pImage != "".
+     * Changes employee
+     * @param pName: New employee name. pName != "" && pName != null.
+     * @param pLastName: New employee last name. pLastName != "" && pLastName != null.
+     * @param pGender: New employee gender pGender == 1 && pGender == 0.
+     * @param pDateOfBirth: New employee date of birth. pDateOfBirth != null.
+     * @param pDateOfEntry: New employee date of entry. pDateOfEntry != null.
+     * @param pSalary: New employee salary. pSalary > 0.
+     * @param pImage: New employee image. pImage != null && pImage != "".
+     * @param pChildren:     Employee's children. pChildren !=null && pChildren &gt;=0;
+     * @param pSubordinates: Employee's subordinates. pSubordinates !=null && pSubordinates &gt;=0;
      */
+
     public void changeEmployee(String pName, String pLastName, int pGender, DateInfo pDateOfBirth,
-                               DateInfo pDateOfEntry, int pSalary, String pImage) {
+                               DateInfo pDateOfEntry, int pSalary, String pImage, int pChildren,
+                               int pSubordinates) {
         employee = new Employee();
-        employee.changeEmployee(pName, pLastName, pGender, pDateOfBirth, pDateOfEntry, pSalary, pImage);
+        employee.changeEmployee(pName, pLastName, pGender, pDateOfBirth, pDateOfEntry, pSalary,
+                                pImage, pChildren,pSubordinates);
         refresh();
     }
 
@@ -223,8 +227,7 @@ public class EmployeeInterface extends JFrame {
 
             EmployeeInterface userInterface = new EmployeeInterface();
             userInterface.setVisible(true);
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
