@@ -1,4 +1,4 @@
-/**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
@@ -10,15 +10,13 @@
  */
 package uniandes.cupi2.employee.userInterface;
 
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Panel with application options
@@ -103,7 +101,7 @@ public class PanelOptions extends JPanel implements ActionListener {
         if(CHANGE_EMPLOYEE.equals(command))
             principal.showDialogToChangeEmployee();
         else if(OPTION_1.equals(command))
-            principal.reqFuncOption1();
+            principal.reqFuncOption1(20);
         else if(OPTION_2.equals(command))
             principal.reqFuncOption2();
     }

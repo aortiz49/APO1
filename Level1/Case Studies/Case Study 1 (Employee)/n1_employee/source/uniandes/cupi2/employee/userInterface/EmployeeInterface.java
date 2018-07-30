@@ -1,9 +1,7 @@
-/**
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
- * <p>
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
  * Exercise: L1- employee
  * Author: Andres Ortiz
@@ -130,6 +128,32 @@ public class EmployeeInterface extends JFrame {
     }
 
     /**
+     * Modifies and updates employee salary.
+     */
+    public void modifySubordinates() {
+        String strSubordinates = JOptionPane
+                .showInputDialog(this, "Input new number of " + "subordinates" + ".",
+                                 "Modify " + "subordinates", JOptionPane.QUESTION_MESSAGE);
+
+        if (strSubordinates != null) {
+            try {
+                int newSubordinates = Integer.parseInt(strSubordinates);
+                if (newSubordinates <= 0) JOptionPane
+                        .showMessageDialog(this, "Subordinate number must be > 0.",
+                                           "Modify " + "subordinates", JOptionPane.ERROR_MESSAGE);
+
+                else {
+                    employee.setNumberOfSubordinates(newSubordinates);
+                    panelData.updateSubordinates(employee.getNumberOfSubordinates());
+                }
+            } catch (NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(this, "Salary must be a number.", "Modify salary",
+                                              JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    /**
      * Updates current employee data
      */
     private void refresh() {
@@ -152,9 +176,10 @@ public class EmployeeInterface extends JFrame {
         children = employee.getNumberOfChildren();
         subordinates = employee.getNumberOfSubordinates();
 
-        panelData.updateFields(name, lastName, gender, dateOfEntry, dateOfBirth, image,children,
+        panelData.updateFields(name, lastName, gender, dateOfEntry, dateOfBirth, image, children,
                                subordinates);
         panelData.updateSalary(salary);
+        panelData.updateSubordinates(subordinates);
 
         panelConsultations.clearFields();
 
@@ -163,13 +188,14 @@ public class EmployeeInterface extends JFrame {
 
     /**
      * Changes employee
-     * @param pName: New employee name. pName != "" && pName != null.
-     * @param pLastName: New employee last name. pLastName != "" && pLastName != null.
-     * @param pGender: New employee gender pGender == 1 && pGender == 0.
-     * @param pDateOfBirth: New employee date of birth. pDateOfBirth != null.
-     * @param pDateOfEntry: New employee date of entry. pDateOfEntry != null.
-     * @param pSalary: New employee salary. pSalary > 0.
-     * @param pImage: New employee image. pImage != null && pImage != "".
+     *
+     * @param pName:         New employee name. pName != "" && pName != null.
+     * @param pLastName:     New employee last name. pLastName != "" && pLastName != null.
+     * @param pGender:       New employee gender pGender == 1 && pGender == 0.
+     * @param pDateOfBirth:  New employee date of birth. pDateOfBirth != null.
+     * @param pDateOfEntry:  New employee date of entry. pDateOfEntry != null.
+     * @param pSalary:       New employee salary. pSalary > 0.
+     * @param pImage:        New employee image. pImage != null && pImage != "".
      * @param pChildren:     Employee's children. pChildren !=null && pChildren &gt;=0;
      * @param pSubordinates: Employee's subordinates. pSubordinates !=null && pSubordinates &gt;=0;
      */
@@ -179,7 +205,7 @@ public class EmployeeInterface extends JFrame {
                                int pSubordinates) {
         employee = new Employee();
         employee.changeEmployee(pName, pLastName, pGender, pDateOfBirth, pDateOfEntry, pSalary,
-                                pImage, pChildren,pSubordinates);
+                                pImage, pChildren, pSubordinates);
         refresh();
     }
 
@@ -198,8 +224,8 @@ public class EmployeeInterface extends JFrame {
     /**
      * Method for extension 1
      */
-    public void reqFuncOption1() {
-        String response = employee.method1();
+    public void reqFuncOption1(double pPercent) {
+        String response = Double.toString(employee.calculateChildEducationalAidPercent(pPercent));
         refresh();
         JOptionPane.showMessageDialog(this, response, "Response", JOptionPane.INFORMATION_MESSAGE);
     }

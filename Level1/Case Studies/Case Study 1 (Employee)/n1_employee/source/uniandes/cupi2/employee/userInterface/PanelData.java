@@ -1,9 +1,7 @@
-/**
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
- * <p>
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
  * Exercise: L1- employee
  * Author: Andres Ortiz
@@ -30,6 +28,9 @@ public class PanelData extends JPanel implements ActionListener {
 
     // Constant to modify salary
     private final static String MODIFY_SALARY = "MODIFY SALARY";
+
+    // Constant to modify subordinates
+    private final static String MODIFY_SUBORDINATES = "MODIFY SUBORDINATES";
 
     // -----------------------------------------------------------------
     // Attributes
@@ -96,8 +97,8 @@ public class PanelData extends JPanel implements ActionListener {
     // Button to modify salary
     private JButton btnModifySalary;
 
-    // Button to modify date of entry
-    private JButton btnModifyDateOfEntry;
+    // Button to modify subordinates
+    private JButton btnModifySubordinates;
 
 
     // -----------------------------------------------------------------
@@ -146,6 +147,11 @@ public class PanelData extends JPanel implements ActionListener {
         btnModifySalary.setActionCommand(MODIFY_SALARY);
         btnModifySalary.addActionListener(this);
 
+        btnModifySubordinates = new JButton();
+        btnModifySubordinates.setText("Modify subordinates");
+        btnModifySubordinates.setActionCommand(MODIFY_SUBORDINATES);
+        btnModifySubordinates.addActionListener(this);
+
         JPanel panelData = new JPanel(new GridLayout(9, 2));
         panelData.add(lblName);
         panelData.add(txtName);
@@ -163,7 +169,7 @@ public class PanelData extends JPanel implements ActionListener {
         panelData.add(txtChildren);
         panelData.add(lblSubordinates);
         panelData.add(txtSubordinates);
-        panelData.add(new JLabel());
+        panelData.add(btnModifySubordinates);
         panelData.add(btnModifySalary);
 
         lblImage = new JLabel();
@@ -207,13 +213,22 @@ public class PanelData extends JPanel implements ActionListener {
     }
 
     /**
-     * Updates salary
+     * Updates salary.
      * pSalary: Employee salary. pSalary > 0.
      */
     public void updateSalary(double pSalary) {
         DecimalFormat df = (DecimalFormat) NumberFormat.getInstance();
         df.applyPattern("$###,###.##");
         txtSalary.setText(df.format(pSalary));
+    }
+
+    /**
+     * Updates subordinates.
+     *
+     * @param pSubordinates: Employee salary. pSalary > 0.
+     */
+    public void updateSubordinates(int pSubordinates) {
+        txtSubordinates.setText(Integer.toString(pSubordinates));
     }
 
     /**
@@ -224,7 +239,10 @@ public class PanelData extends JPanel implements ActionListener {
         String command = pEvent.getActionCommand();
 
         if (command.equals(MODIFY_SALARY)) principal.modifySalary();
+        else if(command.equals(MODIFY_SUBORDINATES)) principal.modifySubordinates();
 
-    }
+        }
+
+
 
 }

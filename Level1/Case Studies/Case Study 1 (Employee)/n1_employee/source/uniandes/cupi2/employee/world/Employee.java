@@ -1,9 +1,7 @@
-/**
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * University of the Andes
  * Department of Systems and Computer Engineering
  * Licensed under Academic Free License version 2.1
- * <p>
  * Project Cupi2 (http://cupi2.uniandes.edu.co)
  * Exercise: L1- employee
  * Author: Andres Ortiz
