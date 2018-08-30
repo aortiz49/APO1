@@ -1,15 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb66c207-47f7-44ae-b2c5-7df8d1f0767f" name="Default Changelist" comment="Final version of employee case study.">
+    <list default="true" id="fb66c207-47f7-44ae-b2c5-7df8d1f0767f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/DateTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/EmployeeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Descripcion.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RequerimientosFuncionales.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Study Material/n1_empleado_taller_escrito.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Study Material/n1_empleado_taller_laboratorio.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class Interfaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class Mundo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class Pruebas.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/DialogChangeEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/DialogChangeEmployee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/EmployeeInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/EmployeeInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelConsultations.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelConsultations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelOptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/uniandes/cupi2/employee/world/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/source/uniandes/cupi2/employee/world/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_AR.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_AR.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_BO.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_BO.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_CL.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_CL.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_CO.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_CO.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_CR.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_CR.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_DO.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_DO.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_EC.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_EC.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_ES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_ES.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_GT.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_GT.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_HN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_HN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_MX.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_MX.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_NI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_NI.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_PA.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_PA.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_PE.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_PE.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_PR.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_PR.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_PY.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_PY.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_SV.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_SV.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_UY.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_UY.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_VE.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/jcalendar_es_VE.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_AR.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_AR.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_BO.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_BO.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_CL.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_CL.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_CO.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_CO.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_CR.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_CR.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_DO.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_DO.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_EC.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_EC.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_ES.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_ES.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_GT.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_GT.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_HN.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_HN.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_MX.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_MX.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_NI.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_NI.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_PA.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_PA.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_PE.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_PE.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_PR.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_PR.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_PY.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_PY.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_SV.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_SV.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_UY.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_UY.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_VE.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jcalendar/com/toedter/calendar/jcalendar_es_VE.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/userInterface/DialogChangeEmployee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/userInterface/DialogChangeEmployee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/userInterface/EmployeeInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/userInterface/EmployeeInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/userInterface/PanelData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/userInterface/PanelData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/userInterface/PanelOptions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/userInterface/PanelOptions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/world/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/n1_employee/uniandes/cupi2/employee/world/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/source/uniandes/cupi2/cupi2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/test/source/uniandes/cupi2/cupi2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/test/EmpleadoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/test/FechaTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/test/TestEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/TestEmployee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/data/Encabezado.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/docs/specs/Descripcion.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/docs/specs/ModeloConceptual.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/docs/specs/ModeloInterfaz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/docs/specs/ModeloPruebas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/docs/specs/RequerimientosFuncionales.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/docs/specs/modelo.eap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/interfaz/InterfazSimulador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/interfaz/PanelAhorros.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/interfaz/PanelCDT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/interfaz/PanelCorriente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/interfaz/PanelDatosCliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/interfaz/PanelImagen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/interfaz/PanelOpciones.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/interfaz/PanelSaldos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/mundo/CDT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/mundo/CuentaAhorros.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/mundo/CuentaCorriente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/source/uniandes/cupi2/simuladorBancario/mundo/SimuladorBancario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/test/source/uniandes/cupi2/simuladorBancario/test/CDTTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/test/source/uniandes/cupi2/simuladorBancario/test/CuentaAhorrosTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/test/source/uniandes/cupi2/simuladorBancario/test/CuentaCorrienteTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Case Study 2 (Bank simulator)/test/source/uniandes/cupi2/simuladorBancario/test/SimuladorBancarioTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Level3/Exercise/n3_album/test/source/uniandes/cupi2/album/test/AlbumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Level3/Exercise/n3_album/test/source/uniandes/cupi2/album/test/AlbumTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Level4/Exercise/n4_album/source/uniandes/cupi2/album/userInterface/AlbumInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Level4/Exercise/n4_album/source/uniandes/cupi2/album/userInterface/AlbumInterface.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,37 +102,41 @@
     <session id="-756232772">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.16" value="2" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="bat" value="2" />
-          <entry key="iml" value="1" />
-          <entry key="java" value="48" />
+          <entry key="class" value="4" />
+          <entry key="iml" value="2" />
+          <entry key="java" value="88" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Bat" value="1" />
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="48" />
+          <entry key="CLASS" value="4" />
+          <entry key="IDEA_MODULE" value="2" />
+          <entry key="JAVA" value="88" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3739" />
+          <entry key="java" value="5689" />
           <entry key="txt" value="147" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3739" />
+          <entry key="JAVA" value="5689" />
           <entry key="PLAIN_TEXT" value="147" />
         </counts>
       </usages-collector>
@@ -65,75 +146,43 @@
     <favorites_list name="n1_employee" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/DialogChangeEmployee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="3" selection-start-column="3" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/EmployeeInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#9344#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelConsultations.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="3" selection-start-column="3" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#8359#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelImage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="3" selection-start-column="3" selection-end-column="3" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelOptions.java">
+        <entry file="file://$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/DateTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="1566">
+              <caret line="96" column="7" lean-forward="true" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
               <folding>
-                <element signature="e#0#3510#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/world/DateInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
+              <folding>
+                <element signature="e#1331#1332#0" expanded="true" />
+                <element signature="e#1357#1358#0" expanded="true" />
+                <element signature="e#1411#1412#0" expanded="true" />
+                <element signature="e#1439#1440#0" expanded="true" />
+                <element signature="e#1491#1492#0" expanded="true" />
+                <element signature="e#1518#1519#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/EmployeeTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,7 +200,50 @@
       <find>modifySalary</find>
       <find>modif</find>
       <find>updateS</find>
+      <find>empleado</find>
+      <find>Atributos</find>
+      <find>M�todos</find>
+      <find>Escenario</find>
+      <find>a probar</find>
+      <find>Caso de prueba</find>
+      <find>Fecha</find>
+      <find>Date</find>
+      <find>prestaciones</find>
+      <find>()</find>
+      <find>El d�a de la Date no es el esperado</find>
+      <find>El mes de la Date no es el esperado</find>
+      <find>El a�o de la Date no es el esperado</find>
+      <find>darDia`</find>
+      <find>darAnio</find>
+      <find>as</find>
+      <find>assertTrue</find>
+      <find>La diferencia entre</find>
+      <find>debe ser</find>
+      <find>meses</find>
+      <find>darDiferenciaEnmonths</find>
     </findStrings>
+    <replaceStrings>
+      <replace>employee</replace>
+      <replace>Attributes</replace>
+      <replace>Methods</replace>
+      <replace>Test</replace>
+      <replace>to test</replace>
+      <replace>Test case</replace>
+      <replace>Date</replace>
+      <replace>DateInfo</replace>
+      <replace>benefits</replace>
+      <replace>The day of Date is not correct.</replace>
+      <replace>The day of Date is not correct</replace>
+      <replace>The month of Date is not correct.</replace>
+      <replace>The month of Date is not correct</replace>
+      <replace>getYear</replace>
+      <replace>The year of Date is not correct</replace>
+      <replace>assertEquals</replace>
+      <replace>and</replace>
+      <replace>The difference in months between</replace>
+      <replace>months</replace>
+      <replace>getDifferenceInMonths</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
@@ -163,11 +255,18 @@
         <option value="$PROJECT_DIR$/source/uniandes/cupi2/employee/world/DateInfo.java" />
         <option value="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelOptions.java" />
         <option value="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelData.java" />
-        <option value="$PROJECT_DIR$/source/uniandes/cupi2/employee/world/Employee.java" />
         <option value="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/EmployeeInterface.java" />
         <option value="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/DialogChangeEmployee.java" />
         <option value="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelConsultations.java" />
         <option value="$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelImage.java" />
+        <option value="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/test/EmpleadoTest.java" />
+        <option value="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/test/EmployeeTest.java" />
+        <option value="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/employee/test/TestEmployee.java" />
+        <option value="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/test/FechaTest.java" />
+        <option value="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/TestEmployee.java" />
+        <option value="$PROJECT_DIR$/source/uniandes/cupi2/employee/world/Employee.java" />
+        <option value="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/EmployeeTest.java" />
+        <option value="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/DateTest.java" />
       </list>
     </option>
   </component>
@@ -181,7 +280,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -205,29 +306,67 @@
               <item name="n1_employee" type="462c0819:PsiDirectoryNode" />
               <item name="source" type="462c0819:PsiDirectoryNode" />
               <item name="employee" type="462c0819:PsiDirectoryNode" />
-              <item name="userInterface" type="462c0819:PsiDirectoryNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="n1_employee" type="b2602c69:ProjectViewProjectNode" />
               <item name="n1_employee" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="n1_employee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="n1_employee" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="n1_employee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="n1_employee" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="uniandes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="n1_employee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="n1_employee" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="uniandes" type="462c0819:PsiDirectoryNode" />
+              <item name="cupi2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="n1_employee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="n1_employee" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="uniandes" type="462c0819:PsiDirectoryNode" />
+              <item name="cupi2" type="462c0819:PsiDirectoryNode" />
               <item name="employee" type="462c0819:PsiDirectoryNode" />
-              <item name="world" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="n1_employee" type="b2602c69:ProjectViewProjectNode" />
+              <item name="n1_employee" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="uniandes" type="462c0819:PsiDirectoryNode" />
+              <item name="cupi2" type="462c0819:PsiDirectoryNode" />
+              <item name="employee" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1532985899367" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533243446430" />
+    <property name="full.screen.before.presentation.mode" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -241,7 +380,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.EmployeeInterface">
+  <component name="RunManager" selected="JUnit.DateTest">
+    <configuration name="Unnamed" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="PACKAGE_NAME" value="uniandes.cupi2.test" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="" />
@@ -253,38 +401,97 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="uniandes.cupi2.employee.userInterface.EmployeeInterface" />
-      <module name="n1_employee" />
+    <configuration name="DateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cupi2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="uniandes.cupi2.employee.userInterface.*" />
+          <option name="PATTERN" value="uniandes.cupi2.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="uniandes.cupi2.test" />
+      <option name="MAIN_CLASS_NAME" value="uniandes.cupi2.test.DateTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="runJCalendarDemo" type="BatchConfigurationType" factoryName="Batch" temporary="true">
-      <module name="jcalendar" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/jcalendar/bin" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SCRIPT_NAME" value="runJCalendarDemo.bat" />
-      <option name="PARAMETERS" value="" />
+    <configuration name="DateTest.testDateInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cupi2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uniandes.cupi2.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="uniandes.cupi2.test" />
+      <option name="MAIN_CLASS_NAME" value="uniandes.cupi2.test.DateTest" />
+      <option name="METHOD_NAME" value="testDateInfo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DateTest.testGetDifferenceInMonths" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cupi2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uniandes.cupi2.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="uniandes.cupi2.test" />
+      <option name="MAIN_CLASS_NAME" value="uniandes.cupi2.test.DateTest" />
+      <option name="METHOD_NAME" value="testGetDifferenceInMonths" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cupi2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uniandes.cupi2.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="uniandes.cupi2.test" />
+      <option name="MAIN_CLASS_NAME" value="uniandes.cupi2.test.EmployeeTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest.testCalcularBenefits" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="cupi2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uniandes.cupi2.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="uniandes.cupi2.test" />
+      <option name="MAIN_CLASS_NAME" value="uniandes.cupi2.test.EmployeeTest" />
+      <option name="METHOD_NAME" value="testCalcularBenefits" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.EmployeeInterface" />
-      <item itemvalue="Batch.runJCalendarDemo" />
+      <item itemvalue="Android JUnit.Unnamed" />
+      <item itemvalue="JUnit.EmployeeTest" />
+      <item itemvalue="JUnit.EmployeeTest.testCalcularBenefits" />
+      <item itemvalue="JUnit.DateTest.testDateInfo" />
+      <item itemvalue="JUnit.DateTest.testGetDifferenceInMonths" />
+      <item itemvalue="JUnit.DateTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.EmployeeInterface" />
-        <item itemvalue="Batch.runJCalendarDemo" />
+        <item itemvalue="JUnit.DateTest" />
+        <item itemvalue="JUnit.DateTest.testGetDifferenceInMonths" />
+        <item itemvalue="JUnit.DateTest.testDateInfo" />
+        <item itemvalue="JUnit.EmployeeTest" />
+        <item itemvalue="JUnit.EmployeeTest.testCalcularBenefits" />
       </list>
     </recent_temporary>
   </component>
@@ -306,13 +513,90 @@
       <option name="project" value="LOCAL" />
       <updated>1532675873047</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Final version of employee case study.">
+      <created>1532985922102</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1532985922102</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="EmployeeTest_testCalculateWorkHistory - 2018.07.31 at 13h 23m 33s.xml">
+      <configuration name="EmployeeTest.testCalculateWorkHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeTest_testCalculateWorkHistory - 2018.07.31 at 13h 23m 56s.xml">
+      <configuration name="EmployeeTest.testCalculateWorkHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeTest_testCalculateWorkHistory - 2018.07.31 at 13h 34m 14s.xml">
+      <configuration name="EmployeeTest.testCalculateWorkHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeTest_testCalculateWorkHistory - 2018.07.31 at 13h 34m 24s.xml">
+      <configuration name="EmployeeTest.testCalculateWorkHistory" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeTest_testCalcularBenefits - 2018.07.31 at 13h 39m 15s.xml">
+      <configuration name="EmployeeTest.testCalcularBenefits" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeTest_testCalcularBenefits - 2018.07.31 at 13h 41m 35s.xml">
+      <configuration name="EmployeeTest.testCalcularBenefits" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmployeeTest - 2018.07.31 at 13h 43m 22s.xml">
+      <configuration name="EmployeeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DateTest_testDateInfo - 2018.08.02 at 15h 43m 23s.xml">
+      <configuration name="DateTest.testDateInfo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DateTest_testGetDifferenceInMonths - 2018.08.02 at 15h 55m 21s.xml">
+      <configuration name="DateTest.testGetDifferenceInMonths" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DateTest - 2018.08.02 at 15h 57m 11s.xml">
+      <configuration name="DateTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49197248" visible="true" weight="0.17777778" />
+      <window_info id="Structure" order="1" sideWeight="0.5080275" side_tool="true" weight="0.178125" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info auto_hide="true" id="Learn" order="6" weight="0.3297568" />
+      <window_info id="Favorites" order="7" sideWeight="0.50085473" side_tool="true" weight="0.178125" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32912844" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.60091746" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39908257" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3298479" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32889733" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32912844" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32889733" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49197248" visible="true" weight="0.17847222" />
       <window_info id="Structure" order="1" sideWeight="0.5080275" side_tool="true" weight="0.17847222" />
       <window_info id="Designer" order="2" />
@@ -331,7 +615,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32912844" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32912844" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.32912844" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32912844" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -340,7 +624,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -384,17 +668,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/demo/JCalendarDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="106" column="13" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#21470#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/jcalendar/src/com/toedter/calendar/demo/JCalendarDemo.java" />
     <entry file="file://$PROJECT_DIR$/jcalendar/bin/runJCalendarDemo.bat">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -410,13 +684,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jcalendar/jcalendar-license.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/source/uniandes/cupi2/employee/test/EmpleadoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-559">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/javax/swing/border/CompoundBorder.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -436,10 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
           <caret line="196" column="11" selection-start-line="196" selection-start-column="11" selection-end-line="196" selection-end-column="11" />
-          <folding>
-            <element signature="e#6952#6953#0" expanded="true" />
-            <element signature="e#6993#6994#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -454,9 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="39" column="128" lean-forward="true" selection-start-line="39" selection-start-column="128" selection-end-line="39" selection-end-column="128" />
-          <folding>
-            <element signature="e#0#1019#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -485,10 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="773" column="15" selection-start-line="773" selection-start-column="15" selection-end-line="773" selection-end-column="15" />
-          <folding>
-            <element signature="e#33584#33585#0" expanded="true" />
-            <element signature="e#33655#33656#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -496,36 +752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="906" column="16" selection-start-line="906" selection-start-column="16" selection-end-line="906" selection-end-column="16" />
-          <folding>
-            <element signature="e#31436#31437#0" expanded="true" />
-            <element signature="e#31480#31481#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/world/DateInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#2509#0" expanded="true" />
-            <element signature="e#1331#1332#0" expanded="true" />
-            <element signature="e#1357#1358#0" expanded="true" />
-            <element signature="e#1411#1412#0" expanded="true" />
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/world/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" selection-start-line="3" selection-start-column="51" selection-end-line="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -533,6 +759,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="1094" selection-start-line="1094" selection-end-line="1094" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="951">
+          <caret line="762" selection-start-line="762" selection-end-line="762" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/junit/framework/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
@@ -546,9 +800,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/junit/framework/TestCase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="129" column="23" selection-start-line="129" selection-start-column="23" selection-end-line="129" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelConsultations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/EmployeeInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="15">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
             <element signature="e#0#9344#0" expanded="true" />
@@ -557,42 +832,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelConsultations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#8359#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelImage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
+          <caret selection-end-line="9" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/world/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="191" column="15" selection-start-line="191" selection-start-column="15" selection-end-line="191" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#9173#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#4693#4694#0" expanded="true" />
+            <element signature="e#4742#4743#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/TestEmployee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/userInterface/PanelOptions.java">
+    <entry file="file://$PROJECT_DIR$/test/source/uniandes/cupi2/cupi2.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/EmployeeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state>
+          <caret line="53" column="27" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
           <folding>
-            <element signature="e#0#3510#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/uniandes/cupi2/employee/world/DateInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+            <element signature="e#1411#1412#0" expanded="true" />
+            <element signature="e#1439#1440#0" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1518#1519#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/source/uniandes/cupi2/employee/uniandes/cupi2/test/DateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="96" column="7" lean-forward="true" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -626,7 +936,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>jgoodies-common-1.4.0</last-edited>
+          <last-edited>hamcrest-core-1.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
